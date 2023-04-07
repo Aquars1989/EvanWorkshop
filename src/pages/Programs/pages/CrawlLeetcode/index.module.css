@@ -1,0 +1,62 @@
+.main h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: bold;
+  background-image: linear-gradient(0deg, #b7fff5, #fffea7);
+  color: transparent;
+  background-size: 100%;
+  background-clip: text;
+}
+
+.body {
+  padding: 2vmin;
+  background-image: linear-gradient(180deg, #b7fff500, #ffffff1f);
+  border-radius: 5px;
+}
+
+table.list {
+  border-collapse: collapse;
+}
+
+table.list td {
+  background-color: #ffffff;
+  height: 40px;
+  padding: 2vmin;
+  text-align: left;
+}
+
+table.list tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table.list tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+table.list tr:nth-of-type(even) td {
+  background-color: #f3f3f3;
+}
+
+span.tag {
+  text-align: center;
+  background-color: #32dbbace;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5vmin;
+  width: 10vmin;
+  margin: 1vmin;
+}
+
+div.list_container {
+  height: 60vmin;
+  overflow: auto;
+}
+
+.loadButton {
+  color: #fff;
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}

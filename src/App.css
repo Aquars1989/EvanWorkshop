@@ -1,0 +1,88 @@
+.App-logo {
+  height: 6vmin;
+  pointer-events: none;
+  margin: 2vmin 2vmin 2vmin 2vmin;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin 1s linear infinite alternate;
+  }
+}
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  font-family: "TiltNeon", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.txt-title1 {
+  color: #61dafb;
+}
+
+.txt-title2 {
+  color: #aa7a3b;
+}
+
+.txt-tip1 {
+  color: #a2e9bd;
+}
+
+.txt-err1 {
+  color: rgb(253, 82, 82);
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app-link {
+  color: #61dafb;
+}
+
+.btn-primary {
+  background-color: rgb(116, 128, 160);
+  border-color: rgb(91, 99, 121);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-color: #3c9eb4;
+  border-color: #4998aa;
+}
+
+motion\.div {
+  pointer-events: none;
+}
+
+.btn-primary.disabled {
+  background-color: rgb(116, 128, 145);
+}
+
+.tippy-box[data-theme~='wordCloud'] {
+  color:azure;
+}
+
+@keyframes App-logo-spin {
+  80% {
+    transform: rotate(0deg);
+  }
+
+  90% {
+    transform: rotate(10deg);
+  }
+}

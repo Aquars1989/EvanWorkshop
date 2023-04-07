@@ -1,0 +1,63 @@
+.main h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: bold;
+  background-image: linear-gradient(0deg, #b7fff5, #fffea7);
+  color: transparent;
+  background-size: 100%;
+  background-clip: text;
+}
+
+.body {
+  padding: 2vmin;
+  background-image: linear-gradient(180deg, #b7fff500, #ffffff1f);
+  border-radius: 5px;
+}
+
+table.list {
+  border-collapse: collapse;
+}
+
+table.list thead {
+  background-color: #a7d1a1;
+  padding: 1vmin;
+  text-align: center;
+  font-style: bold;
+}
+
+table.list td {
+  background-color: #ffffff;
+  padding: 1vmin;
+  text-align: left;
+  font-style: normal;
+}
+
+table.list tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table.list tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+table.list tr:nth-of-type(even) td {
+  background-color: #f3f3f3;
+}
+
+div.list_container {
+  height: 60vmin;
+  overflow: auto;
+}
+
+.rise {
+  color:#009879;
+}
+
+.fall {
+  color: red;
+}
+
+div.chart_container
+{
+  background-image: linear-gradient(180deg, #2e2d2d, #000000);
+}

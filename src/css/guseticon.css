@@ -1,0 +1,720 @@
+.guest-icon {
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  mask-clip: no-clip;
+  mask-repeat: no-repeat;
+  mask-composite: add;
+  margin: 1vmin;
+}
+
+.guest-icon.topbar {
+  height: 5vmin;
+  width: 5vmin;
+}
+
+.guest-icon.exhibit {
+  height: 15%;
+  width: 15%;
+}
+
+.guest-icon.carousel {
+  height: 10%;
+  width: 10%;
+}
+
+.guest-icon-change {
+  width: 20%;
+  min-width: 15px;
+  min-height: 15px;
+}
+
+.guest-icon.red {
+  background-color: red;
+}
+
+.guest-icon.blue {
+  background-color: rgb(62, 198, 252);
+}
+
+.guest-icon.yellow {
+  background-color: yellow;
+}
+
+.guest-icon.brown {
+  background-color: burlywood;
+}
+
+.guest-icon.green {
+  background-color: greenyellow;
+}
+
+.guest-icon.pink {
+  background-color: pink;
+}
+
+.guest-icon.orange {
+  background-color: orange;
+}
+
+.guest-icon.violet {
+  background-color: violet;
+}
+
+.guest-icon.olive {
+  background-color: rgb(199, 199, 14);
+}
+
+.guest-icon.lime {
+  background-color: lime;
+}
+
+.guest-icon.tomato {
+  background-color: tomato;
+}
+
+.guest-icon.black {
+  background-color: rgb(190, 190, 190);
+}
+
+.guest-icon.white {
+  background-color: white;
+}
+
+.guest-icon.cyan {
+  background-color: rgb(3, 228, 228);
+}
+
+.guest-icon.indigo {
+  background-color: rgb(163, 89, 216);
+}
+
+.guest-icon.gold {
+  background-color: gold;
+}
+
+.guest-icon.khaki {
+  background-color: khaki;
+}
+
+.guest-icon.aqua {
+  background-color: aqua;
+}
+
+.guest-icon.gray {
+  background-color: rgb(233, 233, 233);
+}
+
+.guest-icon.coral {
+  background-color: coral;
+}
+
+.guest-icon.skyblue {
+  background-color: skyblue;
+}
+
+.guest-icon.purple {
+  background-color: rgb(216, 82, 216);
+}
+
+.guest-icon.beige {
+  background-color: beige;
+}
+
+.guest-icon.navy {
+  background-color: rgb(100, 100, 240);
+}
+
+.guest-icon.ivory {
+  background-color: ivory;
+}
+
+.guest-icon.plum {
+  background-color: plum;
+}
+
+.guest-icon.crimson {
+  background-color: rgb(230, 62, 96);
+}
+
+.guest-icon.teal {
+  background-color: rgb(2, 202, 202);
+}
+
+.guest-icon.azure {
+  background-color: rgb(183, 245, 245);
+}
+
+.guest-icon.thistle {
+  background-color: thistle;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .guest-icon.jumping {
+    animation: guest-icon-jumping 1s linear infinite alternate;
+  }
+
+  .guest-icon.creeping {
+    animation: guest-icon-creeping 1s linear infinite;
+  }
+
+  .guest-icon.elasticity {
+    transform-origin: 50% 100%;
+    animation: guest-icon-elasticity 1s linear infinite;
+  }
+
+  .guest-icon.sneaking {
+    animation: guest-icon-sneaking 2s linear infinite;
+  }
+
+  .guest-icon.shaking {
+    animation: guest-icon-shaking 1s linear infinite;
+  }
+
+  .guest-icon.shrinking {
+    transform-origin: 50% 100%;
+    animation: guest-icon-shrinking 1s linear infinite;
+  }
+
+  .guest-icon.swirly {
+    animation: guest-icon-swirly 4s linear infinite;
+  }
+
+  .guest-icon.shiny {
+    animation: guest-icon-shiny 1s linear infinite alternate;
+  }
+
+  .guest-icon.floating {
+    animation: guest-icon-floating 1s linear infinite;
+  }
+
+  .guest-icon.swimming {
+    animation: guest-icon-swimming 1s linear infinite;
+  }
+
+  .guest-icon.jittering {
+    animation: guest-icon-jittering 0.5s linear infinite;
+  }
+
+  .guest-icon.inverting {
+    animation: guest-icon-inverting 2s linear infinite;
+  }
+
+  .guest-icon.unsteady {
+    animation: guest-icon-unsteady 1s linear infinite;
+  }
+
+  .guest-icon.stretchy {
+    animation: guest-icon-stretchy 1s linear infinite;
+  }
+}
+
+@keyframes guest-icon-jumping {
+  80% {
+    transform: translateY(0px);
+  }
+
+  90% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes guest-icon-creeping {
+  70% {
+    transform-origin: 100% 50%;
+    transform: scaleX(1) translateX(0px);
+  }
+
+  80% {
+    transform-origin: 0% 50%;
+    transform: scaleX(1.2) translateX(0px);
+  }
+
+  90% {
+    transform-origin: 100% 50%;
+    transform: scaleX(1) translateX(0px);
+  }
+}
+
+@keyframes guest-icon-elasticity {
+  0% {
+    transform: scaleY(0px);
+  }
+  90% {
+    transform: scaleY(0.8);
+  }
+
+  95% {
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes guest-icon-sneaking {
+  0% {
+    opacity: 80%;
+  }
+  50% {
+    opacity: 40%;
+  }
+}
+
+@keyframes guest-icon-shaking {
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes guest-icon-shaking {
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes guest-icon-shaking {
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes guest-icon-shrinking {
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1);
+  }
+}
+
+@keyframes guest-icon-swirly {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.7);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes guest-icon-shiny {
+  80% {
+    filter: brightness(1);
+  }
+  90% {
+    filter: brightness(1.2);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@keyframes guest-icon-floating {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes guest-icon-swimming {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(30deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-30deg);
+  }
+}
+
+@keyframes guest-icon-jittering {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes guest-icon-inverting {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes guest-icon-unsteady {
+  0% {
+    transform: skewX(0deg);
+  }
+  25% {
+    transform: skewX(-10deg);
+  }
+  50% {
+    transform: skewX(0deg);
+  }
+  75% {
+    transform: skewX(10deg);
+  }
+}
+
+@keyframes guest-icon-stretchy {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(-10deg, -10deg);
+  }
+  50% {
+    transform: skew(0deg, 0deg);
+  }
+  75% {
+    transform: skew(10deg, -10deg);
+  }
+}
+
+.guest-icon.antelope {
+  -webkit-mask-image: url("../images/guest_icon/Antelope.svg");
+  mask-image: url("../images/guest_icon/Antelope.svg");
+}
+.guest-icon.bat {
+  -webkit-mask-image: url("../images/guest_icon/Bat.svg");
+  mask-image: url("../images/guest_icon/Bat.svg");
+}
+.guest-icon.bear {
+  -webkit-mask-image: url("../images/guest_icon/Bear.svg");
+  mask-image: url("../images/guest_icon/Bear.svg");
+}
+.guest-icon.beaver {
+  -webkit-mask-image: url("../images/guest_icon/Beaver.svg");
+  mask-image: url("../images/guest_icon/Beaver.svg");
+}
+.guest-icon.bison {
+  -webkit-mask-image: url("../images/guest_icon/Bison.svg");
+  mask-image: url("../images/guest_icon/Bison.svg");
+}
+.guest-icon.bull {
+  -webkit-mask-image: url("../images/guest_icon/Bull.svg");
+  mask-image: url("../images/guest_icon/Bull.svg");
+}
+.guest-icon.butterfly {
+  -webkit-mask-image: url("../images/guest_icon/Butterfly.svg");
+  mask-image: url("../images/guest_icon/Butterfly.svg");
+}
+.guest-icon.cat {
+  -webkit-mask-image: url("../images/guest_icon/Cat.svg");
+  mask-image: url("../images/guest_icon/Cat.svg");
+}
+.guest-icon.chameleon {
+  -webkit-mask-image: url("../images/guest_icon/Chameleon.svg");
+  mask-image: url("../images/guest_icon/Chameleon.svg");
+}
+.guest-icon.chick {
+  -webkit-mask-image: url("../images/guest_icon/Chick.svg");
+  mask-image: url("../images/guest_icon/Chick.svg");
+}
+.guest-icon.cock {
+  -webkit-mask-image: url("../images/guest_icon/Cock.svg");
+  mask-image: url("../images/guest_icon/Cock.svg");
+}
+.guest-icon.cow {
+  -webkit-mask-image: url("../images/guest_icon/Cow.svg");
+  mask-image: url("../images/guest_icon/Cow.svg");
+}
+.guest-icon.crab {
+  -webkit-mask-image: url("../images/guest_icon/Crab.svg");
+  mask-image: url("../images/guest_icon/Crab.svg");
+}
+.guest-icon.crocodile {
+  -webkit-mask-image: url("../images/guest_icon/Crocodile.svg");
+  mask-image: url("../images/guest_icon/Crocodile.svg");
+}
+.guest-icon.deer {
+  -webkit-mask-image: url("../images/guest_icon/Deer.svg");
+  mask-image: url("../images/guest_icon/Deer.svg");
+}
+.guest-icon.dog {
+  -webkit-mask-image: url("../images/guest_icon/Dog.svg");
+  mask-image: url("../images/guest_icon/Dog.svg");
+}
+.guest-icon.donkey {
+  -webkit-mask-image: url("../images/guest_icon/Donkey.svg");
+  mask-image: url("../images/guest_icon/Donkey.svg");
+}
+.guest-icon.dove {
+  -webkit-mask-image: url("../images/guest_icon/Dove.svg");
+  mask-image: url("../images/guest_icon/Dove.svg");
+}
+.guest-icon.dragonfly {
+  -webkit-mask-image: url("../images/guest_icon/Dragonfly.svg");
+  mask-image: url("../images/guest_icon/Dragonfly.svg");
+}
+.guest-icon.elephant {
+  -webkit-mask-image: url("../images/guest_icon/Elephant.svg");
+  mask-image: url("../images/guest_icon/Elephant.svg");
+}
+.guest-icon.elk {
+  -webkit-mask-image: url("../images/guest_icon/Elk.svg");
+  mask-image: url("../images/guest_icon/Elk.svg");
+}
+.guest-icon.fish {
+  -webkit-mask-image: url("../images/guest_icon/Fish.svg");
+  mask-image: url("../images/guest_icon/Fish.svg");
+}
+.guest-icon.flamingo {
+  -webkit-mask-image: url("../images/guest_icon/Flamingo.svg");
+  mask-image: url("../images/guest_icon/Flamingo.svg");
+}
+.guest-icon.fox {
+  -webkit-mask-image: url("../images/guest_icon/Fox.svg");
+  mask-image: url("../images/guest_icon/Fox.svg");
+}
+.guest-icon.frog {
+  -webkit-mask-image: url("../images/guest_icon/Frog.svg");
+  mask-image: url("../images/guest_icon/Frog.svg");
+}
+.guest-icon.gallimimus {
+  -webkit-mask-image: url("../images/guest_icon/Gallimimus.svg");
+  mask-image: url("../images/guest_icon/Gallimimus.svg");
+}
+.guest-icon.giraffe {
+  -webkit-mask-image: url("../images/guest_icon/Giraffe.svg");
+  mask-image: url("../images/guest_icon/Giraffe.svg");
+}
+.guest-icon.gorilla {
+  -webkit-mask-image: url("../images/guest_icon/Gorilla.svg");
+  mask-image: url("../images/guest_icon/Gorilla.svg");
+}
+.guest-icon.horse {
+  -webkit-mask-image: url("../images/guest_icon/Horse.svg");
+  mask-image: url("../images/guest_icon/Horse.svg");
+}
+.guest-icon.jellyfish {
+  -webkit-mask-image: url("../images/guest_icon/Jellyfish.svg");
+  mask-image: url("../images/guest_icon/Jellyfish.svg");
+}
+.guest-icon.kangaroo {
+  -webkit-mask-image: url("../images/guest_icon/Kangaroo.svg");
+  mask-image: url("../images/guest_icon/Kangaroo.svg");
+}
+.guest-icon.kingfisher {
+  -webkit-mask-image: url("../images/guest_icon/Kingfisher.svg");
+  mask-image: url("../images/guest_icon/Kingfisher.svg");
+}
+.guest-icon.leopard {
+  -webkit-mask-image: url("../images/guest_icon/Leopard.svg");
+  mask-image: url("../images/guest_icon/Leopard.svg");
+}
+.guest-icon.lion {
+  -webkit-mask-image: url("../images/guest_icon/Lion.svg");
+  mask-image: url("../images/guest_icon/Lion.svg");
+}
+.guest-icon.lizard {
+  -webkit-mask-image: url("../images/guest_icon/Lizard.svg");
+  mask-image: url("../images/guest_icon/Lizard.svg");
+}
+.guest-icon.emu {
+  -webkit-mask-image: url("../images/guest_icon/Emu.svg");
+  mask-image: url("../images/guest_icon/Emu.svg");
+}
+.guest-icon.mole {
+  -webkit-mask-image: url("../images/guest_icon/Mole.svg");
+  mask-image: url("../images/guest_icon/Mole.svg");
+}
+.guest-icon.monkey {
+  -webkit-mask-image: url("../images/guest_icon/Monkey.svg");
+  mask-image: url("../images/guest_icon/Monkey.svg");
+}
+.guest-icon.moose {
+  -webkit-mask-image: url("../images/guest_icon/Moose.svg");
+  mask-image: url("../images/guest_icon/Moose.svg");
+}
+.guest-icon.mouse {
+  -webkit-mask-image: url("../images/guest_icon/Mouse.svg");
+  mask-image: url("../images/guest_icon/Mouse.svg");
+}
+.guest-icon.octopus {
+  -webkit-mask-image: url("../images/guest_icon/Octopus.svg");
+  mask-image: url("../images/guest_icon/Octopus.svg");
+}
+.guest-icon.opossum {
+  -webkit-mask-image: url("../images/guest_icon/Opossum.svg");
+  mask-image: url("../images/guest_icon/Opossum.svg");
+}
+.guest-icon.ostrich {
+  -webkit-mask-image: url("../images/guest_icon/Ostrich.svg");
+  mask-image: url("../images/guest_icon/Ostrich.svg");
+}
+.guest-icon.otter {
+  -webkit-mask-image: url("../images/guest_icon/Otter.svg");
+  mask-image: url("../images/guest_icon/Otter.svg");
+}
+.guest-icon.pelican {
+  -webkit-mask-image: url("../images/guest_icon/Pelican.svg");
+  mask-image: url("../images/guest_icon/Pelican.svg");
+}
+.guest-icon.pig {
+  -webkit-mask-image: url("../images/guest_icon/Pig.svg");
+  mask-image: url("../images/guest_icon/Pig.svg");
+}
+.guest-icon.pigeon {
+  -webkit-mask-image: url("../images/guest_icon/Pigeon.svg");
+  mask-image: url("../images/guest_icon/Pigeon.svg");
+}
+.guest-icon.piggy {
+  -webkit-mask-image: url("../images/guest_icon/Piggy.svg");
+  mask-image: url("../images/guest_icon/Piggy.svg");
+}
+.guest-icon.platypus {
+  -webkit-mask-image: url("../images/guest_icon/Platypus.svg");
+  mask-image: url("../images/guest_icon/Platypus.svg");
+}
+.guest-icon.rabbit {
+  -webkit-mask-image: url("../images/guest_icon/Rabbit.svg");
+  mask-image: url("../images/guest_icon/Rabbit.svg");
+}
+.guest-icon.rhino {
+  -webkit-mask-image: url("../images/guest_icon/Rhino.svg");
+  mask-image: url("../images/guest_icon/Rhino.svg");
+}
+.guest-icon.scorpion {
+  -webkit-mask-image: url("../images/guest_icon/Scorpion.svg");
+  mask-image: url("../images/guest_icon/Scorpion.svg");
+}
+.guest-icon.seahorse {
+  -webkit-mask-image: url("../images/guest_icon/Seahorse.svg");
+  mask-image: url("../images/guest_icon/Seahorse.svg");
+}
+.guest-icon.seal {
+  -webkit-mask-image: url("../images/guest_icon/Seal.svg");
+  mask-image: url("../images/guest_icon/Seal.svg");
+}
+.guest-icon.shark {
+  -webkit-mask-image: url("../images/guest_icon/Shark.svg");
+  mask-image: url("../images/guest_icon/Shark.svg");
+}
+.guest-icon.sheep {
+  -webkit-mask-image: url("../images/guest_icon/Sheep.svg");
+  mask-image: url("../images/guest_icon/Sheep.svg");
+}
+.guest-icon.shrimp {
+  -webkit-mask-image: url("../images/guest_icon/Shrimp.svg");
+  mask-image: url("../images/guest_icon/Shrimp.svg");
+}
+.guest-icon.spider {
+  -webkit-mask-image: url("../images/guest_icon/Spider.svg");
+  mask-image: url("../images/guest_icon/Spider.svg");
+}
+.guest-icon.squid {
+  -webkit-mask-image: url("../images/guest_icon/Squid.svg");
+  mask-image: url("../images/guest_icon/Squid.svg");
+}
+.guest-icon.squirrel {
+  -webkit-mask-image: url("../images/guest_icon/Squirrel.svg");
+  mask-image: url("../images/guest_icon/Squirrel.svg");
+}
+.guest-icon.stegosaurus {
+  -webkit-mask-image: url("../images/guest_icon/Stegosaurus.svg");
+  mask-image: url("../images/guest_icon/Stegosaurus.svg");
+}
+.guest-icon.swan {
+  -webkit-mask-image: url("../images/guest_icon/Swan.svg");
+  mask-image: url("../images/guest_icon/Swan.svg");
+}
+.guest-icon.t-rex {
+  -webkit-mask-image: url("../images/guest_icon/T-rex.svg");
+  mask-image: url("../images/guest_icon/T-rex.svg");
+}
+.guest-icon.tanystropheus {
+  -webkit-mask-image: url("../images/guest_icon/Tanystropheus.svg");
+  mask-image: url("../images/guest_icon/Tanystropheus.svg");
+}
+.guest-icon.tapir {
+  -webkit-mask-image: url("../images/guest_icon/Tapir.svg");
+  mask-image: url("../images/guest_icon/Tapir.svg");
+}
+.guest-icon.tasmanian {
+  -webkit-mask-image: url("../images/guest_icon/Tasmanian.svg");
+  mask-image: url("../images/guest_icon/Tasmanian.svg");
+}
+.guest-icon.tuna {
+  -webkit-mask-image: url("../images/guest_icon/Tuna.svg");
+  mask-image: url("../images/guest_icon/Tuna.svg");
+}
+.guest-icon.turtle {
+  -webkit-mask-image: url("../images/guest_icon/Turtle.svg");
+  mask-image: url("../images/guest_icon/Turtle.svg");
+}
+.guest-icon.unicorn {
+  -webkit-mask-image: url("../images/guest_icon/Unicorn.svg");
+  mask-image: url("../images/guest_icon/Unicorn.svg");
+}
+.guest-icon.velociraptor {
+  -webkit-mask-image: url("../images/guest_icon/Velociraptor.svg");
+  mask-image: url("../images/guest_icon/Velociraptor.svg");
+}
+.guest-icon.whale {
+  -webkit-mask-image: url("../images/guest_icon/Whale.svg");
+  mask-image: url("../images/guest_icon/Whale.svg");
+}
+.guest-icon.wolf {
+  -webkit-mask-image: url("../images/guest_icon/Wolf.svg");
+  mask-image: url("../images/guest_icon/Wolf.svg");
+}
+.guest-icon.guest {
+  background-color: gainsboro;
+  -webkit-mask-image: url("../images/guest_icon/Guest.svg");
+  mask-image: url("../images/guest_icon/Guest.svg");
+}

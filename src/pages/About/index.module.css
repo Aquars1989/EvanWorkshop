@@ -1,0 +1,97 @@
+.carousel_card_body {
+  background-color: rgb(247, 247, 247);
+  margin-top: 40vmin;
+  margin-bottom: 40vmin;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.experience {
+  width: 90vmin;
+  height: 30vmin;
+  background-color: rgb(114, 130, 136);
+}
+
+.foot {
+  width: 10vmin;
+  height: 15vmin;
+  margin: 3vmin;
+  background-size: 10vmin 10vmin;
+  background-clip: no-clip;
+  background-repeat: no-repeat;
+}
+
+.foot.left_1 {
+  background-image: url("/src/images/footprint1L.svg");
+}
+
+.foot.right_1 {
+  background-image: url("/src/images/footprint1R.svg");
+}
+
+.foot.left_2 {
+  background-image: url("/src/images/footprint2L.svg");
+}
+
+.foot.right_2 {
+  background-image: url("/src/images/footprint2R.svg");
+}
+
+.foot.left_3 {
+  background-image: url("/src/images/footprint3L.svg");
+}
+
+.foot.right_3 {
+  background-image: url("/src/images/footprint3R.svg");
+}
+
+.main {
+  padding-top: 100px;
+}
+
+.main h4 {
+  font-weight: bold;
+  background-image: linear-gradient(0deg, #076e61, #9e9c19);
+  color: transparent;
+  background-size: 100%;
+  background-clip: text;
+  margin: 2vmin;
+}
+
+.massEffect {
+  background-color: rgb(117, 193, 255);
+  color: white;
+}
+.dragonAge {
+  background-color: rgb(230, 95, 54);
+  color: white;
+}
+.fallout {
+  background-color: rgb(113, 131, 146);
+  color: white;
+}
+.elderScrolls {
+  background-color: goldenrod;
+  color: white;
+}
+.witcher {
+  background-color: rgb(221, 219, 213);
+  color: rgb(0, 0, 0);
+}
+.bioshock {
+  background-color: rgb(5, 150, 207);
+  color: rgb(255, 255, 255);
+}
+.dishonored {
+  background-color: rgb(0, 133, 126);
+  color: rgb(255, 255, 255);
+}
