@@ -14,26 +14,28 @@ const en = {
   "gallery.inputEmpty": "Please enter the word",
   "gallery.overLimit": "Daily limit exceeded",
 
-  "about.me":
-    "Hi, I live in Taiwan and I am a curious software engineer. I am dedicated to solving my clients' problems and providing a friendly and aesthetically pleasing operating environment. I continually improve my skills through various projects, and I have been doing so for the past 10 years. And I will continue to do so in the future.",
+  "about.me": "Hi, I am a software engineer live in Taiwan with 10 years of experience in development. During this time, I have worked on numerous commercial and financial projects, including report development. In my spare time, I not only learn new skills but also take on projects to hone my abilities. I enjoy exploring new and interesting things and hope to continue to maintain my curiosity.",
   "about.skill": "Skill: ",
-  "about.hobby":
-    "Hobby: Video games, especially those with a unique and immersive world and an impressive plot.",
+  "about.hobby":"Hobby:",
+  "about.games":"Favorite games:",
   "about.dynapack": "Dynapack",
-  "about.dynapackDescription":
-    "I worked as an RD engineer at dynapack, a battery module manufacturer, where I was responsible for developing battery testing software. During my time there, I had more opportunities to work on industrial system development and integrate with firmware.",
+  "about.dynapackWorkAs": "Senior Engineer",
+  "about.dynapackDuring": "2022/10 to Current",
+  "about.dynapackDescription":  "Development of battery module verification procedures.;Development of applications launcher;Industrial instrument control and communication.",
   "about.dynapackTime": "October 18, 2022",
   "about.cathaybk": "Cathay Back",
-  "about.cathaybkDescription":
-    "Cathay Back is one of the top 5 banks in Taiwan, and I worked there as an IT engineer responsible for maintaining a stable payment system. During my time there, I developed numerous programs and reports related to accounting. Additionally, I created many monitoring processes and control dashboards for detecting errors and maintaining system stability on both the server and web-based platforms.",
+  "about.cathaybkWorkAs": "IT Engineer",
+  "about.cathaybkDuring": "2018/01 to 2022/08",
+  "about.cathaybkDescription":"Maintenance of payment hub system;Development of accounting and business reports;Extraction and analysis of system logs; Development of log analysis tools;Development of system dashboard stations;Development of credit card settlement batch processing",
   "about.cathaybkTime": "January 15, 2018",
   "about.tonch": "Tonch Tech. Inc.",
-  "about.tonchDescription":
-    "This is my first job as a development engineer at Tonch Tech. Inc. I developed desktop applications and business reports for many government agencies and private enterprises. I was also responsible for hardware setup and troubleshooting on the client-side. Although the company was not large in scale, I learned a lot here.",
+  "about.tonchWorkAs": "Junior Engineer",
+  "about.tonchDuring": "2012/01 to 2017/11",
+  "about.tonchDescription":"Development of desktop ERP system;Design of accounting and inventory reports;Inventory label design and integration;Development of Inventory counting machine system;Client environment configuration and hardware setup;SQL data transfer and integration",
   "about.tonchTime": "January 8, 2013",
   "about.bachelor": "NPUST Bachelor's degree",
-  "about.bachelorDescription":
-    "I obtained a Bachelor's degree in Information Management System from National Pingtung University of Science and Technology. During my studies, courses in Computer Science Fundamentals and Programming (using Java at the time) were among my favorite subjects, which laid a strong foundation for my understanding of Object-Oriented Programming. Thanks to my professor's engaging and dynamic teaching style, I achieved excellent results in these subjects.",
+  "about.bachelorDescription":"I obtained a Bachelor's degree in Information Management System from National Pingtung University of Science and Technology. During my studies, courses in Computer Science Fundamentals and Programming (using Java at the time) were among my favorite subjects, which laid a strong foundation for my understanding of Object-Oriented Programming. Thanks to my professor's engaging and dynamic teaching style, I achieved excellent results in these subjects.",
+  "about.bachelorTime": "June, 2012",
 
   "program.catalogs": "Catalogs",
   "program.openAi": "Open AI",

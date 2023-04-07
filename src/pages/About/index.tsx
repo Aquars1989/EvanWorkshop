@@ -9,10 +9,6 @@ import {
 import style from "./index.module.css";
 import CardJob from "./components/card-job";
 import CardSummy from "./components/card-summy";
-import DynapackIcon from "images/DynapackIcon.png";
-import CathaybkIcon from "images/CathaybkIcon.png";
-import TonchIcon from "images/TonchIcon.png";
-import NPUSTLogo from "images/NPUSTLogo.svg";
 import { useIntl } from "react-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -26,67 +22,67 @@ export default function About() {
   //const translateX1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "30%"]);
   const translateX2 = useTransform(
     scrollYProgress,
-    [0.12, 0.2, 0.3, 0.35],
-    ["30%", "0%", "0%", "30%"]
+    [0.00, 0.1, 0.25, 0.3],
+    ["100%", "0%", "0%", "30%"]
   );
   const translateX3 = useTransform(
     scrollYProgress,
-    [0.32, 0.4, 0.5, 0.55],
-    ["30%", "0%", "0%", "30%"]
+    [0.2, 0.3, 0.45, 0.5],
+    ["100%", "0%", "0%", "30%"]
   );
   const translateX4 = useTransform(
     scrollYProgress,
-    [0.52, 0.6, 0.7, 0.75],
-    ["30%", "0%", "0%", "30%"]
+    [0.4, 0.5, 0.65, 0.7],
+    ["100%", "0%", "0%", "30%"]
   );
   const translateX5 = useTransform(
     scrollYProgress,
-    [0.72, 0.8, 0.9, 0.95],
-    ["30%", "0%", "0%", "30%"]
+    [0.6, 0.7, 0.85, 0.9],
+    ["100%", "0%", "0%", "30%"]
   );
 
   //const translateY1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "-30%"]);
   const translateY2 = useTransform(
     scrollYProgress,
-    [0.12, 0.2, 0.3, 0.35],
-    ["30%", "0%", "0%", "-30%"]
+    [0.00, 0.1, 0.25, 0.3],
+    ["20%", "0%", "0%", "-20%"]
   );
   const translateY3 = useTransform(
     scrollYProgress,
-    [0.32, 0.4, 0.5, 0.55],
-    ["30%", "0%", "0%", "-30%"]
+    [0.2, 0.3, 0.45, 0.5],
+    ["20%", "0%", "0%", "-20%"]
   );
   const translateY4 = useTransform(
     scrollYProgress,
-    [0.52, 0.6, 0.7, 0.75],
-    ["30%", "0%", "0%", "-30%"]
+    [0.4, 0.5, 0.65, 0.7],
+    ["20%", "0%", "0%", "-20%"]
   );
   const translateY5 = useTransform(
     scrollYProgress,
-    [0.72, 0.8, 0.9, 0.95],
-    ["30%", "0%", "0%", "-30%"]
+    [0.6, 0.7, 0.85, 0.9],
+    ["20%", "0%", "0%", "-20%"]
   );
 
   //const opacity1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["100%", "100%", "0%"]);
   const opacity2 = useTransform(
     scrollYProgress,
-    [0.12, 0.2, 0.32, 0.35],
-    ["0%", "100%", "100%", "0%"]
+    [0.00, 0.1, 0.25, 0.3],
+    ["100%", "100%", "100%", "0%"]
   );
   const opacity3 = useTransform(
     scrollYProgress,
-    [0.32, 0.4, 0.52, 0.55],
-    ["0%", "100%", "100%", "0%"]
+    [0.2, 0.3, 0.45, 0.5],
+    ["100%", "100%", "100%", "0%"]
   );
   const opacity4 = useTransform(
     scrollYProgress,
-    [0.52, 0.6, 0.72, 0.75],
-    ["0%", "100%", "100%", "0%"]
+    [0.4, 0.5, 0.65, 0.7],
+    ["100%", "100%", "100%", "0%"]
   );
   const opacity5 = useTransform(
     scrollYProgress,
-    [0.72, 0.8, 0.92, 0.95],
-    ["0%", "100%", "100%", "0%"]
+    [0.6, 0.7, 0.85, 0.9],
+    ["100%", "100%", "100%", "0%"]
   );
 
   return (
@@ -103,9 +99,16 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.dynapack" })}
+          time={intl.formatMessage({ id: "about.dynapackTime" })}
+          workAs={intl.formatMessage({ id: "about.dynapackWorkAs" })}
+          during={intl.formatMessage({ id: "about.dynapackDuring" })}
           description={intl.formatMessage({ id: "about.dynapackDescription" })}
-          tag={[".net Core", "Winform", "Com port"]}
-          image={DynapackIcon}
+          tag={[
+            <div className={"badge "+style.normal}>C#</div>,
+            <div className={"badge "+style.normal}>.Net Core</div>,
+            <div className={"badge "+style.normal}>Winform</div>,
+            <div className={"badge "+style.normal2}>Python</div>,
+            <div className={"badge "+style.database}>MS-SQL</div>]}
         />
       </motion.div>
       <motion.div
@@ -119,15 +122,25 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.cathaybk" })}
+          time={intl.formatMessage({ id: "about.cathaybkTime" })}
+          workAs={intl.formatMessage({ id: "about.cathaybkWorkAs" })}
+          during={intl.formatMessage({ id: "about.cathaybkDuring" })}
           description={intl.formatMessage({ id: "about.cathaybkDescription" })}
           tag={[
-            ".net Core",
-            "Shell Script",
-            "Stored procedure",
-            "SSIS",
-            "SSRS",
+            <div className={"badge "+style.normal}>C#</div>,
+            <div className={"badge "+style.normal}>.Net Core</div>,
+            <div className={"badge "+style.web}>React</div>,
+            <div className={"badge "+style.web}>Bootstrap</div>,
+            <div className={"badge "+style.web}>Chart.js</div>,
+            <div className={"badge "+style.web}>Node.js</div>,
+            <div className={"badge "+style.web}>Javascript</div>,
+            <div className={"badge "+style.web}>jQuery</div>,
+            <div className={"badge "+style.database}>MS-SQL</div>,
+            <div className={"badge "+style.database}>SSIS</div>,
+            <div className={"badge "+style.database}>SSRS</div>,
+            <div className={"badge "+style.database}>Stored procedure</div>,
+            <div className={"badge "+style.server}>Shell script</div>
           ]}
-          image={CathaybkIcon}
         />
       </motion.div>
       <motion.div
@@ -141,9 +154,17 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.tonch" })}
+          time={intl.formatMessage({ id: "about.tonchTime" })}
+          workAs={intl.formatMessage({ id: "about.tonchWorkAs" })}
+          during={intl.formatMessage({ id: "about.tonchDuring" })}
           description={intl.formatMessage({ id: "about.tonchDescription" })}
-          tag={["Asp.net", "Winform", "MS-SQL", "SSRS", "Socket", "Win CE"]}
-          image={TonchIcon}
+          tag={[
+          <div className={"badge "+style.normal}>Asp.Net</div>,
+          <div className={"badge "+style.normal}>WinForm</div>,
+          <div className={"badge "+style.normal}>Socket</div>,
+          <div className={"badge "+style.normal}>Win CE</div>,
+          <div className={"badge "+style.database}>MS-SQL</div>,
+          <div className={"badge "+style.database}>SSRS</div>]}
         />
       </motion.div>
       <motion.div
@@ -157,9 +178,14 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.bachelor" })}
+          time={intl.formatMessage({ id: "about.bachelorTime" })}
+          workAs=""
+          during=""
           description={intl.formatMessage({ id: "about.bachelorDescription" })}
-          tag={["Java", "Asp.net", "MySQL"]}
-          image={NPUSTLogo}
+          tag={[
+          <div className={"badge "+style.normal}>Asp.Net</div>,
+          <div className={"badge "+style.normal2}>Java</div>,
+          <div className={"badge "+style.database}>MySQL</div>]}
         />
       </motion.div>
 
@@ -187,6 +213,40 @@ export default function About() {
       <Foot1R />
       <Foot1L />
       <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
+      <Foot1L />
+      <Foot1R />
       <Foot2L />
       <Foot2R />
       <Foot2L />
@@ -194,6 +254,18 @@ export default function About() {
       <Foot2L />
       <Foot2R />
       <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot3R />
+      <Foot3L />
       <Foot3R />
       <Foot3L />
       <Foot3R />

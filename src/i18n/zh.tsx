@@ -13,25 +13,29 @@ const zh_TW = {
   "gallery.inputEmpty": "請輸入文字敘述",
   "gallery.overLimit": "今日繪製額度已滿",
 
-  "about.me":
-    "在軟體開發領域打滾10年，專長為商業及金融專案及報表開發，閒暇時除了學習新技能，偶爾也接接案子，喜歡接觸新奇有趣的事物，最近熱衷於學習烏克麗麗",
+  "about.me": "哈囉，我是一名軟體工程師，從事開發工作已經10年，期間經手許多商業及金融專案及報表開發，閒暇時除了學習新技能外，也接接案子磨練自己的能力，喜歡接觸各種新奇有趣的事物，希望可以持續保持好奇心",
   "about.skill": "專長：",
-  "about.hobby": "興趣：電玩，特別是具有獨特世界觀及劇情令人印象深刻的遊戲",
+  "about.hobby":"興趣：",
+  "about.games":"喜歡的遊戲:",
   "about.dynapack": "順達科技",
-  "about.dynapackDescription":
-    "順達科技為電池模組製造廠，我在此擔任研發工程師，負責開發電池測試工具及整合軟韌體，與以往不同的是我在這裡接觸到與硬體及韌體的串接，還有很多知識值得我去挖掘",
+  "about.dynapackWorkAs": "高級工程師",
+  "about.dynapackDuring": "2022/10/18至今",
+  "about.dynapackDescription":"電池模塊驗證程序開發;程式啟動器開發;儀器控制及通訊",
   "about.dynapackTime": "2022年10月18日",
   "about.cathaybk": "國泰世華銀行",
-  "about.cathaybkDescription":
-    "於國泰世華銀行擔任IT工程師，負責Payment Hub系統維運及金融帳務報表開發，此階段為監控系統開發許多Linux排程及前端頁面、手機通知等，也增加高流量SQL查詢優化及資料庫相關排程開發經驗",
+  "about.cathaybkWorkAs": "IT工程師",
+  "about.cathaybkDuring": "2018/01 ~ 2022/08",
+  "about.cathaybkDescription":"信用卡支付平台維護;帳務及業務報表開發;系統Log萃取及分析;Log分析工具開發;系統儀錶板站台開發;信用卡帳務批次開發",
   "about.cathaybkTime": "2018年1月15日",
   "about.tonch": "同創科技股份有限公司",
-  "about.tonchDescription":
-    "這是我的第一份工作，在同創科技擔任研發工程師，我們為許多政府機關及民間企業開發桌面應用程式及商務報表，同時也負責客戶端的硬體架設及故障排除，公司規模不大但我在這裡學到很多東西",
+  "about.tonchWorkAs": "研發工程師",
+  "about.tonchDuring": "2012/01 ~ 2017/11",
+  "about.tonchDescription":"ERP系統開發;帳務及庫存報表設計;盤點標籤設計和庫存管理整合;盤點機系統開發;客戶端環境建置及硬體設定;資料庫轉移及整合",
   "about.tonchTime": "2013年1月8日",
   "about.bachelor": "畢業於屏科大",
   "about.bachelorDescription":
     "取得屏東科技大學資料管理系學士學位，在校時計算機概論及程式開發（當時是用Java）一直是我最愛的課程，也幫我奠定物件導向的基礎，多虧我的教授生動有趣的教學，我在這些項目也取得優異的成績",
+  "about.bachelorTime": "2012年6月",
 
   "program.catalogs": "類別",
   "program.openAi": "Open AI",

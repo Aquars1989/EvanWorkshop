@@ -1,7 +1,14 @@
-.carousel_card_body {
+.carousel_card {
   background-color: rgb(247, 247, 247);
+  border-style: none;
+  border-style: 0;
   margin-top: 40vmin;
   margin-bottom: 40vmin;
+}
+
+.carousel_card .card-title
+{
+  background-image: linear-gradient(0deg, rgb(92, 92, 92), rgb(68, 68, 68));
 }
 
 .container {
@@ -67,31 +74,102 @@
   margin: 2vmin;
 }
 
+.normal {
+  background-color: rgb(204, 255, 157);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.normal2 {
+  background-color: rgb(157, 196, 255);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+
+.web {
+  background-color: rgb(117, 255, 221);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.database {
+  background-color: rgb(231, 172, 255);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.server {
+  background-color: rgb(255, 253, 117);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
 .massEffect {
-  background-color: rgb(117, 193, 255);
-  color: white;
+  background-color: rgb(141, 193, 236);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
 .dragonAge {
-  background-color: rgb(230, 95, 54);
-  color: white;
+  background-color: rgb(223, 116, 83);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
 .fallout {
-  background-color: rgb(113, 131, 146);
-  color: white;
+  background-color: rgb(197, 245, 201);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
 .elderScrolls {
-  background-color: goldenrod;
-  color: white;
+  background-color: rgb(248, 247, 152);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
 .witcher {
-  background-color: rgb(221, 219, 213);
-  color: rgb(0, 0, 0);
+  background-color: rgb(156, 207, 205);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
 .bioshock {
-  background-color: rgb(5, 150, 207);
-  color: rgb(255, 255, 255);
+  background-color: rgb(115, 198, 231);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }
-.dishonored {
-  background-color: rgb(0, 133, 126);
-  color: rgb(255, 255, 255);
+.videoGames {
+  background-color: rgb(188, 238, 235);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.tableTennis {
+  background-color: rgb(241, 209, 161);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.ukulele {
+  background-color: rgb(248, 250, 192);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
+}
+
+.vrGames {
+  background-color: rgb(191, 201, 250);
+  color: black;
+  padding: 1vmin 0.5vmin;
+  margin: 0.5vmin;
 }

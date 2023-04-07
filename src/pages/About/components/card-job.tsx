@@ -1,37 +1,33 @@
+import { ReactNode } from "react";
 import Style from "../index.module.css";
 
 interface Props {
   title: string;
+  time: string;
+  workAs: string;
+  during: string;
   description: string;
-  tag: Array<string>;
-  image: string;
+  tag: Array<ReactNode>;
 }
 
-export default function CardJob({ title, description, tag, image }:Props) {
+export default function CardJob({ title, time , workAs, during, description, tag }:Props) {
   return (
-    <div className={"card w-50 shadow mx-auto " + Style.carousel_card_body}>
-      <div className="row g-0 ">
-        <div className="col-md-6">
-          <div className="card-header">
-            <h4>{title}</h4>
-          </div>
-          <div className="card-body overflow-auto">
-            <div className="lh-base">{description}</div>
-          </div>
-          <div className="card-footer">
-            {tag.map((item) => {
-              return (
-                <div key={item} className="badge bg-secondary mx-1">
-                  {item}
-                </div>
-              );
-            })}
+    <div className={"card w-50 shadow mx-auto " + Style.carousel_card}>
+        <div className={"card-header " + Style.carousel_card_head}>
+          <div className="card-title"><h5><b>{title}</b></h5></div>
+          <div className="card-subtitle row align-items-md-stretch">
+            <div className="col-md-6"><b>{workAs}</b></div>
+            <div className="col-md-6">{during}</div>
           </div>
         </div>
-        <div className="p-3 m-auto col-md-6">
-          <img className="w-100 p-5 shadow" alt={title} src={image} />
+        <div className="card-body overflow-auto">
+          <ul>
+            {description.split(';').map((x)=>{return <li>{x}</li>})}
+          </ul>
         </div>
-      </div>
+        <div className="card-footer">
+          {tag.map((item) => {return item; })}
+        </div>
     </div>
   );
 }

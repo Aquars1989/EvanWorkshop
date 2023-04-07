@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import style from "../index.module.css";
 import { FormattedMessage } from "react-intl";
 
@@ -10,7 +11,7 @@ export default function CardSummy() {
             <img className="w-100 p-5 shadow" alt="Tonch" src="" />
           </div>
           <div className="p-3 m-auto col-md-8">
-            <h2 className="card-title">Evan Hung</h2>
+            <h2 className="card-title">Who's Evan Hung</h2>
             <span className="lh-lg">
               <FormattedMessage id="about.me" />
             </span>
@@ -20,17 +21,24 @@ export default function CardSummy() {
                   <FormattedMessage id="about.skill" />
                 </div>
                 <div>
-                  <div className="badge bg-secondary m-1">C#</div>
-                  <div className="badge bg-secondary m-1">WinForm</div>
-                  <div className="badge bg-secondary m-1">Asp.Net</div>
-                  <div className="badge bg-secondary m-1">.Net Core</div>
-                  <div className="badge bg-secondary m-1">Python</div>
-                  <div className="badge bg-secondary m-1">React</div>
-                  <div className="badge bg-secondary m-1">Node.js</div>
-                  <div className="badge bg-secondary m-1">MS-SQL</div>
-                  <div className="badge bg-secondary m-1">SSIS</div>
-                  <div className="badge bg-secondary m-1">SSRS</div>
-                  <div className="badge bg-secondary m-1">Shell script</div>
+                  <div className={"badge "+style.normal}>C#</div>
+                  <div className={"badge "+style.normal}>WinForm</div>
+                  <div className={"badge "+style.normal}>Asp.Net</div>
+                  <div className={"badge "+style.normal}>.Net Core</div>
+                  <div className={"badge "+style.normal2}>Java</div>
+                  <div className={"badge "+style.normal2}>Python</div>
+                  <div className={"badge "+style.web}>React</div>
+                  <div className={"badge "+style.web}>Bootstrap</div>
+                  <div className={"badge "+style.web}>Chart.js</div>
+                  <div className={"badge "+style.web}>Node.js</div>
+                  <div className={"badge "+style.web}>Javascript</div>
+                  <div className={"badge "+style.web}>jQuery</div>
+                  <div className={"badge "+style.database}>MS-SQL</div>
+                  <div className={"badge "+style.database}>MySQL</div>
+                  <div className={"badge "+style.database}>SSIS</div>
+                  <div className={"badge "+style.database}>SSRS</div>
+                  <div className={"badge "+style.database}>Stored procedure</div>
+                  <div className={"badge "+style.server}>Shell script</div>
                 </div>
               </li>
 
@@ -39,24 +47,14 @@ export default function CardSummy() {
                   <FormattedMessage id="about.hobby" />
                 </div>
                 <div>
-                  <div className={"badge m-1 " + style.massEffect}>
-                    ☄Mass effect
-                  </div>
-                  <div className={"badge m-1 " + style.dragonAge}>
-                    🐲Dragon age
-                  </div>
-                  <div className={"badge m-1 " + style.fallout}>☢Fallout</div>
-                  <div className={"badge m-1 " + style.elderScrolls}>
-                    🗡Elder scrolls
-                  </div>
-                  <div className={"badge m-1 " + style.witcher}>🐺Witcher</div>
-                  <div className={"badge m-1 " + style.bioshock}>🕊Bioshock</div>
-                  <div className={"badge m-1 " + style.dishonored}>
-                    🦴Dishonored
-                  </div>
+                  <div className={"badge " + style.videoGames}>🕹Video Games</div>
+                  <div className={"badge " + style.tableTennis}>🏓Table tennis</div>
+                  <div className={"badge " + style.ukulele}>🪕Ukulele</div>
+                  <div className={"badge " + style.vrGames}>🥽VR Games</div>
                 </div>
-              </li>
-            </ul>
+                </li>
+                  <NavLink to="https://github.com/Aquars1989">My GitHub</NavLink> 
+                </ul>
           </div>
         </div>
       </div>
