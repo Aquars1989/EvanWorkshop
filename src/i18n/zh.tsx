@@ -13,6 +13,7 @@ const zh_TW = {
   "gallery.inputEmpty": "請輸入文字敘述",
   "gallery.overLimit": "今日繪製額度已滿",
 
+  "about.title": "關於Evan",
   "about.me": "哈囉，我是一名軟體工程師，從事開發工作已經10年，期間經手許多商業及金融專案及報表開發，閒暇時除了學習新技能外，也接接案子磨練自己的能力，喜歡接觸各種新奇有趣的事物，希望可以持續保持好奇心",
   "about.skill": "專長：",
   "about.hobby":"興趣：",

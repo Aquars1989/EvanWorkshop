@@ -8,10 +8,10 @@ export default function CardSummy() {
       <div className="card-body">
         <div className="row g-0">
           <div className="p-3 m-auto col-md-4">
-            <img className="w-100 p-5 shadow" alt="Tonch" src="" />
+            <img className="w-100 p-5 shadow" alt="MyPic" src="" />
           </div>
           <div className="p-3 m-auto col-md-8">
-            <h2 className="card-title">Who's Evan Hung</h2>
+            <h2 className="card-title"> <FormattedMessage id="about.title" /></h2>
             <span className="lh-lg">
               <FormattedMessage id="about.me" />
             </span>

@@ -14,6 +14,7 @@ const en = {
   "gallery.inputEmpty": "Please enter the word",
   "gallery.overLimit": "Daily limit exceeded",
 
+  "about.title": "About Evan",
   "about.me": "Hi, I am a software engineer live in Taiwan with 10 years of experience in development. During this time, I have worked on numerous commercial and financial projects, including report development. In my spare time, I not only learn new skills but also take on projects to hone my abilities. I enjoy exploring new and interesting things and hope to continue to maintain my curiosity.",
   "about.skill": "Skill: ",
   "about.hobby":"Hobby:",
