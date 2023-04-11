@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 import style from "../index.module.css";
 import { FormattedMessage } from "react-intl";
+import MyPic from 'images/personal.jpg'
 
 export default function CardSummy() {
   return (
     <div className="card w-75 mx-auto">
       <div className="card-body">
         <div className="row g-0">
-          <div className="p-3 m-auto col-md-4">
-            <img className="w-100 p-5 shadow" alt="MyPic" src="" />
+          <div className="p-3  col-md-4">
+            <img className="w-100 p-5 p-md-0" alt="MyPic" src={MyPic} />
           </div>
           <div className="p-3 m-auto col-md-8">
             <h2 className="card-title"> <FormattedMessage id="about.title" /></h2>
