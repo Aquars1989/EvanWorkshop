@@ -133,6 +133,7 @@ export default function About() {
             <div className={"badge "+style.web}>Bootstrap</div>,
             <div className={"badge "+style.web}>Chart.js</div>,
             <div className={"badge "+style.web}>Node.js</div>,
+            <div className={"badge "+style.web}>TypeScript</div>,
             <div className={"badge "+style.web}>Javascript</div>,
             <div className={"badge "+style.web}>jQuery</div>,
             <div className={"badge "+style.database}>MS-SQL</div>,
