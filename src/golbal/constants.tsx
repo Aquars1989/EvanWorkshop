@@ -6,6 +6,7 @@ export const Api_Flask_ScrabbleHelper = `${Api_Flask_Host}/api/scrabble_helper`;
 export const Api_Flask_Crypto = `${Api_Flask_Host}/api/scrape_crypto`;
 export const Api_Flask_CryptoDetail = `${Api_Flask_Host}/api/scrape_crypto_detail`;
 export const Api_Flask_CNN = `${Api_Flask_Host}/api/scrape_cnn`;
+export const Api_Flask_OpenArt = `${Api_Flask_Host}/api/openart_agent`;
 //export const Api_NetCore_Host = "https://localhost:44387";
 export const Api_NetCore_Host =
   "https://evandotnetapi20230307212348.azurewebsites.net";

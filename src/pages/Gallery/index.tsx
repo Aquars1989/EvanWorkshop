@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import OwnGraphicsList from "./components/own-graphics-list";
 import ExhibitGraphicsList from "./components/exhibit-graphics-list";
 import CarouselGraphicsContiner from "./components/carousel-graphics-continer";
-import {FetchOpenAiImage} from "fetch/fetch-openai";
+import {FetchEvanAPI_OpenArt_Get} from "fetch/fetch-evan-flask-api";
+//import {FetchOpenAiImage} from "fetch/fetch-openai";
 import {
   FetchEvanAPI_Picture_Get,
   FetchEvanAPI_Picture_Post,
@@ -142,8 +143,8 @@ export default function Gallery() {
     setPending(true);
 
     try {
-      const openAIRes = await FetchOpenAiImage(input);
-
+      //const openAIRes = await FetchOpenAiImage(input);
+      const openAIRes = await FetchEvanAPI_OpenArt_Get(input);
       //console.log(openAIRes);
 
       if (openAIRes.code !== "0000") {

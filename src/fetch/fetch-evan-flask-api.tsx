@@ -5,6 +5,7 @@ import {
   Api_Flask_Crypto,
   Api_Flask_CryptoDetail,
   Api_Flask_CNN,
+  Api_Flask_OpenArt
 } from "golbal/constants";
 
 interface IEvanAPIReceive<T>
@@ -200,6 +201,32 @@ export async function FetchEvanAPI_CrawlCNN_Get(word:string, size:number, skip:n
       code: "A990",
       message: ex.message,
       data : []
+    };
+  }
+}
+
+export async function FetchEvanAPI_OpenArt_Get(word:string) :Promise<IEvanAPIReceive<string>> {
+  try {
+   
+    const text = word || "";
+    if (text.trim().length === 0) {
+      return { code: "O002", message: "Please enter the word", data:"" };
+    }
+
+    const response = await fetch(
+      Api_Flask_OpenArt + "?word=" + word,
+      {
+        method: "GET",
+      }
+    );
+
+    const json = await response.json();
+    return json;
+  } catch (ex:any) {
+    return {
+      code: "A990",
+      message: ex.message,
+      data : ""
     };
   }
 }
