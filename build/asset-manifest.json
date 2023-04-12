@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.60a0d1cb.css",
-    "main.js": "/static/js/main.01783b09.js",
+    "main.js": "/static/js/main.fca34ac5.js",
     "static/js/787.744d7400.chunk.js": "/static/js/787.744d7400.chunk.js",
     "static/media/TiltNeon-Regular.ttf": "/static/media/TiltNeon-Regular.f0cf4e9d55d75f58f0ca.ttf",
     "static/media/personal.jpg": "/static/media/personal.f7ba4a828c29647e94a0.jpg",
@@ -85,19 +85,19 @@
     "static/media/Sheep.svg": "/static/media/Sheep.66fa0150f1c31d17cfdf.svg",
     "static/media/Fish.svg": "/static/media/Fish.bfc565c34e953294132a.svg",
     "index.html": "/index.html",
+    "static/media/logo.svg": "/static/media/logo.8bd9debbe827ad5848db92b198a7b993.svg",
     "static/media/bookmark-check.svg": "/static/media/bookmark-check.b6727cb6999e3dc262fbe2c3e5662832.svg",
     "static/media/heart.svg": "/static/media/heart.a6da3352d71200cd37f09296ab0e11ae.svg",
-    "static/media/logo.svg": "/static/media/logo.53cd92974f3bc56e86ee1b6dadc8f6b2.svg",
     "static/media/bookmark-check-fill.svg": "/static/media/bookmark-check-fill.68b7c0b606124e5d61dc5687b3b9bdb5.svg",
     "static/media/heart-fill.svg": "/static/media/heart-fill.925d99d7edaf498698c241fbbfba315e.svg",
     "static/media/Guest.svg": "/static/media/Guest.516b8bd021edff6a59a3.svg",
     "static/media/guest-icon-base.svg": "/static/media/guest-icon-base.655e747b1416ebb28eba6ed0401a03b3.svg",
     "main.60a0d1cb.css.map": "/static/css/main.60a0d1cb.css.map",
-    "main.01783b09.js.map": "/static/js/main.01783b09.js.map",
+    "main.fca34ac5.js.map": "/static/js/main.fca34ac5.js.map",
     "787.744d7400.chunk.js.map": "/static/js/787.744d7400.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.60a0d1cb.css",
-    "static/js/main.01783b09.js"
+    "static/js/main.fca34ac5.js"
   ]
 }
