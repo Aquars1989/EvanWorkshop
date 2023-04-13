@@ -126,7 +126,7 @@ export default function CrawlYahooCrypto() {
         });
       }
 
-      console.log(datasets);
+      //console.log(datasets);
 
       setChartData({
         labels: countLabel,
@@ -195,9 +195,15 @@ export default function CrawlYahooCrypto() {
     if (evanRes.data.length === 0) return;
     setData(evanRes.data);
 
+    const chartSkip=["USDT-USD","USDC-USD"];
     const label = [];
-    for (let i = 0; i < evanRes.data.length && i < 5; i++) {
+    let count=0
+    for (let i = 0; i < evanRes.data.length && count < 5; i++) {
       const name = evanRes.data[i].name;
+
+      if(chartSkip.indexOf(name)>=0) continue;
+      count+=1;
+
       const evanResDetail = await FetchEvanAPI_CrawlCryptoDetail_Get(name);
       if (evanResDetail.code !== "0000") continue;
 
