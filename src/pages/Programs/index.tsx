@@ -12,7 +12,7 @@ function Demo() {
   const cardVariants = {
     offscreen: {
       opacity: 0,
-      x: 20,
+      y: 20,
     },
     onscreen: {
       x: 0,

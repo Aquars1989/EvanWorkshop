@@ -210,7 +210,7 @@ export default function Gallery() {
   }
 
   return (
-    <div className={Style.main + " container-fluid bg-gradient bg-dark"}>
+    <div className={Style.main + " container-fluid bg-gradient bg-dark p-5"}>
       <h2 className="mt-3">
         <FormattedMessage id="gallery.drawMyPicture" />
       </h2>

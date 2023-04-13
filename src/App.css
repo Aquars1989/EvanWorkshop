@@ -1,11 +1,17 @@
-.App-logo {
-  height: 6vmin;
-  pointer-events: none;
+.app-logo-link
+{
+  height: 100%;
+  width: 6vmin;
+}
+
+.app-logo {
+  height: 100%;
+  width: 100%;
   margin: 2vmin 2vmin 2vmin 2vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .app-logo {
     animation: App-logo-spin 1s linear infinite alternate;
   }
 }

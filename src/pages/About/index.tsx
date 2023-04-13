@@ -11,6 +11,7 @@ import CardJob from "./components/card-job";
 import CardSummy from "./components/card-summy";
 import { useIntl } from "react-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { v4 } from "uuid";
 
 export default function About() {
   const intl = useIntl();
@@ -104,11 +105,11 @@ export default function About() {
           during={intl.formatMessage({ id: "about.dynapackDuring" })}
           description={intl.formatMessage({ id: "about.dynapackDescription" })}
           tag={[
-            <div className={"badge "+style.normal}>C#</div>,
-            <div className={"badge "+style.normal}>.Net Core</div>,
-            <div className={"badge "+style.normal}>Winform</div>,
-            <div className={"badge "+style.normal2}>Python</div>,
-            <div className={"badge "+style.database}>MS-SQL</div>]}
+            <div key={v4()} className={"badge "+style.normal}>C#</div>,
+            <div key={v4()} className={"badge "+style.normal}>.Net Core</div>,
+            <div key={v4()} className={"badge "+style.normal}>Winform</div>,
+            <div key={v4()} className={"badge "+style.normal2}>Python</div>,
+            <div key={v4()} className={"badge "+style.database}>MS-SQL</div>]}
         />
       </motion.div>
       <motion.div
@@ -127,20 +128,20 @@ export default function About() {
           during={intl.formatMessage({ id: "about.cathaybkDuring" })}
           description={intl.formatMessage({ id: "about.cathaybkDescription" })}
           tag={[
-            <div className={"badge "+style.normal}>C#</div>,
-            <div className={"badge "+style.normal}>.Net Core</div>,
-            <div className={"badge "+style.web}>React</div>,
-            <div className={"badge "+style.web}>Bootstrap</div>,
-            <div className={"badge "+style.web}>Chart.js</div>,
-            <div className={"badge "+style.web}>Node.js</div>,
-            <div className={"badge "+style.web}>TypeScript</div>,
-            <div className={"badge "+style.web}>Javascript</div>,
-            <div className={"badge "+style.web}>jQuery</div>,
-            <div className={"badge "+style.database}>MS-SQL</div>,
-            <div className={"badge "+style.database}>SSIS</div>,
-            <div className={"badge "+style.database}>SSRS</div>,
-            <div className={"badge "+style.database}>Stored procedure</div>,
-            <div className={"badge "+style.server}>Shell script</div>
+            <div key={v4()} className={"badge "+style.normal}>C#</div>,
+            <div key={v4()} className={"badge "+style.normal}>.Net Core</div>,
+            <div key={v4()} className={"badge "+style.web}>React</div>,
+            <div key={v4()} className={"badge "+style.web}>Bootstrap</div>,
+            <div key={v4()} className={"badge "+style.web}>Chart.js</div>,
+            <div key={v4()} className={"badge "+style.web}>Node.js</div>,
+            <div key={v4()} className={"badge "+style.web}>TypeScript</div>,
+            <div key={v4()} className={"badge "+style.web}>Javascript</div>,
+            <div key={v4()} className={"badge "+style.web}>jQuery</div>,
+            <div key={v4()} className={"badge "+style.database}>MS-SQL</div>,
+            <div key={v4()} className={"badge "+style.database}>SSIS</div>,
+            <div key={v4()} className={"badge "+style.database}>SSRS</div>,
+            <div key={v4()} className={"badge "+style.database}>Stored procedure</div>,
+            <div key={v4()} className={"badge "+style.server}>Shell script</div>
           ]}
         />
       </motion.div>
@@ -160,12 +161,12 @@ export default function About() {
           during={intl.formatMessage({ id: "about.tonchDuring" })}
           description={intl.formatMessage({ id: "about.tonchDescription" })}
           tag={[
-          <div className={"badge "+style.normal}>Asp.Net</div>,
-          <div className={"badge "+style.normal}>WinForm</div>,
-          <div className={"badge "+style.normal}>Socket</div>,
-          <div className={"badge "+style.normal}>Win CE</div>,
-          <div className={"badge "+style.database}>MS-SQL</div>,
-          <div className={"badge "+style.database}>SSRS</div>]}
+          <div key={v4()} className={"badge "+style.normal}>Asp.Net</div>,
+          <div key={v4()} className={"badge "+style.normal}>WinForm</div>,
+          <div key={v4()} className={"badge "+style.normal}>Socket</div>,
+          <div key={v4()} className={"badge "+style.normal}>Win CE</div>,
+          <div key={v4()} className={"badge "+style.database}>MS-SQL</div>,
+          <div key={v4()} className={"badge "+style.database}>SSRS</div>]}
         />
       </motion.div>
       <motion.div
@@ -184,9 +185,9 @@ export default function About() {
           during=""
           description={intl.formatMessage({ id: "about.bachelorDescription" })}
           tag={[
-          <div className={"badge "+style.normal}>Asp.Net</div>,
-          <div className={"badge "+style.normal2}>Java</div>,
-          <div className={"badge "+style.database}>MySQL</div>]}
+          <div key={v4()} className={"badge "+style.normal}>Asp.Net</div>,
+          <div key={v4()} className={"badge "+style.normal2}>Java</div>,
+          <div key={v4()} className={"badge "+style.database}>MySQL</div>]}
         />
       </motion.div>
 

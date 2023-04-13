@@ -1,7 +1,7 @@
 import Logo from "images/logo.svg";
 import { NavLink } from "react-router-dom";
 import Axios from "axios";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import GuestIconBase from "images/guest-icon-base.svg";
 import {
   useGuestStateContext,
@@ -16,8 +16,13 @@ interface Props {
 }
 
 export default function TopBar({ locale , setLocale }:Props) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const guest = useGuestStateContext();
   const guestDispatch = useGuestDispatchContext();
+
+  const toggleNavbar = () => setIsOpen(!isOpen);
+  const closeNavbar = () => setIsOpen(false);
 
   async function fetchGuestName() {
     const res = await Axios.get("https://geolocation-db.com/json/");
@@ -54,8 +59,8 @@ export default function TopBar({ locale , setLocale }:Props) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark app-header">
       <div className="container-fluid">
-        <NavLink className="nav-link" to="gallery">
-          <img src={Logo} className="app-logo" alt="logo" />
+        <NavLink className="nav-link app-logo-link" to="gallery" onClick={closeNavbar}>
+           <img src={Logo} className="app-logo" alt="logo" />
         </NavLink>
         <div className="mx-3">
           <span className="txt-title2">Evan's </span>
@@ -64,28 +69,29 @@ export default function TopBar({ locale , setLocale }:Props) {
         <button
           className="navbar-toggler"
           type="button"
+          onClick={toggleNavbar}
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse"
-          aria-expanded="false"
+          aria-expanded={isOpen ? "true" : "false"}
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarCollapse">
+        <div className={"collapse navbar-collapse "+(isOpen ? 'show' : '')} id="navbarCollapse">
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <NavLink className="nav-link" to="gallery">
+              <NavLink className="nav-link" to="gallery" onClick={closeNavbar}>
                 <FormattedMessage id="topbar.gallery" />
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="programs">
+              <NavLink className="nav-link" to="programs" onClick={closeNavbar}>
                 <FormattedMessage id="topbar.prgrams" />
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="about">
+              <NavLink className="nav-link" to="about" onClick={closeNavbar}>
                 <FormattedMessage id="topbar.about" />
               </NavLink>
             </li>
