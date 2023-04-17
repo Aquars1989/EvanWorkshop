@@ -16,6 +16,7 @@
 
 table.list {
   border-collapse: collapse;
+  width: 100%;
 }
 
 table.list thead {
