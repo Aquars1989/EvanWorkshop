@@ -23,67 +23,67 @@ export default function About() {
   //const translateX1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "30%"]);
   const translateX2 = useTransform(
     scrollYProgress,
-    [0.00, 0.1, 0.25, 0.3],
+    [0.00, 0.10, 0.30, 0.35],
     ["100%", "0%", "0%", "30%"]
   );
   const translateX3 = useTransform(
     scrollYProgress,
-    [0.2, 0.3, 0.45, 0.5],
+    [0.25, 0.35, 0.55, 0.60],
     ["100%", "0%", "0%", "30%"]
   );
   const translateX4 = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.65, 0.7],
+    [0.50, 0.60, 0.80, 0.85],
     ["100%", "0%", "0%", "30%"]
   );
   const translateX5 = useTransform(
     scrollYProgress,
-    [0.6, 0.7, 0.85, 0.9],
-    ["100%", "0%", "0%", "30%"]
+    [0.75, 0.85, 1.00],
+    ["100%", "0%", "0%"]
   );
 
   //const translateY1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "-30%"]);
   const translateY2 = useTransform(
     scrollYProgress,
-    [0.00, 0.1, 0.25, 0.3],
+    [0.00, 0.10, 0.30, 0.35],
     ["20%", "0%", "0%", "-20%"]
   );
   const translateY3 = useTransform(
     scrollYProgress,
-    [0.2, 0.3, 0.45, 0.5],
+    [0.25, 0.35, 0.55, 0.60],
     ["20%", "0%", "0%", "-20%"]
   );
   const translateY4 = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.65, 0.7],
+    [0.50, 0.60, 0.80, 0.85],
     ["20%", "0%", "0%", "-20%"]
   );
   const translateY5 = useTransform(
     scrollYProgress,
-    [0.6, 0.7, 0.85, 0.9],
-    ["20%", "0%", "0%", "-20%"]
+    [0.75, 0.85, 1.00],
+    ["20%", "0%", "0%"]
   );
 
   //const opacity1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["100%", "100%", "0%"]);
   const opacity2 = useTransform(
     scrollYProgress,
-    [0.00, 0.1, 0.25, 0.3],
+    [0.00, 0.10, 0.30, 0.35],
     ["100%", "100%", "100%", "0%"]
   );
   const opacity3 = useTransform(
     scrollYProgress,
-    [0.2, 0.3, 0.45, 0.5],
+    [0.25, 0.35, 0.55, 0.60],
     ["100%", "100%", "100%", "0%"]
   );
   const opacity4 = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.65, 0.7],
+    [0.50, 0.60, 0.80, 0.85],
     ["100%", "100%", "100%", "0%"]
   );
   const opacity5 = useTransform(
     scrollYProgress,
-    [0.6, 0.7, 0.85, 0.9],
-    ["100%", "100%", "100%", "0%"]
+    [0.75, 0.85, 1.00],
+    ["100%", "100%", "100%"]
   );
 
   return (
@@ -258,18 +258,6 @@ export default function About() {
       <Foot2L />
       <Foot2R />
       <Foot2L />
-      <Foot2R />
-      <Foot2L />
-      <Foot2R />
-      <Foot2L />
-      <Foot2R />
-      <Foot2L />
-      <Foot2R />
-      <Foot2L />
-      <Foot3R />
-      <Foot3L />
-      <Foot3R />
-      <Foot3L />
       <Foot3R />
       <Foot3L />
     </div>
