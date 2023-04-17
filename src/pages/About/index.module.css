@@ -75,7 +75,7 @@
 }
 
 .normal {
-  background-color: rgb(204, 255, 157);
+  background-color: rgb(168, 225, 115);
   color: black;
   padding: 1vmin 0.5vmin;
   margin: 0.5vmin;
@@ -90,7 +90,7 @@
 
 
 .web {
-  background-color: rgb(117, 255, 221);
+  background-color: rgb(117, 236, 206);
   color: black;
   padding: 1vmin 0.5vmin;
   margin: 0.5vmin;
@@ -104,7 +104,7 @@
 }
 
 .server {
-  background-color: rgb(255, 253, 117);
+  background-color: rgb(230, 228, 109);
   color: black;
   padding: 1vmin 0.5vmin;
   margin: 0.5vmin;
