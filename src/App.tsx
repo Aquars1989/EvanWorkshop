@@ -4,6 +4,7 @@ import TopBar from "./pages/TopBar";
 import { Outlet } from "react-router-dom";
 import GuestProvider from "./provider/guest-provider";
 import { IntlProvider } from "react-intl";
+import ScrollToTop from 'components/scroll-to-top';
 import en from "./i18n/en";
 import zh from "./i18n/zh";
 
@@ -25,6 +26,7 @@ function App() {
       messages={messages}
     >
       <GuestProvider>
+        <ScrollToTop  />
         <TopBar locale={locale} setLocale={setLocale} />
         <main className="bg-gray-300">
           <div
