@@ -100,7 +100,6 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.dynapack" })}
-          time={intl.formatMessage({ id: "about.dynapackTime" })}
           workAs={intl.formatMessage({ id: "about.dynapackWorkAs" })}
           during={intl.formatMessage({ id: "about.dynapackDuring" })}
           description={intl.formatMessage({ id: "about.dynapackDescription" })}
@@ -123,7 +122,6 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.cathaybk" })}
-          time={intl.formatMessage({ id: "about.cathaybkTime" })}
           workAs={intl.formatMessage({ id: "about.cathaybkWorkAs" })}
           during={intl.formatMessage({ id: "about.cathaybkDuring" })}
           description={intl.formatMessage({ id: "about.cathaybkDescription" })}
@@ -156,7 +154,6 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.tonch" })}
-          time={intl.formatMessage({ id: "about.tonchTime" })}
           workAs={intl.formatMessage({ id: "about.tonchWorkAs" })}
           during={intl.formatMessage({ id: "about.tonchDuring" })}
           description={intl.formatMessage({ id: "about.tonchDescription" })}
@@ -180,9 +177,8 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.bachelor" })}
-          time={intl.formatMessage({ id: "about.bachelorTime" })}
           workAs=""
-          during=""
+          during={intl.formatMessage({ id: "about.bachelorTime" })}
           description={intl.formatMessage({ id: "about.bachelorDescription" })}
           tag={[
           <div key={v4()} className={"badge "+style.normal}>Asp.Net</div>,

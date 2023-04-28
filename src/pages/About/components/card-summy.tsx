@@ -4,6 +4,50 @@ import { FormattedMessage } from "react-intl";
 import MyPic from 'images/personal.jpg'
 
 export default function CardSummy() {
+
+  const list=(
+  <ul>
+  <li className="p-2">
+    <div>
+      <FormattedMessage id="about.skill" />
+    </div>
+    <div>
+      <div className={"badge "+style.normal}>C#</div>
+      <div className={"badge "+style.normal}>WinForm</div>
+      <div className={"badge "+style.normal}>Asp.Net</div>
+      <div className={"badge "+style.normal}>.Net Core</div>
+      <div className={"badge "+style.normal2}>Java</div>
+      <div className={"badge "+style.normal2}>Python</div>
+      <div className={"badge "+style.web}>React</div>
+      <div className={"badge "+style.web}>Bootstrap</div>
+      <div className={"badge "+style.web}>Chart.js</div>
+      <div className={"badge "+style.web}>Node.js</div>
+      <div className={"badge "+style.web}>TypeScript</div>
+      <div className={"badge "+style.web}>JavaScript</div>
+      <div className={"badge "+style.web}>jQuery</div>
+      <div className={"badge "+style.database}>MS-SQL</div>
+      <div className={"badge "+style.database}>MySQL</div>
+      <div className={"badge "+style.database}>SSIS</div>
+      <div className={"badge "+style.database}>SSRS</div>
+      <div className={"badge "+style.database}>Stored procedure</div>
+      <div className={"badge "+style.server}>Shell script</div>
+    </div>
+  </li>
+
+  <li className="p-2">
+    <div>
+      <FormattedMessage id="about.hobby" />
+    </div>
+    <div>
+      <div className={"badge " + style.videoGames}>🕹Video Games</div>
+      <div className={"badge " + style.tableTennis}>🏓Table tennis</div>
+      <div className={"badge " + style.ukulele}>🪕Ukulele</div>
+      <div className={"badge " + style.vrGames}>🥽VR Games</div>
+    </div>
+    </li>
+      <NavLink to="https://github.com/Aquars1989">My GitHub</NavLink> 
+    </ul>)
+
   return (
     <div className="card w-75 mx-auto">
       <div className="card-body">
@@ -16,47 +60,10 @@ export default function CardSummy() {
             <span className="lh-lg">
               <FormattedMessage id="about.me" />
             </span>
-            <ul>
-              <li className="p-2">
-                <div>
-                  <FormattedMessage id="about.skill" />
-                </div>
-                <div>
-                  <div className={"badge "+style.normal}>C#</div>
-                  <div className={"badge "+style.normal}>WinForm</div>
-                  <div className={"badge "+style.normal}>Asp.Net</div>
-                  <div className={"badge "+style.normal}>.Net Core</div>
-                  <div className={"badge "+style.normal2}>Java</div>
-                  <div className={"badge "+style.normal2}>Python</div>
-                  <div className={"badge "+style.web}>React</div>
-                  <div className={"badge "+style.web}>Bootstrap</div>
-                  <div className={"badge "+style.web}>Chart.js</div>
-                  <div className={"badge "+style.web}>Node.js</div>
-                  <div className={"badge "+style.web}>TypeScript</div>
-                  <div className={"badge "+style.web}>JavaScript</div>
-                  <div className={"badge "+style.web}>jQuery</div>
-                  <div className={"badge "+style.database}>MS-SQL</div>
-                  <div className={"badge "+style.database}>MySQL</div>
-                  <div className={"badge "+style.database}>SSIS</div>
-                  <div className={"badge "+style.database}>SSRS</div>
-                  <div className={"badge "+style.database}>Stored procedure</div>
-                  <div className={"badge "+style.server}>Shell script</div>
-                </div>
-              </li>
-
-              <li className="p-2">
-                <div>
-                  <FormattedMessage id="about.hobby" />
-                </div>
-                <div>
-                  <div className={"badge " + style.videoGames}>🕹Video Games</div>
-                  <div className={"badge " + style.tableTennis}>🏓Table tennis</div>
-                  <div className={"badge " + style.ukulele}>🪕Ukulele</div>
-                  <div className={"badge " + style.vrGames}>🥽VR Games</div>
-                </div>
-                </li>
-                  <NavLink to="https://github.com/Aquars1989">My GitHub</NavLink> 
-                </ul>
+            <div className="lh-lg d-none d-lg-block">{list}</div>
+          </div>
+          <div className="p-3 m-auto col-md-12 d-lg-none">
+            {list}
           </div>
         </div>
       </div>

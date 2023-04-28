@@ -1,14 +1,9 @@
-.carousel_card {
+.job_card {
   background-color: rgb(247, 247, 247);
   border-style: none;
   border-style: 0;
   margin-top: 40vmin;
   margin-bottom: 40vmin;
-}
-
-.carousel_card .card-title
-{
-  background-image: linear-gradient(0deg, rgb(92, 92, 92), rgb(68, 68, 68));
 }
 
 .container {
