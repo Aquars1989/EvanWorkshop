@@ -26,7 +26,7 @@ export default function CardJob({ title, workAs, during, description, tag }:Prop
               {description.split(';').map((x)=>{return <li>{x}</li>})}
             </ul>
           </div>
-          <div className="col-md-6 d-none d-md-block p-2">
+          <div className="col-md-6 d-none d-md-block p-3">
             <div className={Style.carousel_card_head}><FormattedMessage id="about.use"/></div>
             {tag.map((item) => {return item; })}
           </div>
