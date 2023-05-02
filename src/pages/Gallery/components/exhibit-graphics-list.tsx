@@ -24,7 +24,7 @@ export default function ExhibitGraphicsList({ exhibitList, setExhibitList }:Prop
         return (
           <div
             key={id}
-            className="col-sm-4 col-md-3 col-lg-2 p-2 p-lg-0 m-lg-3"
+            className="col-sm-4 col-md-3 col-lg-2 px-5 py-3 px-sm-3 p-lg-0 m-lg-3"
           >
             <ExhibitGraphicsItem
               id={id}

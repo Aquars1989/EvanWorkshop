@@ -1,17 +1,17 @@
 import Style from "../index.module.css";
 import CarouselGraphicsItem from "./carousel-graphics-item";
-import {IExhibitData} from "pages/Gallery";
+import { IExhibitData } from "pages/Gallery";
 
 interface Props {
-  exhibitList:Array<IExhibitData>,
-  setExhibitList:any
+  exhibitList: Array<IExhibitData>;
+  setExhibitList: any;
 }
 
 export default function CarouselGraphicsContiner({
   exhibitList,
   setExhibitList,
-}:Props) {
-  function compareLikes(a :IExhibitData, b:IExhibitData) {
+}: Props) {
+  function compareLikes(a: IExhibitData, b: IExhibitData) {
     if (a.likes < b.likes) {
       return -1;
     }
@@ -26,7 +26,18 @@ export default function CarouselGraphicsContiner({
     placeholders = (
       <div className={"carousel-item active "}>
         <div className="w-75 p-2 m-auto ">
-          <CarouselGraphicsItem id={0} url={""} createdTime={""} prompt={""} word1={""} word2={""} word3={""} likes={0} acterLikes={0} setExhibitList={undefined} />
+          <CarouselGraphicsItem
+            id={0}
+            url={""}
+            createdTime={""}
+            prompt={""}
+            word1={""}
+            word2={""}
+            word3={""}
+            likes={0}
+            acterLikes={0}
+            setExhibitList={undefined}
+          />
         </div>
       </div>
     );
@@ -36,7 +47,7 @@ export default function CarouselGraphicsContiner({
   return (
     <div
       id="carouselAutoplaying"
-      className="carousel slide bg-secondary w-100 p-2 gx-1"
+      className="carousel slide bg-secondary w-100 py-1"
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
@@ -73,12 +84,12 @@ export default function CarouselGraphicsContiner({
           aria-label="Slide 5"
         ></button>
       </div>
-      <div className="carousel-inner p-2">
+      <div className="carousel-inner pt-2 pb-3">
         {placeholders}
         {exhibitList
           .sort(compareLikes)
           .reverse()
-          .slice(0,5)
+          .slice(0, 5)
           .map((item) => {
             count++;
             const {
@@ -98,7 +109,7 @@ export default function CarouselGraphicsContiner({
                 key={id}
                 className={"carousel-item" + (count <= 1 ? " active" : "")}
               >
-                <div className="w-75 p-2 m-auto">
+                <div className="w-75 p-0 p-md-2 m-auto">
                   <CarouselGraphicsItem
                     id={id}
                     url={url}
