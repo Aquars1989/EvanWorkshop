@@ -6,6 +6,7 @@ import { FetchEvanAPI_Picture_Put } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import { useState } from "react";
 import {IOwnListData,IExhibitData} from "pages/Gallery";
+import CustomScrollbar from 'components/custom-scroll';
 
 interface Props {
   id:number,
@@ -125,7 +126,9 @@ export default function OwnGraphicsItem({
         />
       </div>
       <div className="card-body d-flex justify-content-between">
-        {promptItem}
+        <CustomScrollbar style={{  height: 40 }}>
+          {promptItem}
+        </CustomScrollbar>
         {entriesItem}
       </div>
     </div>

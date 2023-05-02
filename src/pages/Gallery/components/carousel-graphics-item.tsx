@@ -8,6 +8,7 @@ import { useGuestStateContext } from "provider/guest-provider";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {IExhibitData} from "pages/Gallery";
+import CustomScrollbar from 'components/custom-scroll';
 
 interface Props {
   id:number,
@@ -135,7 +136,7 @@ export default function CarouselGraphicsItem({
   return (
     <div className="card mb-3 bg-dark shadow">
       <div className="row g-0">
-        <div className=" p-2 col-md-6">
+        <div className=" p-1 col-md-6">
           <img
             className={"w-100 shadow " + (loaded ? "" : "d-none")}
             src={url}
@@ -155,7 +156,9 @@ export default function CarouselGraphicsItem({
             </div>
           </div>
           <div className={"card-body h-50 " + Style.carousel_card_body}>
+            <CustomScrollbar style={{  height: 40 }}>
               {card_body}
+            </CustomScrollbar>
           </div>
           <div className={"card-footer h-25"}>{card_tailer}</div>
         </div>

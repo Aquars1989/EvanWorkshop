@@ -29,7 +29,7 @@ export default function OwnGraphicsList({
   return (
     <div
       className={
-        "bg-secondary row align-items-sm-stretch p-2 gx-1 " +
+        "bg-secondary row align-items-sm-stretch px-5 py-3 px-sm-3 gx-1 " +
         (ownList.length === 0 && !pending ? "visually-hidden" : "")
       }
     >
