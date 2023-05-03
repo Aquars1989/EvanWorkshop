@@ -1,3 +1,7 @@
+.image_actived {
+  cursor: pointer;
+}
+
 .exhibit_likes {
   size: 2vmin, 2vmin;
   cursor: pointer;

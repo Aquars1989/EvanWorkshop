@@ -9,13 +9,15 @@ import {IOwnListData,IExhibitData} from "pages/Gallery";
 import CustomScrollbar from 'components/custom-scroll';
 
 interface Props {
-  id:number,
-  url:string,
-  createdTime:string,
-  prompt:string,
-  entries:number,
-  setOwnList:any,
-  setExhibitList:any,
+  id:number;
+  url:string;
+  createdTime:string;
+  prompt:string;
+  entries:number;
+  setOwnList:any;
+  setExhibitList:any;
+  setLightToggler: any;
+  setLightSource: any;
 }
 
 export default function OwnGraphicsItem({
@@ -25,7 +27,9 @@ export default function OwnGraphicsItem({
   prompt,
   entries,
   setOwnList,
-  setExhibitList
+  setExhibitList,
+  setLightToggler,
+  setLightSource
 }:Props) {
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
@@ -102,18 +106,24 @@ export default function OwnGraphicsItem({
     setLoaded(true);
   }
 
+  function trunLightBox() {
+    setLightSource([url]);
+    setLightToggler((prev:boolean)=>{return !prev});
+  }
+
   return (
     <div className="card bg-dark shadow">
       <div className="card-img-top">
         <img
           className={
             "w-100 " +
-            (id === 0 ? Style.ownlist_paint_image + " " : "") +
+            (id === 0 ? Style.ownlist_paint_image + " " : Style.image_actived + " ") +
             (loaded ? "" : "d-none")
           }
           src={url}
           alt=""
           onLoad={imageLoaded}
+          onClick={trunLightBox}
         />
         <img
           className={

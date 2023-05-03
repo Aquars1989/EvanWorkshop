@@ -1,12 +1,19 @@
 import ExhibitGraphicsItem from "./exhibit-graphics-item";
-import {IExhibitData} from "pages/Gallery";
+import { IExhibitData } from "pages/Gallery";
 
 interface Props {
-  exhibitList:Array<IExhibitData>,
-  setExhibitList:any
+  exhibitList: Array<IExhibitData>;
+  setExhibitList: any;
+  setLightToggler: any;
+  setLightSource: any;
 }
 
-export default function ExhibitGraphicsList({ exhibitList, setExhibitList }:Props) {
+export default function ExhibitGraphicsList({
+  exhibitList,
+  setExhibitList,
+  setLightToggler,
+  setLightSource,
+}: Props) {
   return (
     <div className="bg-secondary row align-items-sm-stretch w-100 min-vh-100 p-2 gx-1">
       {exhibitList.map((item) => {
@@ -37,6 +44,8 @@ export default function ExhibitGraphicsList({ exhibitList, setExhibitList }:Prop
               likes={likes}
               acterLikes={acterLikes}
               setExhibitList={setExhibitList}
+              setLightToggler={setLightToggler}
+              setLightSource={setLightSource}
             />
           </div>
         );

@@ -7,20 +7,22 @@ import { FetchEvanAPI_Score_Post } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import {IExhibitData} from "pages/Gallery";
-import CustomScrollbar from 'components/custom-scroll';
+import { IExhibitData } from "pages/Gallery";
+import CustomScrollbar from "components/custom-scroll";
 
 interface Props {
-  id:number,
-  url:string,
-  createdTime:string,
-  prompt:string,
-  word1:string,
-  word2:string,
-  word3:string,
-  likes:number,
-  acterLikes:number,
-  setExhibitList:any
+  id: number;
+  url: string;
+  createdTime: string;
+  prompt: string;
+  word1: string;
+  word2: string;
+  word3: string;
+  likes: number;
+  acterLikes: number;
+  setExhibitList: any;
+  setLightToggler: any;
+  setLightSource: any;
 }
 
 export default function CarouselGraphicsItem({
@@ -34,7 +36,9 @@ export default function CarouselGraphicsItem({
   likes,
   acterLikes,
   setExhibitList,
-}:Props) {
+  setLightToggler,
+  setLightSource,
+}: Props) {
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
 
@@ -42,14 +46,14 @@ export default function CarouselGraphicsItem({
     try {
       const evanRes = await FetchEvanAPI_Score_Post(guest.Ip, id);
       if (evanRes.code !== "0000") {
-        throw new Error("FetchEvanAPI_Score_Post:"+ evanRes.message);
+        throw new Error("FetchEvanAPI_Score_Post:" + evanRes.message);
       }
 
-      setExhibitList((prev:Array<IExhibitData>) => {
+      setExhibitList((prev: Array<IExhibitData>) => {
         const found = prev.find((x) => x.id === id);
-        if(found!==undefined) {
-        found.likes += 1;
-        found.acterLikes += 1;
+        if (found !== undefined) {
+          found.likes += 1;
+          found.acterLikes += 1;
         }
         return [...prev];
       });
@@ -84,6 +88,13 @@ export default function CarouselGraphicsItem({
 
   function imageLoaded() {
     setLoaded(true);
+  }
+
+  function trunLightBox() {
+    setLightSource([url]);
+    setLightToggler((prev: boolean) => {
+      return !prev;
+    });
   }
 
   let card_title;
@@ -138,10 +149,16 @@ export default function CarouselGraphicsItem({
       <div className="row g-0">
         <div className=" p-1 col-md-6">
           <img
-            className={"w-100 shadow " + (loaded ? "" : "d-none")}
+            className={
+              "w-100 shadow " +
+              Style.image_actived +
+              " " +
+              (loaded ? "" : "d-none")
+            }
             src={url}
             alt=""
             onLoad={imageLoaded}
+            onClick={trunLightBox}
           />
           <img
             className={"w-100 shadow " + (loaded ? "d-none" : "")}
@@ -156,7 +173,7 @@ export default function CarouselGraphicsItem({
             </div>
           </div>
           <div className={"card-body h-50 " + Style.carousel_card_body}>
-            <CustomScrollbar style={{  height: 40 }}>
+            <CustomScrollbar style={{ height: 40 }}>
               {card_body}
             </CustomScrollbar>
           </div>

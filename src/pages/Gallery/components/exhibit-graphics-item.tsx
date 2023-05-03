@@ -11,16 +11,18 @@ import {IExhibitData} from "pages/Gallery";
 import CustomScrollbar from 'components/custom-scroll';
 
 interface Props {
-  id:number,
-  url:string,
-  createdTime:string,
-  prompt:string,
-  word1:string,
-  word2:string,
-  word3:string,
-  likes:number,
-  acterLikes:number,
-  setExhibitList:any
+  id:number;
+  url:string;
+  createdTime:string;
+  prompt:string;
+  word1:string;
+  word2:string;
+  word3:string;
+  likes:number;
+  acterLikes:number;
+  setExhibitList:any;
+  setLightToggler: any;
+  setLightSource: any;
 }
 
 export default function ExhibitGraphicsItem({
@@ -34,6 +36,8 @@ export default function ExhibitGraphicsItem({
   likes,
   acterLikes,
   setExhibitList,
+  setLightToggler,
+  setLightSource
 }:Props) {
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
@@ -78,6 +82,10 @@ export default function ExhibitGraphicsItem({
     setLoaded(true);
   }
 
+  function trunLightBox() {
+    setLightSource([url]);
+    setLightToggler((prev:boolean)=>{return !prev});
+  }
 
   return (
     <div className="card bg-dark shadow">
@@ -109,10 +117,11 @@ export default function ExhibitGraphicsItem({
       </div>
       <div className="card-img-top">
         <img
-          className={"w-100 " + (loaded ? "" : "d-none")}
+          className={"w-100 " + style.image_actived +" "+ (loaded ? "" : "d-none")}
           src={url}
           alt=""
           onLoad={imageLoaded}
+          onClick={trunLightBox}
         />
         <img
           className={"w-100 " + (loaded ? "d-none" : "")}

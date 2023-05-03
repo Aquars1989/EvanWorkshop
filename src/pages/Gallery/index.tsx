@@ -13,6 +13,7 @@ import { useGuestStateContext } from "provider/guest-provider";
 import Style from "./index.module.css";
 import { useIntl, FormattedMessage } from "react-intl";
 import { FormatError } from "fetch/error-format";
+import FsLightbox from "fslightbox-react";
 
 export interface IOwnListData{
   id: number;
@@ -40,6 +41,8 @@ export default function Gallery() {
   const [error, setError] = useState("");
   const [ownList , setOwnList] = useState([] as Array<IOwnListData> );
   const [exhibitList, setExhibitList] = useState([] as Array<IExhibitData>);
+  const [lightToggler, setLightToggler] = useState(false);
+  const [lightSource, setLightSource] = useState([]);
 
   const guest = useGuestStateContext();
   const intl = useIntl();
@@ -51,6 +54,8 @@ export default function Gallery() {
         pending={pending}
         setOwnList={setOwnList}
         setExhibitList={setExhibitList}
+        setLightToggler={setLightToggler}
+        setLightSource={setLightSource}
       />
     );
   }, [ownList, pending]);
@@ -60,6 +65,8 @@ export default function Gallery() {
       <CarouselGraphicsContiner
         exhibitList={exhibitList}
         setExhibitList={setExhibitList}
+        setLightToggler={setLightToggler}
+        setLightSource={setLightSource}
       />
     );
   }, [exhibitList]);
@@ -69,6 +76,8 @@ export default function Gallery() {
       <ExhibitGraphicsList
         exhibitList={exhibitList}
         setExhibitList={setExhibitList}
+        setLightToggler={setLightToggler}
+        setLightSource={setLightSource}
       />
     );
   }, [exhibitList]);
@@ -256,6 +265,12 @@ export default function Gallery() {
         <FormattedMessage id="gallery.exhibition" />
       </h2>
       <div className="px-1">{exhibitGraphicsList}</div>
+
+      <FsLightbox
+				toggler={lightToggler}
+				sources={lightSource}
+        types={['image']}
+			/>
     </div>
   );
 }

@@ -5,11 +5,15 @@ import { IExhibitData } from "pages/Gallery";
 interface Props {
   exhibitList: Array<IExhibitData>;
   setExhibitList: any;
+  setLightToggler: any;
+  setLightSource: any;
 }
 
 export default function CarouselGraphicsContiner({
   exhibitList,
   setExhibitList,
+  setLightToggler,
+  setLightSource,
 }: Props) {
   function compareLikes(a: IExhibitData, b: IExhibitData) {
     if (a.likes < b.likes) {
@@ -37,6 +41,8 @@ export default function CarouselGraphicsContiner({
             likes={0}
             acterLikes={0}
             setExhibitList={undefined}
+            setLightToggler={undefined}
+            setLightSource={undefined}
           />
         </div>
       </div>
@@ -121,6 +127,8 @@ export default function CarouselGraphicsContiner({
                     likes={likes}
                     acterLikes={acterLikes}
                     setExhibitList={setExhibitList}
+                    setLightToggler={setLightToggler}
+                    setLightSource={setLightSource}
                   />
                 </div>
               </div>
