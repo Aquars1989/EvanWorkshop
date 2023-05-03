@@ -71,7 +71,7 @@ export default function OwnGraphicsItem({
   }
 
   var entriesItem;
-  if(id === 0)
+  if(id === 0 || entries<0)
   {
     entriesItem=<></>
   }
