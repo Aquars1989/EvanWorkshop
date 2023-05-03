@@ -1,3 +1,27 @@
+.prompt:first-child:first-letter {
+  color: rgb(100, 148, 172); 
+  font-family: Georgia;
+  initial-letter: 1.8;
+  margin-right: 4px;
+}
+
+.prompt {
+  font-family: Georgia;
+}
+
+
+.prompt2:first-child:first-letter {
+  color: rgb(118, 152, 104); 
+  font-family: Georgia;
+  initial-letter: 1.8;
+  margin-right: 4px;
+}
+
+.prompt2 {
+  font-family: Georgia;
+}
+
+
 .image_actived {
   cursor: pointer;
 }

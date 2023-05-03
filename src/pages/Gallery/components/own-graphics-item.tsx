@@ -94,7 +94,7 @@ export default function OwnGraphicsItem({
   var promptItem;
   if (id !== 0) {
     promptItem = (
-      <figcaption className="lh-sm text-white-50">{prompt}</figcaption>
+      <figcaption className={"lh-sm text-white-50 "+ Style.prompt}>{prompt}</figcaption>
     );
   } else {
     promptItem = (

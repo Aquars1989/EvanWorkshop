@@ -120,7 +120,7 @@ export default function CarouselGraphicsItem({
       </div>
     );
 
-    card_body = <p className="card-subtitle">{prompt}</p>;
+    card_body = <p className={"card-subtitle "+Style.prompt2}>{prompt}</p>;
 
     card_tailer = (
       <div className="d-flex justify-content-between">
