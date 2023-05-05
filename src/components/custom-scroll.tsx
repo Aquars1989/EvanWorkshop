@@ -1,14 +1,9 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 export default class CustomScrollbar extends Component {
 
-    constructor(props, ...rest) {
-        super(props, ...rest);
-        this.renderThumb = this.renderThumb.bind(this);
-    }
-
-    renderThumb({ style, ...props }) {
+    renderThumb({ style, ...props }: { style: React.CSSProperties }) {
         const thumbStyle = {
             backgroundColor: '#ffffff30',
             borderRadius: '2px'
@@ -24,8 +19,8 @@ export default class CustomScrollbar extends Component {
         return (
             <Scrollbars
                 className=''
-                renderThumbHorizontal={this.renderThumb}
-                renderThumbVertical={this.renderThumb}
+                renderThumbHorizontal={this.renderThumb.bind(this)}
+                renderThumbVertical={this.renderThumb.bind(this)}
                 {...this.props}/>
         );
     }

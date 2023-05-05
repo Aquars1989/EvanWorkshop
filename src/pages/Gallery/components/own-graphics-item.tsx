@@ -136,7 +136,7 @@ export default function OwnGraphicsItem({
         />
       </div>
       <div className="card-body d-flex justify-content-between">
-        <CustomScrollbar style={{  height: 40 }}>
+        <CustomScrollbar>
           {promptItem}
         </CustomScrollbar>
         {entriesItem}
