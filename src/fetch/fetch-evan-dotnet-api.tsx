@@ -158,9 +158,9 @@ export async function FetchEvanAPI_Picture_Put(ip:string, id:number):Promise<IEv
   }
 }
 
-export async function FetchEvanAPI_Score_Get(ip:string):Promise<IEvanAPIReceive> {
+export async function FetchEvanAPI_Score_Get(ip:string,last:number,count:number):Promise<IEvanAPIReceive> {
   try {
-    const response = await fetch(Api_NetCore_OpenAiPictureScore + "?ip=" + ip);
+    const response = await fetch(Api_NetCore_OpenAiPictureScore + `?ip=${ip}&last=${last}&count=${count}`);
     const json = await response.json();
     return json;
   } catch (ex:any) {
