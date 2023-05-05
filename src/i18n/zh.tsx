@@ -105,6 +105,7 @@ const zh_TW = {
 
   "words2.": " ",
   "words2.unknow": " ",
+  "words2.defined": " ",
   "words2.red": "紅",
   "words2.blue": "藍",
   "words2.yellow": "黃",
@@ -138,6 +139,7 @@ const zh_TW = {
 
   "words3.": "訪客",
   "words3.guest": "訪客",
+  "words3.defined": "訪客",
   "words3.whale": "鯨魚",
   "words3.unicorn": "獨角獸",
   "words3.turtle": "烏龜",

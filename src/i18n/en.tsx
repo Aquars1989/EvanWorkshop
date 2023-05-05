@@ -105,6 +105,7 @@ const en = {
 
   "words2.": " ",
   "words2.unknow": " ",
+  "words2.defined": " ",
   "words2.red": "Red",
   "words2.blue": "Blue",
   "words2.yellow": "Yellow",
@@ -137,6 +138,8 @@ const en = {
   "words2.thistle": "Thistle",
 
   "words3.": "Guest",
+  "words3.unknow": "Guest",
+  "words3.defined": "Guest",
   "words3.guest": "Guest",
   "words3.whale": "Whale",
   "words3.unicorn": "Unicorn",
