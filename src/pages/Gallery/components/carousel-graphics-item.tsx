@@ -173,7 +173,7 @@ export default function CarouselGraphicsItem({
             </div>
           </div>
           <div className={"card-body h-50 " + Style.carousel_card_body}>
-            <CustomScrollbar>
+            <CustomScrollbar style={{ height: 40 }}>
               {card_body}
             </CustomScrollbar>
           </div>
