@@ -3,15 +3,15 @@ import CarouselGraphicsItem from "./carousel-graphics-item";
 import { IExhibitData } from "pages/Gallery";
 
 interface Props {
-  exhibitList: Array<IExhibitData>;
-  setExhibitList: any;
+  mostLikedList: Array<IExhibitData>;
+  setMostLikedList: any;
   setLightToggler: any;
   setLightSource: any;
 }
 
 export default function CarouselGraphicsContiner({
-  exhibitList,
-  setExhibitList,
+  mostLikedList,
+  setMostLikedList,
   setLightToggler,
   setLightSource,
 }: Props) {
@@ -26,7 +26,7 @@ export default function CarouselGraphicsContiner({
   }
 
   let placeholders;
-  if (exhibitList.length === 0) {
+  if (mostLikedList.length === 0) {
     placeholders = (
       <div className={"carousel-item active "}>
         <div className="w-75 p-2 m-auto ">
@@ -40,7 +40,7 @@ export default function CarouselGraphicsContiner({
             word3={""}
             likes={0}
             acterLikes={0}
-            setExhibitList={undefined}
+            setMostLikedList={undefined}
             setLightToggler={undefined}
             setLightSource={undefined}
           />
@@ -92,7 +92,7 @@ export default function CarouselGraphicsContiner({
       </div>
       <div className="carousel-inner pt-2 pb-3">
         {placeholders}
-        {exhibitList
+        {mostLikedList
           .sort(compareLikes)
           .reverse()
           .slice(0, 5)
@@ -126,7 +126,7 @@ export default function CarouselGraphicsContiner({
                     word3={word3}
                     likes={likes}
                     acterLikes={acterLikes}
-                    setExhibitList={setExhibitList}
+                    setMostLikedList={setMostLikedList}
                     setLightToggler={setLightToggler}
                     setLightSource={setLightSource}
                   />

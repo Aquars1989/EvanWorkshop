@@ -13,7 +13,7 @@ interface Props {
   url:string;
   createdTime:string;
   prompt:string;
-  entries:number;
+  exhibit:number;
   setOwnList:any;
   setExhibitList:any;
   setLightToggler: any;
@@ -25,7 +25,7 @@ export default function OwnGraphicsItem({
   url,
   createdTime,
   prompt,
-  entries,
+  exhibit,
   setOwnList,
   setExhibitList,
   setLightToggler,
@@ -34,7 +34,7 @@ export default function OwnGraphicsItem({
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
 
-  async function SetEntries() {
+  async function SetExhibit() {
     try {
       const evanRes = await FetchEvanAPI_Picture_Put(guest.Ip, id);
       if (evanRes.code !== "0000") {
@@ -44,7 +44,7 @@ export default function OwnGraphicsItem({
       setOwnList((prev:Array<IOwnListData>) => {
         const found = prev.find((x) => x.id === id);
         if(found!== undefined) {
-          found.entries = true;
+          found.exhibit = true;
         }
         return [...prev];
       });
@@ -70,23 +70,23 @@ export default function OwnGraphicsItem({
     }
   }
 
-  var entriesItem;
-  if(id === 0 || entries<0)
+  var exhibitItem;
+  if(id === 0 || exhibit<0)
   {
-    entriesItem=<></>
+    exhibitItem=<></>
   }
   else{
-    if (entries === 1) {
-      entriesItem = (
+    if (exhibit === 1) {
+      exhibitItem = (
         <img className={Style.ownlist_entries_check} src={BookmarkFill} alt="" />
       );
     } else {
-      entriesItem = (
+      exhibitItem = (
         <img
           className={Style.ownlist_entries}
           src={Bookmark}
           alt=""
-          onClick={SetEntries}
+          onClick={SetExhibit}
         />
       );
     }}
@@ -139,7 +139,7 @@ export default function OwnGraphicsItem({
         <CustomScrollbar style={{ height: 40 }}>
           {promptItem}
         </CustomScrollbar>
-        {entriesItem}
+        {exhibitItem}
       </div>
     </div>
   );

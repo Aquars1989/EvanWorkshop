@@ -3,6 +3,8 @@ import {
   Api_NetCore_GuestNamePool,
   Api_NetCore_OpenAiPicture,
   Api_NetCore_OpenAiPictureScore,
+  Api_NetCore_OpenAiExhibit_GetExhibitions,
+  Api_NetCore_OpenAiExhibit_GetMostLiked,
 } from "golbal/constants";
 
 interface IEvanAPIReceive 
@@ -158,20 +160,6 @@ export async function FetchEvanAPI_Picture_Put(ip:string, id:number):Promise<IEv
   }
 }
 
-export async function FetchEvanAPI_Score_Get(ip:string,last:number,count:number):Promise<IEvanAPIReceive> {
-  try {
-    const response = await fetch(Api_NetCore_OpenAiPictureScore + `?ip=${ip}&last=${last}&count=${count}`);
-    const json = await response.json();
-    return json;
-  } catch (ex:any) {
-    return {
-      code: "A990",
-      message: ex.message,
-      data: null
-    };
-  }
-}
-
 export async function FetchEvanAPI_Score_Post(ip:string, id:number):Promise<IEvanAPIReceive> {
   try {
     const response = await fetch(Api_NetCore_OpenAiPictureScore, {
@@ -185,6 +173,34 @@ export async function FetchEvanAPI_Score_Post(ip:string, id:number):Promise<IEva
       },
     });
 
+    const json = await response.json();
+    return json;
+  } catch (ex:any) {
+    return {
+      code: "A990",
+      message: ex.message,
+      data: null
+    };
+  }
+}
+
+export async function FetchEvanAPI_Exhibitions_Get(ip:string,last:number,count:number):Promise<IEvanAPIReceive> {
+  try {
+    const response = await fetch(Api_NetCore_OpenAiExhibit_GetExhibitions + `?ip=${ip}&last=${last}&count=${count}`);
+    const json = await response.json();
+    return json;
+  } catch (ex:any) {
+    return {
+      code: "A990",
+      message: ex.message,
+      data: null
+    };
+  }
+}
+
+export async function FetchEvanAPI_MostLiked_Get(ip:string,count:number):Promise<IEvanAPIReceive> {
+  try {
+    const response = await fetch(Api_NetCore_OpenAiExhibit_GetMostLiked + `?ip=${ip}&count=${count}`);
     const json = await response.json();
     return json;
   } catch (ex:any) {

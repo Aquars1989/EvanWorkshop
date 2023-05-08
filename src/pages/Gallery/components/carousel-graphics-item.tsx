@@ -20,7 +20,7 @@ interface Props {
   word3: string;
   likes: number;
   acterLikes: number;
-  setExhibitList: any;
+  setMostLikedList: any;
   setLightToggler: any;
   setLightSource: any;
 }
@@ -35,7 +35,7 @@ export default function CarouselGraphicsItem({
   word3,
   likes,
   acterLikes,
-  setExhibitList,
+  setMostLikedList,
   setLightToggler,
   setLightSource,
 }: Props) {
@@ -49,7 +49,7 @@ export default function CarouselGraphicsItem({
         throw new Error("FetchEvanAPI_Score_Post:" + evanRes.message);
       }
 
-      setExhibitList((prev: Array<IExhibitData>) => {
+      setMostLikedList((prev: Array<IExhibitData>) => {
         const found = prev.find((x) => x.id === id);
         if (found !== undefined) {
           found.likes += 1;

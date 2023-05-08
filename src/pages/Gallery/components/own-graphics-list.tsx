@@ -23,12 +23,12 @@ export default function OwnGraphicsList({
   if (pending) {
     pendingDiv = (
       <div className="col-sm-4 col-md-3 col-lg-2 p-2">
-        <OwnGraphicsItem id={0} url={""} createdTime={""} prompt={""} entries={0} setOwnList={undefined} setExhibitList={undefined} setLightToggler={undefined} setLightSource={undefined} />
+        <OwnGraphicsItem id={0} url={""} createdTime={""} prompt={""} exhibit={0} setOwnList={undefined} setExhibitList={undefined} setLightToggler={undefined} setLightSource={undefined} />
       </div>
     );
   }
 
-  var entriesExists = ownList.find((x) => x.entries === true);
+  var exhibitExists = ownList.find((x) => x.exhibit === true);
 
   return (
     <div
@@ -38,7 +38,7 @@ export default function OwnGraphicsList({
       }
     >
       {ownList.map((item) => {
-        const { id, url, createdTime, prompt, entries } = item;
+        const { id, url, createdTime, prompt, exhibit } = item;
         return (
           <div key={id} className="col-sm-4 col-md-3 col-lg-2 p-2">
             <OwnGraphicsItem
@@ -46,7 +46,7 @@ export default function OwnGraphicsList({
               url={url}
               createdTime={createdTime}
               prompt={prompt}
-              entries={entries ? 1 : entriesExists ? -1 : 0}
+              exhibit={exhibit ? 1 : exhibitExists ? -1 : 0}
               setOwnList={setOwnList}
               setExhibitList={setExhibitList}
               setLightToggler={setLightToggler}

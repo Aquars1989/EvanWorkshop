@@ -1,13 +1,14 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import OwnGraphicsList from "./components/own-graphics-list";
 import ExhibitGraphicsList from "./components/exhibit-graphics-list";
-//import CarouselGraphicsContiner from "./components/carousel-graphics-continer";
+import CarouselGraphicsContiner from "./components/carousel-graphics-continer";
 import { FetchEvanAPI_OpenArt_Get } from "fetch/fetch-evan-flask-api";
 //import {FetchOpenAiImage} from "fetch/fetch-openai";
 import {
   FetchEvanAPI_Picture_Get,
   FetchEvanAPI_Picture_Post,
-  FetchEvanAPI_Score_Get,
+  FetchEvanAPI_Exhibitions_Get,
+  FetchEvanAPI_MostLiked_Get
 } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import Style from "./index.module.css";
@@ -21,7 +22,7 @@ export interface IOwnListData {
   url: string;
   createdTime: string;
   prompt: string;
-  entries: boolean;
+  exhibit: boolean;
 }
 
 export interface IExhibitData {
@@ -42,6 +43,7 @@ export default function Gallery() {
   const [error, setError] = useState("");
   const [ownList, setOwnList] = useState([] as Array<IOwnListData>);
   const [loadEnd, setLoadEnd] = useState(false);
+  const [mostLikedList, setMostLikedList] = useState([] as Array<IExhibitData>);
   const [exhibitList, setExhibitList] = useState([] as Array<IExhibitData>);
   const [lightToggler, setLightToggler] = useState(false);
   const [lightSource, setLightSource] = useState([]);
@@ -49,10 +51,10 @@ export default function Gallery() {
   const guest = useGuestStateContext();
   const intl = useIntl();
 
-  const LoadData = useCallback(async (last: number) => {
+  const LoadExhibitions = useCallback(async (last: number) => {
     if (guest.Ip === "") return;
     
-    const evanRes = await FetchEvanAPI_Score_Get(guest.Ip, last, 15);
+    const evanRes = await FetchEvanAPI_Exhibitions_Get(guest.Ip, last, 15);
     await new Promise((r) => setTimeout(r, 1000));
     let list: Array<IExhibitData> = [];
     if (evanRes.code === "0000") {
@@ -80,11 +82,11 @@ export default function Gallery() {
     });
   }, [guest]);
 
-  const ReLoadData = useCallback(async () => {
+  const ReLoadExhibitions = useCallback(async () => {
     setExhibitList([] as Array<IExhibitData>);
     setLoadEnd(false);
-    await LoadData(-1);
-  }, [LoadData]);
+    await LoadExhibitions(-1);
+  }, [LoadExhibitions]);
 
   const ownGraphicsList = useMemo(() => {
     return (
@@ -99,17 +101,16 @@ export default function Gallery() {
     );
   }, [ownList, pending]);
 
-  /*const carouselGraphicsContiner = useMemo(() => {
+  const carouselGraphicsContiner = useMemo(() => {
     return (
       <CarouselGraphicsContiner
-        exhibitList={exhibitList}
-        setExhibitList={setExhibitList}
+        mostLikedList={mostLikedList}
+        setMostLikedList={setMostLikedList}
         setLightToggler={setLightToggler}
         setLightSource={setLightSource}
       />
     );
-  }, [exhibitList]);*/
-  const carouselGraphicsContiner = <></>;
+  }, [mostLikedList]);
 
   const exhibitGraphicsList = useMemo(() => {
     async function  ScrollLoadData(){
@@ -119,7 +120,7 @@ export default function Gallery() {
       if (exhibitList.length > 0) {
         last = exhibitList[exhibitList.length - 1].id;
       }
-      await LoadData(last);
+      await LoadExhibitions(last);
     }
 
     return (
@@ -132,7 +133,7 @@ export default function Gallery() {
             <b>Yay! You have seen it all</b>
           </p>
         }
-        refreshFunction={ReLoadData}
+        refreshFunction={ReLoadExhibitions}
         next={ScrollLoadData}
         scrollableTarget="html"
       >
@@ -144,7 +145,7 @@ export default function Gallery() {
         />
       </InfiniteScroll>
     );
-  }, [exhibitList, loadEnd, LoadData, ReLoadData]);
+  }, [exhibitList, loadEnd, LoadExhibitions, ReLoadExhibitions]);
 
   useEffect(() => {
     if (guest.Ip === "") return;
@@ -161,7 +162,7 @@ export default function Gallery() {
             url: element.url,
             createdTime: element.createdTime,
             prompt: element.prompt,
-            entries: element.entries,
+            exhibit: element.exhibit,
           });
         }
       }
@@ -172,8 +173,35 @@ export default function Gallery() {
 
   useEffect(() => {
     if (guest.Ip === "") return;
-    ReLoadData();
-  }, [guest,ReLoadData]);
+
+    const fetchData = async () => {
+      const evanRes = await FetchEvanAPI_MostLiked_Get(guest.Ip,5);
+      let list: Array<IExhibitData> = [];
+      if (evanRes.code === "0000") {
+        for (let i = 0; i < evanRes.data.length; i++) {
+          const element = evanRes.data[i];
+          list.push({
+            id: element.id,
+            url: element.url,
+            createdTime: element.createdTime,
+            prompt: element.prompt,
+            word1: element.word1,
+            word2: element.word2,
+            word3: element.word3,
+            likes: element.likes,
+            acterLikes: element.acterLikes,
+          });
+        }
+      }
+      setMostLikedList(list);
+    };
+    fetchData();
+  }, [guest]);
+
+  useEffect(() => {
+    if (guest.Ip === "") return;
+    ReLoadExhibitions();
+  }, [guest,ReLoadExhibitions]);
 
 
   async function onSubmit(event: any) {
@@ -223,7 +251,7 @@ export default function Gallery() {
             url: evanItem.url,
             createdTime: evanItem.createdTime,
             prompt: evanItem.prompt,
-            entries: evanItem.entries,
+            exhibit: evanItem.exhibit,
           },
         ];
       });
