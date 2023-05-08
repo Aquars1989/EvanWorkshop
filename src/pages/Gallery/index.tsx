@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import OwnGraphicsList from "./components/own-graphics-list";
 import ExhibitGraphicsList from "./components/exhibit-graphics-list";
 //import CarouselGraphicsContiner from "./components/carousel-graphics-continer";
-import {FetchEvanAPI_OpenArt_Get} from "fetch/fetch-evan-flask-api";
+import { FetchEvanAPI_OpenArt_Get } from "fetch/fetch-evan-flask-api";
 //import {FetchOpenAiImage} from "fetch/fetch-openai";
 import {
   FetchEvanAPI_Picture_Get,
@@ -16,16 +16,16 @@ import { FormatError } from "fetch/error-format";
 import FsLightbox from "fslightbox-react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export interface IOwnListData{
+export interface IOwnListData {
   id: number;
   url: string;
-  createdTime:string;
+  createdTime: string;
   prompt: string;
   entries: boolean;
 }
 
-export interface IExhibitData{
-  id: number,
+export interface IExhibitData {
+  id: number;
   url: string;
   createdTime: string;
   prompt: string;
@@ -40,7 +40,7 @@ export default function Gallery() {
   const [userInput, setUserInput] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
-  const [ownList , setOwnList] = useState([] as Array<IOwnListData> );
+  const [ownList, setOwnList] = useState([] as Array<IOwnListData>);
   const [loadEnd, setLoadEnd] = useState(false);
   const [exhibitList, setExhibitList] = useState([] as Array<IExhibitData>);
   const [lightToggler, setLightToggler] = useState(false);
@@ -48,6 +48,43 @@ export default function Gallery() {
 
   const guest = useGuestStateContext();
   const intl = useIntl();
+
+  const LoadData = useCallback(async (last: number) => {
+    if (guest.Ip === "") return;
+    
+    const evanRes = await FetchEvanAPI_Score_Get(guest.Ip, last, 15);
+    await new Promise((r) => setTimeout(r, 1000));
+    let list: Array<IExhibitData> = [];
+    if (evanRes.code === "0000") {
+      //console.log(last,evanRes.data)
+      if (evanRes.data.length < 15) {
+        setLoadEnd(true);
+      }
+      for (let i = 0; i < evanRes.data.length; i++) {
+        const element = evanRes.data[i];
+        list.push({
+          id: element.id,
+          url: element.url,
+          createdTime: element.createdTime,
+          prompt: element.prompt,
+          word1: element.word1,
+          word2: element.word2,
+          word3: element.word3,
+          likes: element.likes,
+          acterLikes: element.acterLikes,
+        });
+      }
+    }
+    setExhibitList((prev: Array<IExhibitData>) => {
+      return prev.concat(list);
+    });
+  }, [guest]);
+
+  const ReLoadData = useCallback(async () => {
+    setExhibitList([] as Array<IExhibitData>);
+    setLoadEnd(false);
+    await LoadData(-1);
+  }, [LoadData]);
 
   const ownGraphicsList = useMemo(() => {
     return (
@@ -72,62 +109,33 @@ export default function Gallery() {
       />
     );
   }, [exhibitList]);*/
-  const carouselGraphicsContiner=<></>
+  const carouselGraphicsContiner = <></>;
 
   const exhibitGraphicsList = useMemo(() => {
-    async function ReLoadData() {
-      setExhibitList([] as Array<IExhibitData>)
-      setLoadEnd(false)
-      await LoadData()
-  }
+    async function  ScrollLoadData(){
+      if (loadEnd) return;
 
-  async function LoadData() {
-    if(loadEnd)return;
-    let last=-1;
-    if(exhibitList.length>0){
-      last=exhibitList[exhibitList.length-1].id
-    }
-    //console.log(exhibitList)
-    const evanRes = await FetchEvanAPI_Score_Get(guest.Ip,last,15);
-    await new Promise(r => setTimeout(r, 1000));
-    let list:Array<IExhibitData> = [];
-    if (evanRes.code === "0000") {
-      //console.log(last,evanRes.data)
-      if(evanRes.data.length<15 )
-      {
-        setLoadEnd(true)
+      let last = -1;
+      if (exhibitList.length > 0) {
+        last = exhibitList[exhibitList.length - 1].id;
       }
-      for (let i = 0; i < evanRes.data.length; i++) {
-        const element = evanRes.data[i];
-        list.push({
-          id: element.id,
-          url: element.url,
-          createdTime: element.createdTime,
-          prompt: element.prompt,
-          word1: element.word1,
-          word2: element.word2,
-          word3: element.word3,
-          likes: element.likes,
-          acterLikes: element.acterLikes,
-        });
-      }
+      await LoadData(last);
     }
-    setExhibitList((prev:Array<IExhibitData>)=>{
-      return prev.concat(list)
-    });
-  }
-  
+
     return (
-      <InfiniteScroll 
-        dataLength={exhibitList.length} 
+      <InfiniteScroll
+        dataLength={exhibitList.length}
         hasMore={!loadEnd}
         loader={<h4>Loading...</h4>}
-        endMessage={<p style={{ textAlign: 'center' }}>
-          <b>Yay! You have seen it all</b>
-        </p>}
-        refreshFunction={ReLoadData} 
-        next={LoadData} 
-        scrollableTarget="html">
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+        refreshFunction={ReLoadData}
+        next={ScrollLoadData}
+        scrollableTarget="html"
+      >
         <ExhibitGraphicsList
           exhibitList={exhibitList}
           setExhibitList={setExhibitList}
@@ -136,7 +144,7 @@ export default function Gallery() {
         />
       </InfiniteScroll>
     );
-  }, [exhibitList,guest.Ip,loadEnd]);
+  }, [exhibitList, loadEnd, LoadData, ReLoadData]);
 
   useEffect(() => {
     if (guest.Ip === "") return;
@@ -144,7 +152,7 @@ export default function Gallery() {
     const fetchData = async () => {
       const evanRes = await FetchEvanAPI_Picture_Get(guest.Ip);
 
-      let list:Array<IOwnListData> = [];
+      let list: Array<IOwnListData> = [];
       if (evanRes.code === "0000") {
         for (let i = 0; i < evanRes.data.length; i++) {
           const element = evanRes.data[i];
@@ -164,44 +172,9 @@ export default function Gallery() {
 
   useEffect(() => {
     if (guest.Ip === "") return;
-    LoadData();
-  }, [guest,LoadData]);
+    ReLoadData();
+  }, [guest,ReLoadData]);
 
-  async function LoadData() {
-    if(loadEnd)return;
-    let last=-1;
-    if(exhibitList.length>0){
-      last=exhibitList[exhibitList.length-1].id
-    }
-    //console.log(exhibitList)
-    const evanRes = await FetchEvanAPI_Score_Get(guest.Ip,last,15);
-    await new Promise(r => setTimeout(r, 1000));
-    let list:Array<IExhibitData> = [];
-    if (evanRes.code === "0000") {
-      //console.log(last,evanRes.data)
-      if(evanRes.data.length<15 )
-      {
-        setLoadEnd(true)
-      }
-      for (let i = 0; i < evanRes.data.length; i++) {
-        const element = evanRes.data[i];
-        list.push({
-          id: element.id,
-          url: element.url,
-          createdTime: element.createdTime,
-          prompt: element.prompt,
-          word1: element.word1,
-          word2: element.word2,
-          word3: element.word3,
-          likes: element.likes,
-          acterLikes: element.acterLikes,
-        });
-      }
-    }
-    setExhibitList((prev:Array<IExhibitData>)=>{
-      return prev.concat(list)
-    });
-  }
 
   async function onSubmit(event: any) {
     event.preventDefault();
@@ -228,7 +201,7 @@ export default function Gallery() {
       if (openAIRes.code !== "0000") {
         //console.log(FormatError(intl,openAIRes));
         setError(FormatError(intl, openAIRes));
-        throw new Error("FetchOpenAI:"+openAIRes.message);
+        throw new Error("FetchOpenAI:" + openAIRes.message);
       }
       const evanRes = await FetchEvanAPI_Picture_Post(
         guest.Ip,
@@ -238,7 +211,7 @@ export default function Gallery() {
 
       if (evanRes.code !== "0000") {
         setError(FormatError(intl, evanRes));
-        throw new Error("FetchEvanAPI_Picture_Post:"+evanRes.message);
+        throw new Error("FetchEvanAPI_Picture_Post:" + evanRes.message);
       }
 
       const evanItem = evanRes.data;
@@ -288,58 +261,58 @@ export default function Gallery() {
   }
 
   return (
-      <div className={Style.main + " container-fluid bg-gradient bg-dark p-5"}>
-          <h2 className="mt-3">
-            <FormattedMessage id="gallery.drawMyPicture" />
-          </h2>
-          <form onSubmit={onSubmit} className="px-1">
-            <div className="row align-items-center">
-              <div className="col-sm-10 col-md-7">
-                <input
-                  type="text"
-                  name="prompt"
-                  placeholder={intl.formatMessage({
-                    id: "gallery.inputDescription",
-                  })}
-                  value={userInput}
-                  className="w-100 p-2 my-1 mx-md-2"
-                  maxLength={100}
-                  onChange={(e) => setUserInput(e.target.value)}
-                />
-              </div>
-              <div className="col-sm-10 col-md-3">{summitButton}</div>
-            </div>
-            {errorMsg}
-            <ul className="px-1 mb-3 txt-tip1">
-              <li>
-                <FormattedMessage id="gallery.description1" />
-              </li>
-              <li>
-                <FormattedMessage id="gallery.description2" />
-              </li>
-              <li>
-                <FormattedMessage id="gallery.description3" />
-              </li>
-            </ul>
-          </form>
+    <div className={Style.main + " container-fluid bg-gradient bg-dark p-5"}>
+      <h2 className="mt-3">
+        <FormattedMessage id="gallery.drawMyPicture" />
+      </h2>
+      <form onSubmit={onSubmit} className="px-1">
+        <div className="row align-items-center">
+          <div className="col-sm-10 col-md-7">
+            <input
+              type="text"
+              name="prompt"
+              placeholder={intl.formatMessage({
+                id: "gallery.inputDescription",
+              })}
+              value={userInput}
+              className="w-100 p-2 my-1 mx-md-2"
+              maxLength={100}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+          </div>
+          <div className="col-sm-10 col-md-3">{summitButton}</div>
+        </div>
+        {errorMsg}
+        <ul className="px-1 mb-3 txt-tip1">
+          <li>
+            <FormattedMessage id="gallery.description1" />
+          </li>
+          <li>
+            <FormattedMessage id="gallery.description2" />
+          </li>
+          <li>
+            <FormattedMessage id="gallery.description3" />
+          </li>
+        </ul>
+      </form>
 
-          <div className="px-1">{ownGraphicsList}</div>
+      <div className="px-1">{ownGraphicsList}</div>
 
-          <h2 className="mt-3">
-            <FormattedMessage id="gallery.favorite" />
-          </h2>
-          <div className="px-1">{carouselGraphicsContiner}</div>
+      <h2 className="mt-3">
+        <FormattedMessage id="gallery.favorite" />
+      </h2>
+      <div className="px-1">{carouselGraphicsContiner}</div>
 
-          <h2 className="mt-3">
-            <FormattedMessage id="gallery.exhibition" />
-          </h2>
-          <div className="px-1">{exhibitGraphicsList}</div>
+      <h2 className="mt-3">
+        <FormattedMessage id="gallery.exhibition" />
+      </h2>
+      <div className="px-1">{exhibitGraphicsList}</div>
 
-          <FsLightbox
-            toggler={lightToggler}
-            sources={lightSource}
-            types={['image']}
-          />
-      </div>
+      <FsLightbox
+        toggler={lightToggler}
+        sources={lightSource}
+        types={["image"]}
+      />
+    </div>
   );
 }
