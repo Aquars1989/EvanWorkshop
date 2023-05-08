@@ -8,7 +8,7 @@ import {
   FetchEvanAPI_Picture_Get,
   FetchEvanAPI_Picture_Post,
   FetchEvanAPI_Exhibitions_Get,
-  FetchEvanAPI_MostLiked_Get
+  FetchEvanAPI_MostLiked_Get,
 } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import Style from "./index.module.css";
@@ -16,6 +16,8 @@ import { useIntl, FormattedMessage } from "react-intl";
 import { FormatError } from "fetch/error-format";
 import FsLightbox from "fslightbox-react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Dot from "images/dot.svg";
+
 
 export interface IOwnListData {
   id: number;
@@ -51,36 +53,39 @@ export default function Gallery() {
   const guest = useGuestStateContext();
   const intl = useIntl();
 
-  const LoadExhibitions = useCallback(async (last: number) => {
-    if (guest.Ip === "") return;
-    
-    const evanRes = await FetchEvanAPI_Exhibitions_Get(guest.Ip, last, 15);
-    await new Promise((r) => setTimeout(r, 1000));
-    let list: Array<IExhibitData> = [];
-    if (evanRes.code === "0000") {
-      //console.log(last,evanRes.data)
-      if (evanRes.data.length < 15) {
-        setLoadEnd(true);
+  const LoadExhibitions = useCallback(
+    async (last: number) => {
+      if (guest.Ip === "") return;
+
+      const evanRes = await FetchEvanAPI_Exhibitions_Get(guest.Ip, last, 15);
+      //await new Promise((r) => setTimeout(r, 10000));
+      let list: Array<IExhibitData> = [];
+      if (evanRes.code === "0000") {
+        //console.log(last,evanRes.data)
+        if (evanRes.data.length < 15) {
+          setLoadEnd(true);
+        }
+        for (let i = 0; i < evanRes.data.length; i++) {
+          const element = evanRes.data[i];
+          list.push({
+            id: element.id,
+            url: element.url,
+            createdTime: element.createdTime,
+            prompt: element.prompt,
+            word1: element.word1,
+            word2: element.word2,
+            word3: element.word3,
+            likes: element.likes,
+            acterLikes: element.acterLikes,
+          });
+        }
       }
-      for (let i = 0; i < evanRes.data.length; i++) {
-        const element = evanRes.data[i];
-        list.push({
-          id: element.id,
-          url: element.url,
-          createdTime: element.createdTime,
-          prompt: element.prompt,
-          word1: element.word1,
-          word2: element.word2,
-          word3: element.word3,
-          likes: element.likes,
-          acterLikes: element.acterLikes,
-        });
-      }
-    }
-    setExhibitList((prev: Array<IExhibitData>) => {
-      return prev.concat(list);
-    });
-  }, [guest]);
+      setExhibitList((prev: Array<IExhibitData>) => {
+        return prev.concat(list);
+      });
+    },
+    [guest]
+  );
 
   const ReLoadExhibitions = useCallback(async () => {
     setExhibitList([] as Array<IExhibitData>);
@@ -113,7 +118,7 @@ export default function Gallery() {
   }, [mostLikedList]);
 
   const exhibitGraphicsList = useMemo(() => {
-    async function  ScrollLoadData(){
+    async function ScrollLoadData() {
       if (loadEnd) return;
 
       let last = -1;
@@ -127,11 +132,20 @@ export default function Gallery() {
       <InfiniteScroll
         dataLength={exhibitList.length}
         hasMore={!loadEnd}
-        loader={<h4>Loading...</h4>}
+        loader={
+          <div className={Style.load_container}>
+            <img className={Style.load_dot+" "+Style.serial1} src={Dot} alt="●"/>
+            <img className={Style.load_dot+" "+Style.serial2} src={Dot} alt="●"/>
+            <img className={Style.load_dot+" "+Style.serial3} src={Dot} alt="●"/>
+            <img className={Style.load_dot+" "+Style.serial4} src={Dot} alt="●"/>
+            <img className={Style.load_dot+" "+Style.serial5} src={Dot} alt="●"/>
+          </div>
+        }
         endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b>Yay! You have seen it all</b>
-          </p>
+          <></>
+          //<p style={{ textAlign: "center" }}>
+          //  <b>No more exhibits to load</b>
+          //</p>
         }
         refreshFunction={ReLoadExhibitions}
         next={ScrollLoadData}
@@ -175,7 +189,7 @@ export default function Gallery() {
     if (guest.Ip === "") return;
 
     const fetchData = async () => {
-      const evanRes = await FetchEvanAPI_MostLiked_Get(guest.Ip,5);
+      const evanRes = await FetchEvanAPI_MostLiked_Get(guest.Ip, 5);
       let list: Array<IExhibitData> = [];
       if (evanRes.code === "0000") {
         for (let i = 0; i < evanRes.data.length; i++) {
@@ -201,8 +215,7 @@ export default function Gallery() {
   useEffect(() => {
     if (guest.Ip === "") return;
     ReLoadExhibitions();
-  }, [guest,ReLoadExhibitions]);
-
+  }, [guest, ReLoadExhibitions]);
 
   async function onSubmit(event: any) {
     event.preventDefault();
