@@ -327,7 +327,7 @@ export default function Gallery() {
       <div className="px-1">{ownGraphicsList}</div>
 
       <h2 className="mt-3">
-        <FormattedMessage id="gallery.favorite" />
+        <FormattedMessage id="gallery.mostLiked" />
       </h2>
       <div className="px-1">{carouselGraphicsContiner}</div>
 
