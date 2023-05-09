@@ -53,7 +53,7 @@ export default function CarouselGraphicsContiner({
   return (
     <div
       id="carouselAutoplaying"
-      className="carousel slide bg-secondary w-100 py-1"
+      className="carousel slide bg-transparent w-100 py-1"
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
@@ -115,7 +115,7 @@ export default function CarouselGraphicsContiner({
                 key={id}
                 className={"carousel-item" + (count <= 1 ? " active" : "")}
               >
-                <div className="w-75 p-0 p-md-2 m-auto">
+                <div className="w-75 p-0 px-md-2 py-md-3 m-auto">
                   <CarouselGraphicsItem
                     id={id}
                     url={url}
@@ -137,7 +137,7 @@ export default function CarouselGraphicsContiner({
       </div>
       <button
         className={
-          "carousel-control-prev bg-secondary " + Style.carousel_control
+          "carousel-control-prev bg-transparent " + Style.carousel_control
         }
         type="button"
         data-bs-target="#carouselAutoplaying"
@@ -148,7 +148,7 @@ export default function CarouselGraphicsContiner({
       </button>
       <button
         className={
-          "carousel-control-next bg-secondary " + Style.carousel_control
+          "carousel-control-next bg-transparent " + Style.carousel_control
         }
         type="button"
         data-bs-target="#carouselAutoplaying"

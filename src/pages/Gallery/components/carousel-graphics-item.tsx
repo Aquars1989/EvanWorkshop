@@ -10,6 +10,7 @@ import { FormattedMessage } from "react-intl";
 import { IExhibitData } from "pages/Gallery";
 import CustomScrollbar from "components/custom-scroll";
 
+
 interface Props {
   id: number;
   url: string;
@@ -103,7 +104,6 @@ export default function CarouselGraphicsItem({
   if (id !== undefined) {
     card_title = (
       <div>
-        <div className={"text-info"}>
           <img
             className={
               "guest-icon carousel " + word1 + " " + word2 + " " + word3
@@ -111,12 +111,9 @@ export default function CarouselGraphicsItem({
             src={GuestIconBase}
             alt={guest.GuestName}
           />
-          <small>
-            <FormattedMessage id={"words2." + word2} />
+          <FormattedMessage id={"words2." + word2} />
             <span> </span>
             <FormattedMessage id={"words3." + word3} />
-          </small>
-        </div>
       </div>
     );
 
@@ -124,7 +121,7 @@ export default function CarouselGraphicsItem({
 
     card_tailer = (
       <div className="d-flex justify-content-between">
-        <small className="card-text text-muted">
+        <small className="card-text">
           {year +
             "/" +
             month +
@@ -146,8 +143,8 @@ export default function CarouselGraphicsItem({
 
   return (
     <div className="card mb-3 bg-dark shadow">
-      <div className="row g-0">
-        <div className=" p-1 col-md-6">
+      <div className={"row g-0 "+Style.carousel_card}>
+        <div className="p-1 col-md-7">
           <img
             className={
               "w-100 shadow " +
@@ -166,18 +163,21 @@ export default function CarouselGraphicsItem({
             alt=""
           />
         </div>
-        <div className="col-md-6">
-          <div className={"card-header h-25"}>
+        <div className="col-md-5">
+          <div className={"card-header h-25 " + Style.carousel_card_header}>
             <div className="card-title d-flex justify-content-between px-2">
               {card_title}
             </div>
           </div>
-          <div className={"card-body h-50 " + Style.carousel_card_body}>
-            <CustomScrollbar style={{ height: 40 }}>
+          <div className={"card-body h-50 d-md-none " + Style.carousel_card_body}>
+            <CustomScrollbar style={{ height: 40}}>
               {card_body}
             </CustomScrollbar>
           </div>
-          <div className={"card-footer h-25"}>{card_tailer}</div>
+          <div className={"card-body h-50 d-none d-md-block " + Style.carousel_card_body}>
+              {card_body}
+          </div>
+          <div className={"card-footer h-25 " + Style.carousel_card_tailer}>{card_tailer}</div>
         </div>
       </div>
     </div>

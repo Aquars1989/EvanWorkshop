@@ -7,20 +7,20 @@ import { FetchEvanAPI_Score_Post } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import {IExhibitData} from "pages/Gallery";
-import CustomScrollbar from 'components/custom-scroll';
+import { IExhibitData } from "pages/Gallery";
+import CustomScrollbar from "components/custom-scroll";
 
 interface Props {
-  id:number;
-  url:string;
-  createdTime:string;
-  prompt:string;
-  word1:string;
-  word2:string;
-  word3:string;
-  likes:number;
-  acterLikes:number;
-  setExhibitList:any;
+  id: number;
+  url: string;
+  createdTime: string;
+  prompt: string;
+  word1: string;
+  word2: string;
+  word3: string;
+  likes: number;
+  acterLikes: number;
+  setExhibitList: any;
   setLightToggler: any;
   setLightSource: any;
 }
@@ -37,8 +37,8 @@ export default function ExhibitGraphicsItem({
   acterLikes,
   setExhibitList,
   setLightToggler,
-  setLightSource
-}:Props) {
+  setLightSource,
+}: Props) {
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
 
@@ -46,12 +46,12 @@ export default function ExhibitGraphicsItem({
     try {
       const evanRes = await FetchEvanAPI_Score_Post(guest.Ip, id);
       if (evanRes.code !== "0000") {
-        throw new Error("FetchEvanAPI_Score_Post:"+evanRes.message);
+        throw new Error("FetchEvanAPI_Score_Post:" + evanRes.message);
       }
 
-      setExhibitList((prev:Array<IExhibitData>) => {
+      setExhibitList((prev: Array<IExhibitData>) => {
         const found = prev.find((x) => x.id === id);
-        if(found!==undefined) {
+        if (found !== undefined) {
           found.likes += 1;
           found.acterLikes += 1;
         }
@@ -84,7 +84,9 @@ export default function ExhibitGraphicsItem({
 
   function trunLightBox() {
     setLightSource([url]);
-    setLightToggler((prev:boolean)=>{return !prev});
+    setLightToggler((prev: boolean) => {
+      return !prev;
+    });
   }
 
   return (
@@ -117,7 +119,9 @@ export default function ExhibitGraphicsItem({
       </div>
       <div className="card-img-top">
         <img
-          className={"w-100 " + style.image_actived +" "+ (loaded ? "" : "d-none")}
+          className={
+            "w-100 " + style.image_actived + " " + (loaded ? "" : "d-none")
+          }
           src={url}
           alt=""
           onLoad={imageLoaded}
@@ -129,16 +133,13 @@ export default function ExhibitGraphicsItem({
           alt=""
         />
       </div>
-      <div className={"card-body "+style.exhibit_prompt}>
-          <CustomScrollbar style={{ height: 40 }}>
-            <figcaption className={"lh-sm text-white-50 "+style.prompt} >
-              {prompt}
-            </figcaption>
-          </CustomScrollbar>
+      <div className={"card-body " + style.exhibit_prompt}>
+        <CustomScrollbar style={{ height: 40 }}>
+          <figcaption className={"lh-sm text-white-50 " + style.prompt}>
+            {prompt}
+          </figcaption>
+        </CustomScrollbar>
       </div>
     </div>
   );
-
-  
 }
-

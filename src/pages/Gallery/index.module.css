@@ -12,59 +12,54 @@
   margin-right: 4vmin;
 }
 
-
 .load_dot.serial1 {
-  animation: load_dot_scale 1S linear reverse infinite;
+  animation: load_dot_scale 1s linear reverse infinite;
 }
 
 .load_dot.serial2 {
-  animation: load_dot_scale 1S 0.1s linear reverse infinite;
+  animation: load_dot_scale 1s 0.1s linear reverse infinite;
 }
 
 .load_dot.serial3 {
-  animation: load_dot_scale 1S 0.2s linear reverse infinite;
+  animation: load_dot_scale 1s 0.2s linear reverse infinite;
 }
 
 .load_dot.serial4 {
-  animation: load_dot_scale 1S 0.3s linear reverse infinite;
+  animation: load_dot_scale 1s 0.3s linear reverse infinite;
 }
 
 .load_dot.serial5 {
-  animation: load_dot_scale 1S 0.4s linear reverse infinite;
+  animation: load_dot_scale 1s 0.4s linear reverse infinite;
 }
 
 @keyframes load_dot_scale {
   0% {
-    transform: scale(1)
+    transform: scale(1);
   }
   100% {
-    transform: scale(2)
+    transform: scale(2);
   }
 }
 
 .prompt:first-child:first-letter {
-  color: rgb(100, 148, 172); 
-  font-family: Georgia;
+  color: rgb(100, 148, 172);
   initial-letter: 1.8;
   margin-right: 4px;
 }
 
 .prompt {
-  font-family: Georgia;
+  font-family: Georgia, DFKai-sb;
 }
 
-
 .prompt2:first-child:first-letter {
-  color: rgb(118, 152, 104); 
-  font-family: Georgia;
+  color: rgb(255, 247, 156);
   initial-letter: 1.8;
   margin-right: 4px;
 }
 
 .prompt2 {
-  font-family: Georgia;
+  font-family: Georgia, DFKai-sb;
 }
-
 
 .image_actived {
   cursor: pointer;
@@ -76,7 +71,7 @@
 }
 
 .exhibit_prompt {
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .exhibit_likes_check {
@@ -96,9 +91,24 @@
   size: 2vmin, 2vmin;
 }
 
+.carousel_card {
+  background-color: #2d2b00;
+}
+
+.carousel_card_header {
+  background-image: url("/src/images/fancy-pattern2.svg");
+  background-position: right;
+  background-size: cover;
+  color: #bbbb60;
+}
 .carousel_card_body {
-  background-color: #2f2f33;
-  color: #288074;
+  background-color: #47483a;
+  color: #b6b67f;
+}
+.carousel_card_tailer {
+  background-image: url("/src/images/fancy-pattern.svg");
+  background-size: cover;
+  color: #bbbb60;
 }
 
 .carousel_control {

@@ -5,17 +5,17 @@ import GraphicsBase from "images/graphics-base.jpg";
 import { FetchEvanAPI_Picture_Put } from "fetch/fetch-evan-dotnet-api";
 import { useGuestStateContext } from "provider/guest-provider";
 import { useState } from "react";
-import {IOwnListData,IExhibitData} from "pages/Gallery";
-import CustomScrollbar from 'components/custom-scroll';
+import { IOwnListData, IExhibitData } from "pages/Gallery";
+import CustomScrollbar from "components/custom-scroll";
 
 interface Props {
-  id:number;
-  url:string;
-  createdTime:string;
-  prompt:string;
-  exhibit:number;
-  setOwnList:any;
-  setExhibitList:any;
+  id: number;
+  url: string;
+  createdTime: string;
+  prompt: string;
+  exhibit: number;
+  setOwnList: any;
+  setExhibitList: any;
   setLightToggler: any;
   setLightSource: any;
 }
@@ -29,8 +29,8 @@ export default function OwnGraphicsItem({
   setOwnList,
   setExhibitList,
   setLightToggler,
-  setLightSource
-}:Props) {
+  setLightSource,
+}: Props) {
   const [loaded, setLoaded] = useState(false);
   const guest = useGuestStateContext();
 
@@ -38,18 +38,18 @@ export default function OwnGraphicsItem({
     try {
       const evanRes = await FetchEvanAPI_Picture_Put(guest.Ip, id);
       if (evanRes.code !== "0000") {
-        throw new Error("FetchEvanAPI_Graphics_Put:"+evanRes.message);
+        throw new Error("FetchEvanAPI_Graphics_Put:" + evanRes.message);
       }
 
-      setOwnList((prev:Array<IOwnListData>) => {
+      setOwnList((prev: Array<IOwnListData>) => {
         const found = prev.find((x) => x.id === id);
-        if(found!== undefined) {
+        if (found !== undefined) {
           found.exhibit = true;
         }
         return [...prev];
       });
 
-      setExhibitList((prev:Array<IExhibitData>) => {
+      setExhibitList((prev: Array<IExhibitData>) => {
         return [
           ...prev,
           {
@@ -71,14 +71,16 @@ export default function OwnGraphicsItem({
   }
 
   var exhibitItem;
-  if(id === 0 || exhibit<0)
-  {
-    exhibitItem=<></>
-  }
-  else{
+  if (id === 0 || exhibit < 0) {
+    exhibitItem = <></>;
+  } else {
     if (exhibit === 1) {
       exhibitItem = (
-        <img className={Style.ownlist_entries_check} src={BookmarkFill} alt="" />
+        <img
+          className={Style.ownlist_entries_check}
+          src={BookmarkFill}
+          alt=""
+        />
       );
     } else {
       exhibitItem = (
@@ -89,12 +91,15 @@ export default function OwnGraphicsItem({
           onClick={SetExhibit}
         />
       );
-    }}
+    }
+  }
 
   var promptItem;
   if (id !== 0) {
     promptItem = (
-      <figcaption className={"lh-sm text-white-50 "+ Style.prompt}>{prompt}</figcaption>
+      <figcaption className={"lh-sm text-white-50 " + Style.prompt}>
+        {prompt}
+      </figcaption>
     );
   } else {
     promptItem = (
@@ -108,7 +113,9 @@ export default function OwnGraphicsItem({
 
   function trunLightBox() {
     setLightSource([url]);
-    setLightToggler((prev:boolean)=>{return !prev});
+    setLightToggler((prev: boolean) => {
+      return !prev;
+    });
   }
 
   return (
@@ -117,7 +124,9 @@ export default function OwnGraphicsItem({
         <img
           className={
             "w-100 " +
-            (id === 0 ? Style.ownlist_paint_image + " " : Style.image_actived + " ") +
+            (id === 0
+              ? Style.ownlist_paint_image + " "
+              : Style.image_actived + " ") +
             (loaded ? "" : "d-none")
           }
           src={url}
@@ -136,9 +145,7 @@ export default function OwnGraphicsItem({
         />
       </div>
       <div className="card-body d-flex justify-content-between">
-        <CustomScrollbar style={{ height: 40 }}>
-          {promptItem}
-        </CustomScrollbar>
+        <CustomScrollbar style={{ height: 40 }}>{promptItem}</CustomScrollbar>
         {exhibitItem}
       </div>
     </div>

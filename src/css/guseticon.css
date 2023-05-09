@@ -1,6 +1,6 @@
 .guest-icon {
   -webkit-mask-size: 100%;
-  mask-size: 100%;
+  mask-size: contain;
   mask-clip: no-clip;
   mask-repeat: no-repeat;
   mask-composite: add;
@@ -18,8 +18,10 @@
 }
 
 .guest-icon.carousel {
-  height: 10%;
-  width: 10%;
+  height: 8%;
+  width: 8%;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .guest-icon-change {
