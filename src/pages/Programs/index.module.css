@@ -85,17 +85,42 @@
 }
 
 .background {
-  content: " ";
-  display: block;
-  position: absolute;
+  position: fixed;
   pointer-events: none;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
+  left: -200%;
+  top: -150%;
+  width: 500%;
+  height: 500%;
+  opacity: 0.15;
   background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-  background-image: url("/src/images/background.svg");
+  background-position: 50% 50%;
+  background-size: contain;
+  background-image: url("/src/images/background-program.svg");
+}
+
+.background {
+  animation: background-fade 10s linear reverse infinite;
+}
+
+@keyframes background-fade {
+  0% {
+    opacity: 0.05;
+    transform: rotate(0deg);
+  }
+  25% {
+    opacity: 0.2;
+    transform: rotate(90deg);
+  }
+  50% {
+    opacity: 0.05;
+    transform: rotate(180deg);
+  }
+  75% {
+    opacity: 0.2;
+    transform: rotate(270deg);
+  }
+  100% {
+    opacity: 0.05;
+    transform: rotate(360deg);
+  }
 }

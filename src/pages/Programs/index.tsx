@@ -21,10 +21,10 @@ function Demo() {
   };
 
   return (
-    <div className="program-content bg-gradient bg-dark pt-5 pt-xl-0">
+    <div className="program-content container p-5 py-lg-0">
       <div className={style.background}></div>
       <aside className="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-        <h2 className="h6 pt-4 pb-3 mb-4 border-bottom text-light">
+        <h2 className="h6 pt-5 pb-3 mb-4 border-bottom text-light">
           <FormattedMessage id="program.catalogs" />
         </h2>
         <nav className="small" id="toc">

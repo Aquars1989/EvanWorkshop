@@ -160,3 +160,17 @@
     opacity: 50%;
   }
 }
+
+.background {
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  background-position: 0% 0;
+  background-size:cover;
+  background-image: url("/src/images/background-gallery.svg");
+}

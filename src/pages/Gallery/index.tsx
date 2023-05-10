@@ -18,7 +18,6 @@ import FsLightbox from "fslightbox-react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Dot from "images/dot.svg";
 
-
 export interface IOwnListData {
   id: number;
   url: string;
@@ -302,7 +301,8 @@ export default function Gallery() {
   }
 
   return (
-    <div className={Style.main + " container-fluid bg-gradient bg-dark p-5"}>
+    <div className={Style.main + " container p-5"}>
+      <div className={Style.background}></div>
       <h2 className="mt-3">
         <FormattedMessage id="gallery.drawMyPicture" />
       </h2>

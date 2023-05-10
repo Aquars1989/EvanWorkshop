@@ -34,7 +34,9 @@ function App() {
             className="carousel slide"
             data-bs-ride="carousel"
           >
-            <Outlet />
+            <div className="bg-gradient bg-dark">
+                <Outlet />
+            </div>
           </div>
         </main>
       </GuestProvider>
