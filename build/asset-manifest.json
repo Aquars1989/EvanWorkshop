@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.87261885.css",
-    "main.js": "/static/js/main.719b44ed.js",
+    "main.css": "/static/css/main.0e7d880f.css",
+    "main.js": "/static/js/main.9d1083f2.js",
     "static/js/787.744d7400.chunk.js": "/static/js/787.744d7400.chunk.js",
     "static/media/TiltNeon-Regular.ttf": "/static/media/TiltNeon-Regular.f0cf4e9d55d75f58f0ca.ttf",
     "static/media/personal.jpg": "/static/media/personal.f7ba4a828c29647e94a0.jpg",
@@ -26,11 +26,11 @@
     "static/media/Pigeon.svg": "/static/media/Pigeon.a4ecbce72e2fbe292112.svg",
     "static/media/Bison.svg": "/static/media/Bison.a934287c0502ebdfbfe8.svg",
     "static/media/Kingfisher.svg": "/static/media/Kingfisher.66b0ea16ef26b6981028.svg",
+    "static/media/background-gallery.svg": "/static/media/background-gallery.621e28a8e78094065e47.svg",
     "static/media/Velociraptor.svg": "/static/media/Velociraptor.96d456b95e2da4565952.svg",
     "static/media/Pelican.svg": "/static/media/Pelican.9c4375810de2e8bcd00f.svg",
     "static/media/Crocodile.svg": "/static/media/Crocodile.ece232e2d6543336b1a2.svg",
     "static/media/Elephant.svg": "/static/media/Elephant.4b57d1aa27e58b11a59e.svg",
-    "static/media/background.svg": "/static/media/background.5e45941f78adf3c4a9c3.svg",
     "static/media/fancy-pattern.svg": "/static/media/fancy-pattern.522441d4bd947dfa9654.svg",
     "static/media/Dove.svg": "/static/media/Dove.9cb1389fb5cb944d77cc.svg",
     "static/media/Lizard.svg": "/static/media/Lizard.666be499bcb947c3d007.svg",
@@ -45,6 +45,7 @@
     "static/media/Platypus.svg": "/static/media/Platypus.03cf8462f15088b44f5d.svg",
     "static/media/Cat.svg": "/static/media/Cat.685034ce69a713e52661.svg",
     "static/media/Flamingo.svg": "/static/media/Flamingo.9f6051ec782c0ce46513.svg",
+    "static/media/background-program.svg": "/static/media/background-program.b0de6605cc43700c9403.svg",
     "static/media/Butterfly.svg": "/static/media/Butterfly.c6a26db32974a53ae1a2.svg",
     "static/media/Octopus.svg": "/static/media/Octopus.08465649f6ced62a8300.svg",
     "static/media/Tasmanian.svg": "/static/media/Tasmanian.0e37c324f8d1ad7300c9.svg",
@@ -95,12 +96,12 @@
     "static/media/Guest.svg": "/static/media/Guest.516b8bd021edff6a59a3.svg",
     "static/media/dot.svg": "/static/media/dot.f9de44f40c9f8615b5e399b345287f9d.svg",
     "static/media/guest-icon-base.svg": "/static/media/guest-icon-base.655e747b1416ebb28eba6ed0401a03b3.svg",
-    "main.87261885.css.map": "/static/css/main.87261885.css.map",
-    "main.719b44ed.js.map": "/static/js/main.719b44ed.js.map",
+    "main.0e7d880f.css.map": "/static/css/main.0e7d880f.css.map",
+    "main.9d1083f2.js.map": "/static/js/main.9d1083f2.js.map",
     "787.744d7400.chunk.js.map": "/static/js/787.744d7400.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87261885.css",
-    "static/js/main.719b44ed.js"
+    "static/css/main.0e7d880f.css",
+    "static/js/main.9d1083f2.js"
   ]
 }
