@@ -10,92 +10,63 @@ import style from "./index.module.css";
 import CardJob from "./components/card-job";
 import CardSummy from "./components/card-summy";
 import { useIntl } from "react-intl";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 import { v4 } from "uuid";
+import { useState } from "react";
 
 export default function About() {
+  const [positionX1, setPositionX1] = useState(0);
+  const [positionX2, setPositionX2] = useState(0);
+  const [positionX3, setPositionX3] = useState(0);
+  const [positionX4, setPositionX4] = useState(0);
+  const [positionY1, setPositionY1] = useState(0);
+  const [positionY2, setPositionY2] = useState(0);
+  const [positionY3, setPositionY3] = useState(0);
+  const [positionY4, setPositionY4] = useState(0);
+  const [opacity1, setOpacity1] = useState(0);
+  const [opacity2, setOpacity2] = useState(0);
+  const [opacity3, setOpacity3] = useState(0);
+  const [opacity4, setOpacity4] = useState(0);
   const intl = useIntl();
 
   const { scrollYProgress } = useScroll({
     offset: [0.1, 1],
   });
 
-  //const translateX1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "30%"]);
-  const translateX2 = useTransform(
-    scrollYProgress,
-    [0.00, 0.10, 0.30, 0.35],
-    ["100%", "0%", "0%", "30%"]
-  );
-  const translateX3 = useTransform(
-    scrollYProgress,
-    [0.25, 0.35, 0.55, 0.60],
-    ["100%", "0%", "0%", "30%"]
-  );
-  const translateX4 = useTransform(
-    scrollYProgress,
-    [0.50, 0.60, 0.80, 0.85],
-    ["100%", "0%", "0%", "30%"]
-  );
-  const translateX5 = useTransform(
-    scrollYProgress,
-    [0.75, 0.85, 1.00],
-    ["100%", "0%", "0%"]
-  );
-
-  //const translateY1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["0%", "0%", "-30%"]);
-  const translateY2 = useTransform(
-    scrollYProgress,
-    [0.00, 0.10, 0.30, 0.35],
-    ["20%", "0%", "0%", "-20%"]
-  );
-  const translateY3 = useTransform(
-    scrollYProgress,
-    [0.25, 0.35, 0.55, 0.60],
-    ["20%", "0%", "0%", "-20%"]
-  );
-  const translateY4 = useTransform(
-    scrollYProgress,
-    [0.50, 0.60, 0.80, 0.85],
-    ["20%", "0%", "0%", "-20%"]
-  );
-  const translateY5 = useTransform(
-    scrollYProgress,
-    [0.75, 0.85, 1.00],
-    ["20%", "0%", "0%"]
-  );
-
-  //const opacity1 = useTransform(scrollYProgress, [0.00, 0.10, 0.15], ["100%", "100%", "0%"]);
-  const opacity2 = useTransform(
-    scrollYProgress,
-    [0.00, 0.10, 0.30, 0.35],
-    ["100%", "100%", "100%", "0%"]
-  );
-  const opacity3 = useTransform(
-    scrollYProgress,
-    [0.25, 0.35, 0.55, 0.60],
-    ["100%", "100%", "100%", "0%"]
-  );
-  const opacity4 = useTransform(
-    scrollYProgress,
-    [0.50, 0.60, 0.80, 0.85],
-    ["100%", "100%", "100%", "0%"]
-  );
-  const opacity5 = useTransform(
-    scrollYProgress,
-    [0.75, 0.85, 1.00],
-    ["100%", "100%", "100%"]
-  );
+  const y1 = 0.05;
+  const y2 = 0.30;
+  const y3 = 0.55;
+  const y4 = 0.80;
+  const slideX = 100;
+  const slideInY = 30;
+  const slideOutY = -30;
+  const slideInOpacity = 100;
+  const slideOutOpacity = -100;
+  // Subscribe to the onChange event of the scrollY value and update the divPosition value
+  scrollYProgress.onChange((y) => {
+    setPositionX1(y < y1 || y >= y2 ? slideX : 0);
+    setPositionY1(y < y1 ? slideInY : y >= y2 ? slideOutY : 0);
+    setOpacity1(y < y1 ? slideInOpacity : y >= y2 ? slideOutOpacity : 100);
+    setPositionX2(y < y2 || y >= y3 ? slideX : 0);
+    setPositionY2(y < y2 ? slideInY : y >= y3 ? slideOutY : 0);
+    setOpacity2(y < y2 ? slideInOpacity : y >= y3 ? slideOutOpacity : 100);
+    setPositionX3(y < y3 || y >= y4 ? slideX : 0);
+    setPositionY3(y < y3 ? slideInY : y >= y4 ? slideOutY : 0);
+    setOpacity3(y < y3 ? slideInOpacity : y >= y4 ? slideOutOpacity : 100);
+    setPositionX4(y < y4 ? slideX : 0);
+    setPositionY4(y < y4 ? slideInY : 0);
+    setOpacity4(y < y4 ? slideInOpacity : 100);
+  });
 
   return (
     <div className={style.main + " bg-gradient bg-dark"}>
       <CardSummy />
-      <motion.div
+      <div
         className="fixed-top w-100 top-0"
         style={{
-          translateX: translateX2,
-          translateY: translateY2,
-          opacity: opacity2,
-          pointerEvents: "none",
+          transform: `translateX(${positionX1}%) translateY(${positionY1}%)`,
+          opacity: `${opacity1}%`,
+          transition: "transform 0.4s ease-in, opacity 0.3s ease-out",
         }}
       >
         <CardJob
@@ -104,20 +75,30 @@ export default function About() {
           during={intl.formatMessage({ id: "about.dynapackDuring" })}
           description={intl.formatMessage({ id: "about.dynapackDescription" })}
           tag={[
-            <div key={v4()} className={"badge "+style.normal}>C#</div>,
-            <div key={v4()} className={"badge "+style.normal}>.Net Core</div>,
-            <div key={v4()} className={"badge "+style.normal}>Winform</div>,
-            <div key={v4()} className={"badge "+style.normal2}>Python</div>,
-            <div key={v4()} className={"badge "+style.database}>MS-SQL</div>]}
+            <div key={v4()} className={"badge " + style.normal}>
+              C#
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              .Net Core
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              Winform
+            </div>,
+            <div key={v4()} className={"badge " + style.normal2}>
+              Python
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              MS-SQL
+            </div>,
+          ]}
         />
-      </motion.div>
-      <motion.div
+      </div>
+      <div
         className="fixed-top w-100 top-0"
         style={{
-          translateX: translateX3,
-          translateY: translateY3,
-          opacity: opacity3,
-          pointerEvents: "none",
+          transform: `translateX(${positionX2}%) translateY(${positionY2}%)`,
+          opacity: `${opacity2}%`,
+          transition: "transform 0.4s ease-in, opacity 0.3s ease-out",
         }}
       >
         <CardJob
@@ -126,30 +107,57 @@ export default function About() {
           during={intl.formatMessage({ id: "about.cathaybkDuring" })}
           description={intl.formatMessage({ id: "about.cathaybkDescription" })}
           tag={[
-            <div key={v4()} className={"badge "+style.normal}>C#</div>,
-            <div key={v4()} className={"badge "+style.normal}>.Net Core</div>,
-            <div key={v4()} className={"badge "+style.web}>React</div>,
-            <div key={v4()} className={"badge "+style.web}>Bootstrap</div>,
-            <div key={v4()} className={"badge "+style.web}>Chart.js</div>,
-            <div key={v4()} className={"badge "+style.web}>Node.js</div>,
-            <div key={v4()} className={"badge "+style.web}>TypeScript</div>,
-            <div key={v4()} className={"badge "+style.web}>Javascript</div>,
-            <div key={v4()} className={"badge "+style.web}>jQuery</div>,
-            <div key={v4()} className={"badge "+style.database}>MS-SQL</div>,
-            <div key={v4()} className={"badge "+style.database}>SSIS</div>,
-            <div key={v4()} className={"badge "+style.database}>SSRS</div>,
-            <div key={v4()} className={"badge "+style.database}>Stored procedure</div>,
-            <div key={v4()} className={"badge "+style.server}>Shell script</div>
+            <div key={v4()} className={"badge " + style.normal}>
+              C#
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              .Net Core
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              React
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              Bootstrap
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              Chart.js
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              Node.js
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              TypeScript
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              Javascript
+            </div>,
+            <div key={v4()} className={"badge " + style.web}>
+              jQuery
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              MS-SQL
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              SSIS
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              SSRS
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              Stored procedure
+            </div>,
+            <div key={v4()} className={"badge " + style.server}>
+              Shell script
+            </div>,
           ]}
         />
-      </motion.div>
-      <motion.div
+      </div>
+      <div
         className="fixed-top w-100 top-0"
         style={{
-          translateX: translateX4,
-          translateY: translateY4,
-          opacity: opacity4,
-          pointerEvents: "none",
+          transform: `translateX(${positionX3}%) translateY(${positionY3}%)`,
+          opacity: `${opacity3}%`,
+          transition: "transform 0.4s ease-in, opacity 0.3s ease-out",
         }}
       >
         <CardJob
@@ -158,21 +166,33 @@ export default function About() {
           during={intl.formatMessage({ id: "about.tonchDuring" })}
           description={intl.formatMessage({ id: "about.tonchDescription" })}
           tag={[
-          <div key={v4()} className={"badge "+style.normal}>Asp.Net</div>,
-          <div key={v4()} className={"badge "+style.normal}>WinForm</div>,
-          <div key={v4()} className={"badge "+style.normal}>Socket</div>,
-          <div key={v4()} className={"badge "+style.normal}>Win CE</div>,
-          <div key={v4()} className={"badge "+style.database}>MS-SQL</div>,
-          <div key={v4()} className={"badge "+style.database}>SSRS</div>]}
+            <div key={v4()} className={"badge " + style.normal}>
+              Asp.Net
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              WinForm
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              Socket
+            </div>,
+            <div key={v4()} className={"badge " + style.normal}>
+              Win CE
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              MS-SQL
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              SSRS
+            </div>,
+          ]}
         />
-      </motion.div>
-      <motion.div
+      </div>
+      <div
         className="fixed-top w-100 top-0"
         style={{
-          translateX: translateX5,
-          translateY: translateY5,
-          opacity: opacity5,
-          pointerEvents: "none",
+          transform: `translateX(${positionX4}%) translateY(${positionY4}%)`,
+          opacity: `${opacity4}%`,
+          transition: "transform 0.4s ease-in, opacity 0.3s ease-out",
         }}
       >
         <CardJob
@@ -181,11 +201,18 @@ export default function About() {
           during={intl.formatMessage({ id: "about.bachelorTime" })}
           description={intl.formatMessage({ id: "about.bachelorDescription" })}
           tag={[
-          <div key={v4()} className={"badge "+style.normal}>Asp.Net</div>,
-          <div key={v4()} className={"badge "+style.normal2}>Java</div>,
-          <div key={v4()} className={"badge "+style.database}>MySQL</div>]}
+            <div key={v4()} className={"badge " + style.normal}>
+              Asp.Net
+            </div>,
+            <div key={v4()} className={"badge " + style.normal2}>
+              Java
+            </div>,
+            <div key={v4()} className={"badge " + style.database}>
+              MySQL
+            </div>,
+          ]}
         />
-      </motion.div>
+      </div>
 
       <Foot1L />
       <Foot1R />
@@ -237,16 +264,6 @@ export default function About() {
       <Foot1R />
       <Foot1L />
       <Foot1R />
-      <Foot1L />
-      <Foot1R />
-      <Foot1L />
-      <Foot1R />
-      <Foot1L />
-      <Foot1R />
-      <Foot1L />
-      <Foot1R />
-      <Foot2L />
-      <Foot2R />
       <Foot2L />
       <Foot2R />
       <Foot2L />
