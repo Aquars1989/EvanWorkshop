@@ -30,11 +30,6 @@ stages:
       vmImage: $(vmImageName)
 
     steps:
-
-    - script: |
-        npm install --legacy-peer-deps
-      displayName: 'npm install'
-
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
