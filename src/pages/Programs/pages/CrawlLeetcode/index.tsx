@@ -213,7 +213,7 @@ export default function CrawlLeetcode() {
     leetcodeList = <LeetcodeList listData={data} />;
   }
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="crawlLettcode.title" />

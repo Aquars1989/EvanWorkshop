@@ -29,7 +29,7 @@ export default function CardSummy() {
         transition={{ duration: 0 }}
         viewport={{ once: false, amount: 0 }}
       >
-        <li className="p-2">
+        <li className="p-lg-2">
           <div>
             <FormattedMessage id="about.skill" />
           </div>
@@ -94,7 +94,7 @@ export default function CardSummy() {
           </div>
         </li>
 
-        <li className="p-2">
+        <li className="p-lg-2">
           <div>
             <FormattedMessage id="about.hobby" />
           </div>
@@ -123,7 +123,7 @@ export default function CardSummy() {
       <div className="card-body">
         <div className="row g-0">
           <div className="p-3  col-md-4">
-            <img className="w-100 p-5 p-md-0" alt="MyPic" src={MyPic} />
+            <img className="w-100 p-0 p-sm-5 p-md-0" alt="MyPic" src={MyPic} />
           </div>
           <div className="p-3 m-auto col-md-8">
             <h2 className="card-title">

@@ -62,7 +62,7 @@ export default function About() {
     <div className={style.main + " bg-gradient bg-dark"}>
       <CardSummy />
       <div
-        className="fixed-top w-100 top-0"
+        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX1}%) translateY(${positionY1}%)`,
           opacity: `${opacity1}%`,
@@ -94,7 +94,7 @@ export default function About() {
         />
       </div>
       <div
-        className="fixed-top w-100 top-0"
+        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX2}%) translateY(${positionY2}%)`,
           opacity: `${opacity2}%`,
@@ -153,7 +153,7 @@ export default function About() {
         />
       </div>
       <div
-        className="fixed-top w-100 top-0"
+        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX3}%) translateY(${positionY3}%)`,
           opacity: `${opacity3}%`,
@@ -188,7 +188,7 @@ export default function About() {
         />
       </div>
       <div
-        className="fixed-top w-100 top-0"
+        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX4}%) translateY(${positionY4}%)`,
           opacity: `${opacity4}%`,

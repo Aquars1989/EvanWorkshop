@@ -97,7 +97,7 @@
 
 .carousel_card_header {
   background-image: url("/src/images/fancy-pattern2.svg");
-  background-position: right;
+  background-position: top;
   background-size: cover;
   color: #bbbb60;
 }
@@ -107,7 +107,8 @@
 }
 .carousel_card_tailer {
   background-image: url("/src/images/fancy-pattern.svg");
-  background-size: cover;
+  background-position: top;
+  background-size:cover;
   color: #bbbb60;
 }
 
@@ -128,7 +129,12 @@
   color: transparent;
   background-size: 100%;
   background-clip: text;
+  z-index: 1;
 }
+.main h2.golden {
+  background-image: linear-gradient(0deg, #ffc64a, #fffea7);
+}
+
 .main input[type="text"] {
   border: 1px solid #475fa0;
   border-radius: 4px;
@@ -173,4 +179,22 @@
   background-position: 0% 0;
   background-size:cover;
   background-image: url("/src/images/background-gallery.svg");
+}
+
+.form
+{
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1); /* Black w/opacity/see-through */
+  border-radius: 2vmin;
+  z-index: 1;  
+}
+
+.enhibit_background
+{
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1); /* Black w/opacity/see-through */
+  border-radius: 2vmin;
+  z-index: 1;  
 }

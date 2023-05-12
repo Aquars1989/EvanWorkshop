@@ -76,7 +76,7 @@ export default function IconChange() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="iconChange.title" />

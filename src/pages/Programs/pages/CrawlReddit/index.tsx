@@ -200,7 +200,7 @@ export default function CrawlReddit() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="crawlReddit.title" />
@@ -223,10 +223,12 @@ export default function CrawlReddit() {
               </div>
             </div>
             <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
-            <div className="txt-tip1 mb-2">
-              <FormattedMessage id="crawlReddit.description" />
-            </div>
           </form>
+          <ul className="txt-tip1">
+            <li>
+              <FormattedMessage id="crawlReddit.description" />
+            </li>
+          </ul>
           <div>
             <div
               className={style.list_container + " bg-secondary w-100 h-50"}

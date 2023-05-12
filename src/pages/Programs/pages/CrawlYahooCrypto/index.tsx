@@ -268,18 +268,18 @@ export default function CrawlYahooCrypto() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="crawlCrypto.title" />
         </h3>
         <div className={style.body}>
+          <div className="p-2">{summitButton}</div>
           <ul className="txt-tip1">
             <li>
               <FormattedMessage id="crawlCrypto.description" />
             </li>
           </ul>
-          <div className="p-2">{summitButton}</div>
           <div>
             <div
               className={style.list_container + " bg-secondary w-100"}

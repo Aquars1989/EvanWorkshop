@@ -24,10 +24,17 @@
   min-height: 20px;
 }
 
+.guest-icon.carousel2 {
+  height: 5%;
+  width: 5%;
+  min-width: 10px;
+  min-height: 10px;
+}
+
 .guest-icon-change {
   width: 20%;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 25px;
+  min-height: 25px;
 }
 
 .guest-icon.red {

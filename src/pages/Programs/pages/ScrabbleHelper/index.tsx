@@ -2,7 +2,10 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import style from "./index.module.css";
 import { useIntl, FormattedMessage } from "react-intl";
 import ScrabbleList from "./components/scrabble-list";
-import { FetchEvanAPI_ScrabbleHelper_Get, IScrabbleHelperData } from "fetch/fetch-evan-flask-api";
+import {
+  FetchEvanAPI_ScrabbleHelper_Get,
+  IScrabbleHelperData,
+} from "fetch/fetch-evan-flask-api";
 
 export default function ScrabbleHelper() {
   const listContainer = useRef(null);
@@ -18,10 +21,10 @@ export default function ScrabbleHelper() {
 
   useEffect(() => {
     const regex = /\?/g;
-    setOverLimit((word.match(regex)||"").length > 4);
+    setOverLimit((word.match(regex) || "").length > 4);
   }, [word]);
 
-  async function fetchData(word: string, setData:any) {
+  async function fetchData(word: string, setData: any) {
     //console.log(intl.locale);
     const evanRes = await FetchEvanAPI_ScrabbleHelper_Get(
       word,
@@ -33,7 +36,7 @@ export default function ScrabbleHelper() {
     }
   }
 
-  async function onSubmit(event:any) {
+  async function onSubmit(event: any) {
     event.preventDefault();
 
     setLoading(true);
@@ -66,7 +69,7 @@ export default function ScrabbleHelper() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="scrabbleHelper.title" />
@@ -89,15 +92,15 @@ export default function ScrabbleHelper() {
               </div>
             </div>
             <div className="col-sm-12 col-md-3 p-2">{summitButton}</div>
-            <ul className="txt-tip1 mb-3">
-              <li>
-                <FormattedMessage id="scrabbleHelper.description1" />
-              </li>
-              <li className={overLimit ? "txt-err1" : ""}>
-                <FormattedMessage id="scrabbleHelper.description2" />
-              </li>
-            </ul>
           </form>
+          <ul className="txt-tip1 mb-3">
+            <li>
+              <FormattedMessage id="scrabbleHelper.description1" />
+            </li>
+            <li className={overLimit ? "txt-err1" : ""}>
+              <FormattedMessage id="scrabbleHelper.description2" />
+            </li>
+          </ul>
           <div
             className={style.list_container + " bg-secondary w-100"}
             ref={listContainer}

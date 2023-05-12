@@ -84,7 +84,7 @@ export default function OpenAI() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>ChatGPT</h3>
         <div className={"card " + style.card}>

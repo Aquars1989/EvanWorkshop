@@ -10,7 +10,6 @@ import { FormattedMessage } from "react-intl";
 import { IExhibitData } from "pages/Gallery";
 import CustomScrollbar from "components/custom-scroll";
 
-
 interface Props {
   id: number;
   url: string;
@@ -103,21 +102,34 @@ export default function CarouselGraphicsItem({
   let card_tailer;
   if (id !== undefined) {
     card_title = (
-      <div>
-          <img
-            className={
-              "guest-icon carousel " + word1 + " " + word2 + " " + word3
-            }
-            src={GuestIconBase}
-            alt={guest.GuestName}
-          />
-          <FormattedMessage id={"words2." + word2} />
-            <span> </span>
-            <FormattedMessage id={"words3." + word3} />
+      <div className="d-flex justify-content-center align-items-center ">
+        <img
+          className={"guest-icon carousel2 mx-1 " + word1 + " " + word2 + " " + word3 }
+          src={GuestIconBase}
+          alt={guest.GuestName}
+        />
+        <img
+          className={"guest-icon carousel mx-1 " + word1 + " " + word2 + " " + word3 }
+          src={GuestIconBase}
+          alt={guest.GuestName}
+        />
+        <FormattedMessage id={"words2." + word2} />
+        <span> </span>
+        <FormattedMessage id={"words3." + word3} />
+        <img
+          className={"guest-icon carousel mx-1 " + word1 + " " + word2 + " " + word3 }
+          src={GuestIconBase}
+          alt={guest.GuestName}
+        />
+        <img
+          className={"guest-icon carousel2 mx-1 " + word1 + " " + word2 + " " + word3 }
+          src={GuestIconBase}
+          alt={guest.GuestName}
+        />
       </div>
     );
 
-    card_body = <p className={"card-subtitle "+Style.prompt2}>{prompt}</p>;
+    card_body = <p className={"card-subtitle " + Style.prompt2}>{prompt}</p>;
 
     card_tailer = (
       <div className="d-flex justify-content-between">
@@ -134,8 +146,10 @@ export default function CarouselGraphicsItem({
             ":" +
             second}
         </small>
-        <div className={Style.exhibit_likes_text}>
-          {likes} {likeItem}
+        <div
+          className={"d-flex align-items-center " + Style.exhibit_likes_text}
+        >
+          <span className="d-sm-none me-1">{likes}</span> {likeItem}
         </div>
       </div>
     );
@@ -143,7 +157,7 @@ export default function CarouselGraphicsItem({
 
   return (
     <div className="card mb-3 bg-dark shadow">
-      <div className={"row g-0 "+Style.carousel_card}>
+      <div className={"row g-0 " + Style.carousel_card}>
         <div className="p-1 col-md-7">
           <img
             className={
@@ -165,19 +179,25 @@ export default function CarouselGraphicsItem({
         </div>
         <div className="col-md-5">
           <div className={"card-header h-25 " + Style.carousel_card_header}>
-            <div className="card-title d-flex justify-content-between px-2">
-              {card_title}
-            </div>
+            <div className="card-title px-2">{card_title}</div>
           </div>
-          <div className={"card-body h-50 d-md-none " + Style.carousel_card_body}>
-            <CustomScrollbar style={{ height: 40}}>
+          <div
+            className={"card-body h-50 d-md-none " + Style.carousel_card_body}
+          >
+            <CustomScrollbar style={{ height: 40 }}>
               {card_body}
             </CustomScrollbar>
           </div>
-          <div className={"card-body h-50 d-none d-md-block " + Style.carousel_card_body}>
-              {card_body}
+          <div
+            className={
+              "card-body h-50 d-none d-md-block " + Style.carousel_card_body
+            }
+          >
+            {card_body}
           </div>
-          <div className={"card-footer h-25 " + Style.carousel_card_tailer}>{card_tailer}</div>
+          <div className={"card-footer h-25 " + Style.carousel_card_tailer}>
+            {card_tailer}
+          </div>
         </div>
       </div>
     </div>

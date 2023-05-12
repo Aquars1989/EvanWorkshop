@@ -68,6 +68,10 @@
   background-clip: text;
   margin: 2vmin;
 }
+.fixedBox{
+  pointer-events: none;
+  z-index: 0;
+}
 
 .normal {
   background-color: rgb(168, 225, 115);

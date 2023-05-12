@@ -15,7 +15,7 @@ export default function ExhibitGraphicsList({
   setLightSource,
 }: Props) {
   return (
-    <div className="bg-secondary row align-items-sm-stretch w-100 min-vh-100 p-2 gx-1">
+    <div className="row px-3 py-3 px-sm-1 g-3">
       {exhibitList.map((item) => {
         const {
           id,
@@ -31,7 +31,7 @@ export default function ExhibitGraphicsList({
         return (
           <div
             key={id}
-            className="col-sm-4 col-md-3 col-lg-2 px-5 py-3 px-sm-3 p-lg-0 m-lg-3"
+            className="col-sm-4 col-md-3 col-lg-2"
           >
             <ExhibitGraphicsItem
               id={id}

@@ -53,7 +53,7 @@ export default function CarouselGraphicsContiner({
   return (
     <div
       id="carouselAutoplaying"
-      className="carousel slide bg-transparent w-100 py-1"
+      className="carousel slide bg-transparent ce w-100 py-1"
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">

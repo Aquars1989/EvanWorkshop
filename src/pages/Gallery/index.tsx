@@ -133,11 +133,31 @@ export default function Gallery() {
         hasMore={!loadEnd}
         loader={
           <div className={Style.load_container}>
-            <img className={Style.load_dot+" "+Style.serial1} src={Dot} alt="●"/>
-            <img className={Style.load_dot+" "+Style.serial2} src={Dot} alt="●"/>
-            <img className={Style.load_dot+" "+Style.serial3} src={Dot} alt="●"/>
-            <img className={Style.load_dot+" "+Style.serial4} src={Dot} alt="●"/>
-            <img className={Style.load_dot+" "+Style.serial5} src={Dot} alt="●"/>
+            <img
+              className={Style.load_dot + " " + Style.serial1}
+              src={Dot}
+              alt="●"
+            />
+            <img
+              className={Style.load_dot + " " + Style.serial2}
+              src={Dot}
+              alt="●"
+            />
+            <img
+              className={Style.load_dot + " " + Style.serial3}
+              src={Dot}
+              alt="●"
+            />
+            <img
+              className={Style.load_dot + " " + Style.serial4}
+              src={Dot}
+              alt="●"
+            />
+            <img
+              className={Style.load_dot + " " + Style.serial5}
+              src={Dot}
+              alt="●"
+            />
           </div>
         }
         endMessage={
@@ -301,30 +321,32 @@ export default function Gallery() {
   }
 
   return (
-    <div className={Style.main + " container p-5"}>
-      <div className={Style.background}></div>
-      <h2 className="mt-3">
+    <div className={Style.main + " container pt-5 pe-3"}>
+      <div className={"mx-3 "+Style.background}></div>
+      <h2 className="mx-3 mt-3">
         <FormattedMessage id="gallery.drawMyPicture" />
       </h2>
-      <form onSubmit={onSubmit} className="px-1">
-        <div className="row align-items-center">
-          <div className="col-sm-10 col-md-7">
-            <input
-              type="text"
-              name="prompt"
-              placeholder={intl.formatMessage({
-                id: "gallery.inputDescription",
-              })}
-              value={userInput}
-              className="w-100 p-2 my-1 mx-md-2"
-              maxLength={100}
-              onChange={(e) => setUserInput(e.target.value)}
-            />
+      <div className={"mx-3 p-2 " + Style.form}>
+        <form onSubmit={onSubmit}>
+          <div className="row align-items-center">
+            <div className="col-sm-10 col-md-7">
+              <input
+                type="text"
+                name="prompt"
+                placeholder={intl.formatMessage({
+                  id: "gallery.inputDescription",
+                })}
+                value={userInput}
+                className="w-100 p-2 my-1 mx-md-2"
+                maxLength={100}
+                onChange={(e) => setUserInput(e.target.value)}
+              />
+            </div>
+            <div className="col-sm-10 col-md-3">{summitButton}</div>
           </div>
-          <div className="col-sm-10 col-md-3">{summitButton}</div>
-        </div>
-        {errorMsg}
-        <ul className="px-1 mb-3 txt-tip1">
+          {errorMsg}
+        </form>
+        <ul className="mb-3 txt-tip1">
           <li>
             <FormattedMessage id="gallery.description1" />
           </li>
@@ -335,19 +357,20 @@ export default function Gallery() {
             <FormattedMessage id="gallery.description3" />
           </li>
         </ul>
-      </form>
+        <div className="px-1">{ownGraphicsList}</div>
+      </div>
 
-      <div className="px-1">{ownGraphicsList}</div>
-
-      <h2 className="mt-3">
+      <h2 className={"mx-3 mt-3 "+Style.golden}> 
         <FormattedMessage id="gallery.mostLiked" />
       </h2>
-      <div className="px-1">{carouselGraphicsContiner}</div>
+      <div>{carouselGraphicsContiner}</div>
 
-      <h2 className="mt-3">
+      <h2 className="mx-3 mt-3">
         <FormattedMessage id="gallery.exhibition" />
       </h2>
-      <div className="px-1">{exhibitGraphicsList}</div>
+      <div className={"mx-3 p-2 " + Style.enhibit_background}>
+        {exhibitGraphicsList}
+      </div>
 
       <FsLightbox
         toggler={lightToggler}

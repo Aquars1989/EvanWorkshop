@@ -21,7 +21,7 @@ function Demo() {
   };
 
   return (
-    <div className="program-content container p-5 py-lg-0">
+    <div className="program-content container p-md-5 py-lg-0">
       <div className={style.background}></div>
       <aside className="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
         <h2 className="h6 pt-5 pb-3 mb-4 border-bottom text-light">
@@ -99,7 +99,7 @@ function Demo() {
         </nav>
       </aside>
 
-      <div className="bd-cheatsheet container-fluid bg-gradient bg-dark">
+      <div className="bd-cheatsheet container-fluid bg-gradient bg-dark ps-0">
         <section id="content">
           <article className="my-3" id="CrawlCNN">
             <div className="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">

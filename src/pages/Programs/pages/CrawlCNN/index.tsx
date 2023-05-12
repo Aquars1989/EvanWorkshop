@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import style from "./index.module.css";
 import CNNList from "./components/cnn-list";
-import {useIntl,FormattedMessage } from "react-intl";
+import { useIntl, FormattedMessage } from "react-intl";
 import { Bar } from "react-chartjs-2";
 import {
   FetchEvanAPI_CrawlCNN_Get,
@@ -18,7 +18,7 @@ import {
   Title,
   CategoryScale,
   ChartData,
-  Legend
+  Legend,
 } from "chart.js";
 
 ChartJS.register(
@@ -36,12 +36,12 @@ ChartJS.register(
 interface IChartCount {
   label: string;
   total: number;
-  categrays: Map<string,number>;
+  categrays: Map<string, number>;
 }
 
 interface IChartCountMap {
   total: number;
-  categrays: Map<string,number>;
+  categrays: Map<string, number>;
 }
 
 export default function CrawlCNN() {
@@ -61,7 +61,10 @@ export default function CrawlCNN() {
     let eachDate = new Date();
     for (let i = 0; i < 30; i++) {
       eachDate.setDate(eachDate.getDate() - 1);
-      countDataMap.set(eachDate.toISOString().slice(0, 10), { total:0 ,categrays: new Map<string,number>() });
+      countDataMap.set(eachDate.toISOString().slice(0, 10), {
+        total: 0,
+        categrays: new Map<string, number>(),
+      });
     }
     MapToCountData(countDataMap, setCountData);
   }, []);
@@ -77,71 +80,70 @@ export default function CrawlCNN() {
     const chart = chartRef.current;
     if (chart) {
       const chartLabel = [];
-      const categoryMap = new Map<string,number>();
+      const categoryMap = new Map<string, number>();
       for (let i = 0; i < countData.length; i++) {
         chartLabel[i] = countData[i].label.substring(5);
-        countData[i].categrays.forEach((value,key)=>{
-          if(key!=="<null>"){
-            categoryMap.set(key,(categoryMap.get(key)??0)+value);
+        countData[i].categrays.forEach((value, key) => {
+          if (key !== "<null>") {
+            categoryMap.set(key, (categoryMap.get(key) ?? 0) + value);
           }
-        })
+        });
       }
       //console.log(categoryMap);
-      
-      const categoryArray:Array<any> = [];
+
+      const categoryArray: Array<any> = [];
       categoryMap.forEach((value, key) => {
-        categoryArray.push({ key: key, value: value});
+        categoryArray.push({ key: key, value: value });
       });
-      categoryArray.sort((x,y)=>{return y.value-x.value});
-      let category1="";
-      let category2="";
-      let category3="";
-      if(categoryArray.length>1)category1=categoryArray[0].key;
-      if(categoryArray.length>2)category2=categoryArray[1].key;
-      if(categoryArray.length>3)category3=categoryArray[2].key;
+      categoryArray.sort((x, y) => {
+        return y.value - x.value;
+      });
+      let category1 = "";
+      let category2 = "";
+      let category3 = "";
+      if (categoryArray.length > 1) category1 = categoryArray[0].key;
+      if (categoryArray.length > 2) category2 = categoryArray[1].key;
+      if (categoryArray.length > 3) category3 = categoryArray[2].key;
 
       const chartValue1 = Array<number>(countData.length);
       const chartValue2 = Array<number>(countData.length);
       const chartValue3 = Array<number>(countData.length);
       const chartValue4 = Array<number>(countData.length);
       for (let i = 0; i < countData.length; i++) {
-        chartValue1[i]=0;
-        chartValue2[i]=0;
-        chartValue3[i]=0;
-        chartValue4[i]=0;
-        countData[i].categrays.forEach((value,key)=>{
-          if(key===category1) chartValue1[i]+=value;
-          else if(key===category2) chartValue2[i]+=value;
-          else if(key===category3) chartValue3[i]+=value;
-          else chartValue4[i]+=value;
-        })
+        chartValue1[i] = 0;
+        chartValue2[i] = 0;
+        chartValue3[i] = 0;
+        chartValue4[i] = 0;
+        countData[i].categrays.forEach((value, key) => {
+          if (key === category1) chartValue1[i] += value;
+          else if (key === category2) chartValue2[i] += value;
+          else if (key === category3) chartValue3[i] += value;
+          else chartValue4[i] += value;
+        });
       }
       //console.log(category1,chartValue1);
       //console.log(category2,chartValue1);
       //console.log(category3,chartValue1);
       //console.log(4,chartValue4);
 
-      const datasets=new Array<any>();
-      if(chartValue4.reduce((acc,val)=> acc+val,0))
-      {
+      const datasets = new Array<any>();
+      if (chartValue4.reduce((acc, val) => acc + val, 0)) {
         datasets.push({
           label: "other",
           data: chartValue4,
-          backgroundColor:"rgba(255, 255, 200)" ,
+          backgroundColor: "rgba(255, 255, 200)",
         });
       }
 
-      if(category1!=="")
-      {
+      if (category1 !== "") {
         datasets.push({
-        label: category1,
-        data: chartValue1,
-        backgroundColor: "rgba(255, 120, 98)",
-      });
+          label: category1,
+          data: chartValue1,
+          backgroundColor: "rgba(255, 120, 98)",
+        });
       }
 
-      if(category2!=="")
-      {
+      if (category2 !== "") {
         datasets.push({
           label: category2,
           data: chartValue2,
@@ -149,18 +151,17 @@ export default function CrawlCNN() {
         });
       }
 
-      if(category3!=="")
-      {
+      if (category3 !== "") {
         datasets.push({
           label: category3,
           data: chartValue1,
           backgroundColor: "rgba(195, 60, 220)",
         });
       }
-      
+
       setChartData({
         labels: chartLabel,
-        datasets: datasets
+        datasets: datasets,
       });
       //console.log(chartData);
     }
@@ -168,7 +169,7 @@ export default function CrawlCNN() {
 
   const options: any = {
     layout: {
-        padding: 20
+      padding: 20,
     },
     plugins: {
       legend: {
@@ -176,54 +177,52 @@ export default function CrawlCNN() {
         display: true,
         align: "start",
         labels: {
-          color: '#FFFFFF80',
+          color: "#FFFFFF80",
           usePointStyle: true,
-        }
+        },
       },
       title: {
-        color: '#FFFFFFBB',
+        color: "#FFFFFFBB",
         display: true,
-        text: intl.formatMessage({id: "crawlCNN.chartTitle"})
+        text: intl.formatMessage({ id: "crawlCNN.chartTitle" }),
       },
     },
     responsive: true,
-    maintainAspectRatio:true,
-    aspectRatio: 1, 
+    maintainAspectRatio: true,
+    aspectRatio: 1,
     scales: {
       x: {
         stacked: true,
         beginAtZero: true,
         grid: {
           drawBorder: true,
-          color: '#FFFFFF20',
+          color: "#FFFFFF20",
         },
-        ticks:{
-            precision:0,
-            color: '#FFFFFF80'
+        ticks: {
+          precision: 0,
+          color: "#FFFFFF80",
         },
-        border:
-        {
-          color: '#FFFFFF80',
-        }
+        border: {
+          color: "#FFFFFF80",
+        },
       },
       y: {
         stacked: true,
         beginAtZero: true,
-        suggestedMin:10,
+        suggestedMin: 10,
         grid: {
-            drawBorder: true,
-            color: '#FFFFFF20',
+          drawBorder: true,
+          color: "#FFFFFF20",
         },
         ticks: {
-              precision:0,
-              color: '#FFFFFF80'
-            },
-            border:
-            {
-              color: '#FFFFFF80',
-            }
+          precision: 0,
+          color: "#FFFFFF80",
+        },
+        border: {
+          color: "#FFFFFF80",
+        },
       },
-    }
+    },
   };
 
   async function fetchData(word: string, setData: any, setTag: any) {
@@ -231,31 +230,32 @@ export default function CrawlCNN() {
     let eachDate = new Date();
     for (let i = 0; i < 30; i++) {
       eachDate.setDate(eachDate.getDate() - 1);
-      countDataMap.set(eachDate.toISOString().slice(0, 10), { total:0 ,categrays: new Map<string,number>() });
+      countDataMap.set(eachDate.toISOString().slice(0, 10), {
+        total: 0,
+        categrays: new Map<string, number>(),
+      });
     }
     MapToCountData(countDataMap, setCountData);
 
     var size = 100;
     var skip = 0;
-    var run=true;
+    var run = true;
     while (run && skip < 1000) {
       const evanRes = await FetchEvanAPI_CrawlCNN_Get(word, size, skip);
       if (evanRes.code !== "0000") break;
       if (evanRes.data.length === 0) break;
 
-      let evanData =evanRes.data;
-      for(let i=0;i<evanData.length;i++)
-      {
-        const date = new Date(evanData[i].lastPublish)
-        if(date<eachDate)
-        {
+      let evanData = evanRes.data;
+      for (let i = 0; i < evanData.length; i++) {
+        const date = new Date(evanData[i].lastPublish);
+        if (date < eachDate) {
           //console.log(date,eachDate);
-          evanData.length=i;
-          run=false;
+          evanData.length = i;
+          run = false;
           break;
         }
       }
-      
+
       setData((prev: any) => {
         return prev.concat(evanData);
       });
@@ -264,11 +264,17 @@ export default function CrawlCNN() {
         const date = new Date(evanData[i].firstPublish)
           .toISOString()
           .slice(0, 10);
-        const count = countDataMap.get(date)
-        if (count!==undefined) {
-          const categrays=evanData[i].category??"<null>";
-          count.categrays.set(categrays,(count.categrays.get(categrays)??0)+1);
-          countDataMap.set(date, {total:count.total+1,categrays: count.categrays});
+        const count = countDataMap.get(date);
+        if (count !== undefined) {
+          const categrays = evanData[i].category ?? "<null>";
+          count.categrays.set(
+            categrays,
+            (count.categrays.get(categrays) ?? 0) + 1
+          );
+          countDataMap.set(date, {
+            total: count.total + 1,
+            categrays: count.categrays,
+          });
         }
       }
       MapToCountData(countDataMap, setCountData);
@@ -282,7 +288,11 @@ export default function CrawlCNN() {
   ) {
     const countArray: Array<IChartCount> = [];
     countDataMap.forEach((value, key) => {
-      countArray.push({ label: key, total: value.total,categrays:value.categrays });
+      countArray.push({
+        label: key,
+        total: value.total,
+        categrays: value.categrays,
+      });
     });
     countArray.sort((x, y) => {
       if (x.label < y.label) {
@@ -327,7 +337,7 @@ export default function CrawlCNN() {
   }
 
   return (
-    <div className="w-75 m-auto">
+    <div>
       <main className={style.main}>
         <h3>
           <FormattedMessage id="crawlCNN.title" />
@@ -350,10 +360,12 @@ export default function CrawlCNN() {
               </div>
             </div>
             <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
-            <div className="txt-tip1 mb-2">
-              <FormattedMessage id="crawlCNN.description" />
-            </div>
           </form>
+          <ul className="txt-tip1">
+            <li>
+              <FormattedMessage id="crawlCNN.description" />
+            </li>
+          </ul>
           <div>
             <div
               className={style.list_container + " bg-secondary w-100"}
@@ -361,12 +373,8 @@ export default function CrawlCNN() {
             >
               <CNNList listData={data} />
             </div>
-            <div className={style.chart_container} >
-              <Bar
-                ref={chartRef}
-                options={options}
-                data={chartData}
-              />
+            <div className={style.chart_container}>
+              <Bar ref={chartRef} options={options} data={chartData} />
             </div>
           </div>
         </div>
