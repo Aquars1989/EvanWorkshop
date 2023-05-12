@@ -95,7 +95,7 @@ export default function CardJob({
         <div className="card-body overflow-auto col-md-6">
           <ul>
             {description.split(";").map((x) => {
-              return <li key={v4()}>{x}</li>;
+              return <li key={v4()}>{x}</li>
             })}
           </ul>
         </div>
