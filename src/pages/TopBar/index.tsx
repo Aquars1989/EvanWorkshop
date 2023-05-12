@@ -57,10 +57,10 @@ export default function TopBar({ locale , setLocale }:Props) {
   }
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark app-header">
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark app-header">
       <div className="container-fluid">
-        <NavLink className="nav-link app-logo-link" to="gallery" onClick={closeNavbar}>
-           <img src={Logo} className="app-logo" alt="logo" />
+        <NavLink className="navbar-brand nav-link app-logo-link" to="gallery" onClick={closeNavbar}>
+           <img src={Logo} className="app-logo" width={40} height={40} alt="logo" />
         </NavLink>
         <div className="mx-3">
           <span className="txt-title2">Evan's </span>
@@ -97,7 +97,17 @@ export default function TopBar({ locale , setLocale }:Props) {
             </li>
           </ul>
 
-          <div className="btn-group px-2">
+          <div className="d-flex align-items-center text-info float-right">
+            <img
+              className={"guest-icon topbar " + guest.GuestName}
+              src={GuestIconBase}
+              alt={guest.GuestName}
+            />
+            <FormattedMessage id={"words2." + guest.GuestNameWord2} />
+            <FormattedMessage id={"words3." + guest.GuestNameWord3} />
+          </div>
+
+          <div className="btn-group p-2">
             <button
               type="button"
               className="btn btn-secondary dropdown-toggle"
@@ -131,16 +141,7 @@ export default function TopBar({ locale , setLocale }:Props) {
               </li>
             </ul>
           </div>
-          <div className="text-info float-right">
-            <FormattedMessage id={"words2." + guest.GuestNameWord2} />
-            <span> </span>
-            <FormattedMessage id={"words3." + guest.GuestNameWord3} />
-            <img
-              className={"guest-icon topbar " + guest.GuestName}
-              src={GuestIconBase}
-              alt={guest.GuestName}
-            />
-          </div>
+          
         </div>
       </div>
     </nav>
