@@ -92,7 +92,7 @@ export default function ExhibitGraphicsItem({
   return (
     <div className="card bg-dark shadow">
       <div className="card-head pt-0 pb-0">
-        <div className="d-flex justify-content-between px-2">
+        <div className="d-flex justify-content-between align-items-center px-2">
           <div>
             <div className="text-info">
               <img
@@ -104,7 +104,7 @@ export default function ExhibitGraphicsItem({
               />
               <small>
                 <FormattedMessage id={"words2." + word2} />
-                <span> </span>
+                <span className="me-1"/>
                 <FormattedMessage id={"words3." + word3} />
               </small>
             </div>

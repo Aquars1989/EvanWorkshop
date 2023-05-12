@@ -104,6 +104,7 @@ export default function TopBar({ locale , setLocale }:Props) {
               alt={guest.GuestName}
             />
             <FormattedMessage id={"words2." + guest.GuestNameWord2} />
+            <span className="me-1"/>
             <FormattedMessage id={"words3." + guest.GuestNameWord3} />
           </div>
 

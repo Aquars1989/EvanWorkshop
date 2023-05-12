@@ -102,7 +102,7 @@ export default function CarouselGraphicsItem({
   let card_tailer;
   if (id !== undefined) {
     card_title = (
-      <div className="d-flex justify-content-center align-items-center ">
+      <div className="d-flex justify-content-center align-items-center">
         <img
           className={"guest-icon carousel2 mx-1 " + word1 + " " + word2 + " " + word3 }
           src={GuestIconBase}
@@ -114,7 +114,7 @@ export default function CarouselGraphicsItem({
           alt={guest.GuestName}
         />
         <FormattedMessage id={"words2." + word2} />
-        <span> </span>
+        <span className="me-1"/>
         <FormattedMessage id={"words3." + word3} />
         <img
           className={"guest-icon carousel mx-1 " + word1 + " " + word2 + " " + word3 }
@@ -132,7 +132,7 @@ export default function CarouselGraphicsItem({
     card_body = <p className={"card-subtitle " + Style.prompt2}>{prompt}</p>;
 
     card_tailer = (
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between align-items-center">
         <small className="card-text">
           {year +
             "/" +
