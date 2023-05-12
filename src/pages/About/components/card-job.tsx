@@ -3,6 +3,8 @@ import Style from "../index.module.css";
 import { FormattedMessage } from "react-intl";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { v4 } from "uuid";
+
 interface Props {
   title: string;
   workAs: string;
@@ -51,7 +53,7 @@ export default function CardJob({
       >
         <div className="d-md-flex flex-wrap">
           {tag.map((item) => {
-            return <motion.div variants={tagVariants}>{item}</motion.div>;
+            return <motion.div key={v4()} variants={tagVariants}>{item}</motion.div>;
           })}
         </div>
       </motion.div>
@@ -67,7 +69,7 @@ export default function CardJob({
       >
         <div className="d-flex flex-wrap p-2">
           {tag.map((item) => {
-            return <motion.div variants={tagVariants}>{item}</motion.div>;
+            return <motion.div key={v4()} variants={tagVariants}>{item}</motion.div>;
           })}
         </div>
       </motion.div>
@@ -93,7 +95,7 @@ export default function CardJob({
         <div className="card-body overflow-auto col-md-6">
           <ul>
             {description.split(";").map((x) => {
-              return <li>{x}</li>;
+              return <li key={v4()}>{x}</li>;
             })}
           </ul>
         </div>

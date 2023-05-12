@@ -33,14 +33,14 @@ export default function About() {
     offset: [0.1, 1],
   });
 
-  const y1 = 0.05;
-  const y2 = 0.30;
-  const y3 = 0.55;
-  const y4 = 0.80;
+  const y1 = 0.10;
+  const y2 = 0.35;
+  const y3 = 0.60;
+  const y4 = 0.85;
   const slideX = 100;
   const slideInY = 30;
   const slideOutY = -30;
-  const slideInOpacity = 100;
+  const slideInOpacity = -100;
   const slideOutOpacity = -100;
   // Subscribe to the onChange event of the scrollY value and update the divPosition value
   scrollYProgress.onChange((y) => {
@@ -59,10 +59,10 @@ export default function About() {
   });
 
   return (
-    <div className={style.main + " bg-gradient bg-dark"}>
+    <div className={style.main + " bg-gradient bg-dark pb-5"}>
       <CardSummy />
       <div
-        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
+        className={"fixed-top w-100 top-0 ms-4 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX1}%) translateY(${positionY1}%)`,
           opacity: `${opacity1}%`,
@@ -94,7 +94,7 @@ export default function About() {
         />
       </div>
       <div
-        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
+        className={"fixed-top w-100 top-0 ms-4 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX2}%) translateY(${positionY2}%)`,
           opacity: `${opacity2}%`,
@@ -153,7 +153,7 @@ export default function About() {
         />
       </div>
       <div
-        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
+        className={"fixed-top w-100 top-0 ms-4 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX3}%) translateY(${positionY3}%)`,
           opacity: `${opacity3}%`,
@@ -188,7 +188,7 @@ export default function About() {
         />
       </div>
       <div
-        className={"fixed-top w-100 top-0 ms-5 px-2 "+style.fixedBox}
+        className={"fixed-top w-100 top-0 ms-4 px-2 "+style.fixedBox}
         style={{
           transform: `translateX(${positionX4}%) translateY(${positionY4}%)`,
           opacity: `${opacity4}%`,
@@ -197,7 +197,7 @@ export default function About() {
       >
         <CardJob
           title={intl.formatMessage({ id: "about.bachelor" })}
-          workAs=""
+          workAs={intl.formatMessage({ id: "about.bachelorWorkAs" })}
           during={intl.formatMessage({ id: "about.bachelorTime" })}
           description={intl.formatMessage({ id: "about.bachelorDescription" })}
           tag={[
@@ -264,6 +264,10 @@ export default function About() {
       <Foot1R />
       <Foot1L />
       <Foot1R />
+      <Foot2L />
+      <Foot2R />
+      <Foot2L />
+      <Foot2R />
       <Foot2L />
       <Foot2R />
       <Foot2L />

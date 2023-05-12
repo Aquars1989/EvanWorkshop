@@ -35,7 +35,7 @@ const zh_TW = {
   "about.tonchDescription":"ERP系統開發;帳務及庫存報表設計;盤點標籤設計和庫存管理整合;盤點機系統開發;客戶端環境建置及硬體設定;資料庫轉移及整合",
   "about.tonchTime": "2013年1月8日",
   "about.bachelor": "屏東科技大學",
-  "about.bachelorWorkAs": "學士學位",
+  "about.bachelorWorkAs": "資訊管理系學士",
   "about.bachelorDescription":
     "取得屏東科技大學資料管理系學士學位，在校時對計算機概論及程式開發一直抱有濃厚的興趣，也多虧我的教授生動有趣的教學及互動，在這些學科我取得優異的成績，也幫我奠定未來職涯的基礎",
   "about.bachelorTime": "2012年6月",
