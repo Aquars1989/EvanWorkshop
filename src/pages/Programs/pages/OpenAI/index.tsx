@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./index.module.css";
 import ChartList from "./components/chartopt-chat-list";
-import { FetchOpenAiChat } from "fetch/fetch-openai";
+//import { FetchOpenAiChat } from "fetch/fetch-openai";
 import Moment from "moment";
 import { v4 } from "uuid";
 import { useIntl, FormattedMessage } from "react-intl";
@@ -20,6 +20,7 @@ export default function OpenAI() {
   const intl = useIntl();
 
   async function onSubmit(event: any) {
+    /*
     event.preventDefault();
 
     if (userInput.length === 0 || pending) return;
@@ -37,7 +38,7 @@ export default function OpenAI() {
     });
     setUserInput("");
     setPending(true);
-    var data = await FetchOpenAiChat(userInput);
+    var data = {}//await FetchOpenAiChat(userInput);
     setPending(false);
     setMessageList((prev) => {
       if (data.code === "0000") {
@@ -61,7 +62,7 @@ export default function OpenAI() {
           },
         ];
       }
-    });
+    });*/
   }
 
   var summitButton;

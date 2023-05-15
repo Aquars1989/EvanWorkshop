@@ -1,3 +1,4 @@
+export {}
 /* no money to do this :(
 
 import { Configuration, OpenAIApi } from "openai";
