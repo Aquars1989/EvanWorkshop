@@ -65,6 +65,7 @@ export default function CrawlReddit() {
     }
   }, [filterData]);
 
+
   async function fetchData(subreddit: string, setData: any) {
     var page = 0;
     var lastThing = "";
