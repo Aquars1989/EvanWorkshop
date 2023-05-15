@@ -120,8 +120,8 @@ export default function Programs() {
         <section id="content">
           <article className="my-3" id="CrawlCNN" ref={refCNN}>
             <div className="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-              <div className={"badge " + style.python}>python 3.10</div>
-              <div className={"badge " + style.flask}>flask API</div>
+              <div className={"badge " + style.python}>Python 3.10</div>
+              <div className={"badge " + style.flask}>Flask API</div>
               <div className={"badge " + style.gcp}>
                 on <span>GCP</span>
               </div>
@@ -140,8 +140,8 @@ export default function Programs() {
 
           <article className="my-3" id="CrawlReddit" ref={refReddit}>
             <div className="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-              <div className={"badge " + style.python}>python 3.10</div>
-              <div className={"badge " + style.flask}>flask API</div>
+              <div className={"badge " + style.python}>Python 3.10</div>
+              <div className={"badge " + style.flask}>Flask API</div>
               <div className={"badge " + style.gcp}>
                 on <span>GCP</span>
               </div>
@@ -160,8 +160,8 @@ export default function Programs() {
 
           <article className="my-3" id="CrawlYahooCrypto" ref={refCrypto}>
             <div className="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-              <div className={"badge " + style.python}>python 3.10</div>
-              <div className={"badge " + style.flask}>flask API</div>
+              <div className={"badge " + style.python}>Python 3.10</div>
+              <div className={"badge " + style.flask}>Flask API</div>
               <div className={"badge " + style.gcp}>
                 on <span>GCP</span>
               </div>
@@ -180,10 +180,10 @@ export default function Programs() {
 
           <article className="my-3" id="ScrabbleHelper" ref={refScrabble}>
             <div className="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-              <div className={"badge " + style.python}>python 3.10</div>
-              <div className={"badge " + style.flask}>flask API</div>
+              <div className={"badge " + style.python}>Python 3.10</div>
+              <div className={"badge " + style.flask}>Flask API</div>
               <div className={"badge " + style.translator}>
-                azure translator
+                Azure Translator
               </div>
               <div className={"badge " + style.gcp}>
                 on <span>GCP</span>
