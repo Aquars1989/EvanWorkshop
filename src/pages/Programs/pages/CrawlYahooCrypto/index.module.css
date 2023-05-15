@@ -46,7 +46,7 @@ table.list tr:nth-of-type(even) td {
 }
 
 div.list_container {
-  height: 60vmin;
+  height: 50vmin;
   overflow: auto;
 }
 

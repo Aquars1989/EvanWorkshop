@@ -33,6 +33,7 @@ export default function IconChange() {
   }, [intl, guest]);
 
   async function LoadButtomClick() {
+    setError("")
     setLoading(true);
     var evanRes = await FetchEvanAPI_GuestNamePool_Post(guest.Ip, 9);
     if (evanRes.code === "0000") {
