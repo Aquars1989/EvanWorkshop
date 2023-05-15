@@ -1,3 +1,5 @@
+/* no money to do this :(
+
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
@@ -69,4 +71,4 @@ export async function FetchOpenAiChat(userInput:string) :Promise<IOpenAIApiRecei
       return { code: "O990", message: error.message.error.message , data:""};
       }
     }
-  }
+  }*/

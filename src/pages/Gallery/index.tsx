@@ -2,8 +2,6 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import OwnGraphicsList from "./components/own-graphics-list";
 import ExhibitGraphicsList from "./components/exhibit-graphics-list";
 import CarouselGraphicsContiner from "./components/carousel-graphics-continer";
-import { FetchEvanAPI_OpenArt_Get } from "fetch/fetch-evan-flask-api";
-//import {FetchOpenAiImage} from "fetch/fetch-openai";
 import {
   FetchEvanAPI_Picture_Get,
   FetchEvanAPI_Picture_Post,
@@ -254,18 +252,8 @@ export default function Gallery() {
     setPending(true);
 
     try {
-      //const openAIRes = await FetchOpenAiImage(input);
-      const openAIRes = await FetchEvanAPI_OpenArt_Get(input);
-      //console.log(openAIRes);
-
-      if (openAIRes.code !== "0000") {
-        //console.log(FormatError(intl,openAIRes));
-        setError(FormatError(intl, openAIRes));
-        throw new Error("FetchOpenAI:" + openAIRes.message);
-      }
       const evanRes = await FetchEvanAPI_Picture_Post(
         guest.Ip,
-        openAIRes.data,
         input
       );
 
