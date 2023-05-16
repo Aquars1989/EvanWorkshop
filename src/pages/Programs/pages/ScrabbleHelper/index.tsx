@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 export default function ScrabbleHelper() {
   const listContainer = useRef(null);
   const [data, setData] = useState([] as Array<IScrabbleHelperData>);
-  const [word, setWords] = useState("");
+  const [word, setWords] = useState("lo?e");
   const [overLimit, setOverLimit] = useState(false);
   const [loading, setLoading] = useState(false);
   const intl = useIntl();

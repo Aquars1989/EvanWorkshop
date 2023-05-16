@@ -2,6 +2,10 @@
   font-family: "TiltNeon";
   src: local("TiltNeon"), url(./fonts/TiltNeon-Regular.ttf) format("truetype");
 }
+@font-face {
+  font-family: "Merriweather";
+  src: local("Merriweather"), url(./fonts/Merriweather-Regular.ttf) format("truetype");
+}
 
 html {
   overscroll-behavior: none;

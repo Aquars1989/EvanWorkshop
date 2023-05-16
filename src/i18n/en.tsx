@@ -73,7 +73,7 @@ const en = {
   "crawlReddit.subreddit": "Subreddit",
   "crawlReddit.summit": "Summit",
   "crawlReddit.tipSetFilter": "Click the word to set filter",
-  "crawlReddit.tipFilter": "Filter title contains {filter}",
+  "crawlReddit.tipFilter": "Filter title contains \"{filter}\"",
   "crawlReddit.tipClearFilter": "Clear",
   "iconChange.title": "Change your name and icon",
   "iconChange.description1": "Get 9 random name and keep they for 7 days, cd:5m",

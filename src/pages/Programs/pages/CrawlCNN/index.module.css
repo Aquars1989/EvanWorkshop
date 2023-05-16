@@ -26,6 +26,7 @@
 
 table.list {
   border-collapse: collapse;
+  font-family: Merriweather, DFKai-sb;
 }
 
 table.list td {

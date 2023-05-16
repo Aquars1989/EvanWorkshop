@@ -149,7 +149,7 @@ export default function CrawlReddit() {
       "#b0f2ff",
     ],
 
-    fontFamily: "times new roman",
+    fontFamily: "Merriweather",
     fontSizes: [10, 60],
     padding: 1,
     rotations: 2,

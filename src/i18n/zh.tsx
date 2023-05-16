@@ -74,7 +74,7 @@ const zh_TW = {
   "crawlReddit.subreddit": "板塊名稱",
   "crawlReddit.summit": "確定",
   "crawlReddit.tipSetFilter": "點擊單辭可以顯示相關貼文",
-  "crawlReddit.tipFilter": "僅顯示關於{filter}的貼文",
+  "crawlReddit.tipFilter": "僅顯示關於\"{filter}\"的貼文",
   "crawlReddit.tipClearFilter": "取消篩選",
   "iconChange.title": "變更您的訪客名稱",
   "iconChange.description1": "取得9個隨機名稱,保留7天,5分鐘用可用1次",

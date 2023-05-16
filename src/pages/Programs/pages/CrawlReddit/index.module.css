@@ -53,6 +53,7 @@ div.item {
 div.list_container {
   max-height: 50vmin;
   overflow: auto;
+  font-family: Merriweather, DFKai-sb;
 }
 
 .link_clear_filter {
