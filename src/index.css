@@ -22,11 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.badge{
-  text-shadow: none;
-  text-rendering: optimizeLegibility !important; -webkit-font-smoothing: antialiased !important;
-  font-weight: normal;
-}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
