@@ -15,6 +15,7 @@ import {
 } from "fetch/fetch-evan-flask-api";
 import { Props } from "tippy.js";
 import "tippy.js/themes/light.css";
+import { motion } from "framer-motion";
 
 export default function CrawlReddit() {
   const listContainer = useRef<HTMLDivElement>(null);
@@ -65,6 +66,10 @@ export default function CrawlReddit() {
     }
   }, [filterData]);
 
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
 
   async function fetchData(subreddit: string, setData: any) {
     var page = 0;
@@ -207,47 +212,50 @@ export default function CrawlReddit() {
           <FormattedMessage id="crawlReddit.title" />
         </h3>
         <div className={style.body}>
-          <form onSubmit={onSubmit} className="row align-items-sm-stretch">
-            <div className="col-sm-10 col-md-9 p-2">
-              <div className="input-group input-group-sm h-100">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  <FormattedMessage id="crawlReddit.subreddit" />
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm"
-                  value={userInput}
-                  onChange={(e) => setUserInput(e.target.value)}
-                />
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <form onSubmit={onSubmit} className="row align-items-sm-stretch">
+              <div className="col-sm-10 col-md-9 p-2">
+                <div className="input-group input-group-sm h-100">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">
+                    <FormattedMessage id="crawlReddit.subreddit" />
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
+            </form>
+            <ul className="txt-tip1">
+              <li>
+                <FormattedMessage id="crawlReddit.description" />
+              </li>
+            </ul>
+            <div>
+              <div
+                className={style.list_container + " bg-secondary w-100 h-50"}
+                ref={listContainer}
+              >
+                <RedditList listData={filterData} />
+              </div>
+              <div className="h-50">
+                {filterLabel}
+                <div>
+                  <ReactWordcloud
+                    words={words}
+                    options={options}
+                    callbacks={wordcloudCallbacks}
+                  />
+                </div>
               </div>
             </div>
-            <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
-          </form>
-          <ul className="txt-tip1">
-            <li>
-              <FormattedMessage id="crawlReddit.description" />
-            </li>
-          </ul>
-          <div>
-            <div
-              className={style.list_container + " bg-secondary w-100 h-50"}
-              ref={listContainer}
-            >
-              <RedditList listData={filterData} />
-            </div>
-            <div className="h-50">
-              {filterLabel}
-              <div>
-                <ReactWordcloud
-                  words={words}
-                  options={options}
-                  callbacks={wordcloudCallbacks}
-                />
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </main>
     </div>

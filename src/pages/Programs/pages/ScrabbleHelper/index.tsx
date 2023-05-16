@@ -6,6 +6,7 @@ import {
   FetchEvanAPI_ScrabbleHelper_Get,
   IScrabbleHelperData,
 } from "fetch/fetch-evan-flask-api";
+import { motion } from "framer-motion";
 
 export default function ScrabbleHelper() {
   const listContainer = useRef(null);
@@ -23,6 +24,11 @@ export default function ScrabbleHelper() {
     const regex = /\?/g;
     setOverLimit((word.match(regex) || "").length > 4);
   }, [word]);
+
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
 
   async function fetchData(word: string, setData: any) {
     //console.log(intl.locale);
@@ -75,38 +81,41 @@ export default function ScrabbleHelper() {
           <FormattedMessage id="scrabbleHelper.title" />
         </h3>
         <div className={style.body}>
-          <form onSubmit={onSubmit} className="row align-items-sm-stretch">
-            <div className="col-sm-12 col-md-9 p-2">
-              <div className="input-group input-group-sm h-100">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  <FormattedMessage id="scrabbleHelper.word" />
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm"
-                  value={word}
-                  onChange={(e) => setWords(e.target.value)}
-                />
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <form onSubmit={onSubmit} className="row align-items-sm-stretch">
+              <div className="col-sm-12 col-md-9 p-2">
+                <div className="input-group input-group-sm h-100">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">
+                    <FormattedMessage id="scrabbleHelper.word" />
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    value={word}
+                    onChange={(e) => setWords(e.target.value)}
+                  />
+                </div>
               </div>
+              <div className="col-sm-12 col-md-3 p-2">{summitButton}</div>
+            </form>
+            <ul className="txt-tip1 mb-3">
+              <li>
+                <FormattedMessage id="scrabbleHelper.description1" />
+              </li>
+              <li className={overLimit ? "txt-err1" : ""}>
+                <FormattedMessage id="scrabbleHelper.description2" />
+              </li>
+            </ul>
+            <div
+              className={style.list_container + " bg-secondary w-100"}
+              ref={listContainer}
+            >
+              {scrabbleList}
             </div>
-            <div className="col-sm-12 col-md-3 p-2">{summitButton}</div>
-          </form>
-          <ul className="txt-tip1 mb-3">
-            <li>
-              <FormattedMessage id="scrabbleHelper.description1" />
-            </li>
-            <li className={overLimit ? "txt-err1" : ""}>
-              <FormattedMessage id="scrabbleHelper.description2" />
-            </li>
-          </ul>
-          <div
-            className={style.list_container + " bg-secondary w-100"}
-            ref={listContainer}
-          >
-            {scrabbleList}
-          </div>
+          </motion.div>
         </div>
       </main>
     </div>

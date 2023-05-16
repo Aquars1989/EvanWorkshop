@@ -8,6 +8,7 @@ import {
 } from "fetch/fetch-evan-dotnet-api";
 import { useIntl, FormattedMessage } from "react-intl";
 import { FormatError } from "fetch/error-format";
+import { motion } from "framer-motion";
 
 export default function IconChange() {
   const [data, setData] = useState([]);
@@ -32,8 +33,13 @@ export default function IconChange() {
     fetchData();
   }, [intl, guest]);
 
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
+
   async function LoadButtomClick() {
-    setError("")
+    setError("");
     setLoading(true);
     var evanRes = await FetchEvanAPI_GuestNamePool_Post(guest.Ip, 9);
     if (evanRes.code === "0000") {
@@ -48,10 +54,7 @@ export default function IconChange() {
   var refreshButton;
   if (loading) {
     refreshButton = (
-      <button
-        type="submit"
-        className="btn btn-primary w-100 h-100 disabled"
-      >
+      <button type="submit" className="btn btn-primary w-100 h-100 disabled">
         <span
           className="spinner-border spinner-border-sm"
           role="status"
@@ -83,19 +86,22 @@ export default function IconChange() {
           <FormattedMessage id="iconChange.title" />
         </h3>
         <div className={style.body}>
-          <ul className="txt-tip1">
-            <li>
-              <FormattedMessage id="iconChange.description1" />
-            </li>
-            <li>
-              <FormattedMessage id="iconChange.description2" />
-            </li>
-          </ul>
-          <div className="p-2">{refreshButton}</div>
-          {errorMsg}
-          <div className="px-2">
-            <IconChangeGrid listData={data} setError={setError} />
-          </div>
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <ul className="txt-tip1">
+              <li>
+                <FormattedMessage id="iconChange.description1" />
+              </li>
+              <li>
+                <FormattedMessage id="iconChange.description2" />
+              </li>
+            </ul>
+            <div className="p-2">{refreshButton}</div>
+            {errorMsg}
+            <div className="px-2">
+              <IconChangeGrid listData={data} setError={setError} />
+            </div>
+          </motion.div>
         </div>
       </main>
     </div>

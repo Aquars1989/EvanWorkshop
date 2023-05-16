@@ -16,6 +16,7 @@ import {
   CategoryScale,
   ChartData,
 } from "chart.js";
+import { motion } from "framer-motion";
 
 ChartJS.register(
   BarController,
@@ -28,12 +29,12 @@ ChartJS.register(
   CategoryScale
 );
 
-interface IChartCount{
-  label:string, 
-  total: number, 
-  easy: number, 
-  medium: number, 
-  hard: number 
+interface IChartCount {
+  label: string;
+  total: number;
+  easy: number;
+  medium: number;
+  hard: number;
 }
 
 export default function CrawlLeetcode() {
@@ -45,7 +46,7 @@ export default function CrawlLeetcode() {
   const [tag, setTag] = useState([]);
   const [chartData, setChartData] = useState({
     datasets: [],
-  } as ChartData<"bar",any>);
+  } as ChartData<"bar", any>);
 
   useEffect(() => {}, []);
 
@@ -59,15 +60,15 @@ export default function CrawlLeetcode() {
     const chart = chartRef.current;
     const tagLabel: Array<string> = Array.from(
       new Set(
-        tag.map((x:any) => {
+        tag.map((x: any) => {
           return x.tag;
         })
       )
     );
 
-    const tagCount:Array<IChartCount> = [];
+    const tagCount: Array<IChartCount> = [];
 
-    tag.forEach((x:any) => {
+    tag.forEach((x: any) => {
       const n = tagLabel.indexOf(x.tag);
       var countObject = tagCount[n];
       if (countObject == null) {
@@ -138,7 +139,12 @@ export default function CrawlLeetcode() {
     }
   }, [tag]);
 
-  const options : any= {
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
+
+  const options: any = {
     plugins: {
       legend: {
         position: "top",
@@ -159,7 +165,7 @@ export default function CrawlLeetcode() {
     },
   };
 
-  async function fetchData(setData:any, setTag :any) {
+  async function fetchData(setData: any, setTag: any) {
     var limit = 20;
     var skip = 0;
     while (skip < 300) {
@@ -167,17 +173,17 @@ export default function CrawlLeetcode() {
 
       if (evanRes.code !== "0000") break;
       if (evanRes.data.record.length === 0) break;
-      setData((prev:any) => {
+      setData((prev: any) => {
         return prev.concat(evanRes.data.record);
       });
-      setTag((prev:any) => {
+      setTag((prev: any) => {
         return prev.concat(evanRes.data.tag);
       });
       skip = skip + limit;
     }
   }
 
-  async function onSubmit(event:any) {
+  async function onSubmit(event: any) {
     event.preventDefault();
     setData([]);
     setTag([]);
@@ -219,19 +225,27 @@ export default function CrawlLeetcode() {
           <FormattedMessage id="crawlLettcode.title" />
         </h3>
         <div className={style.body}>
-          <form onSubmit={onSubmit} className="mb-3">
-            <div className="txt-tip1">
-              <FormattedMessage id="crawlLettcode.description" />
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <form onSubmit={onSubmit} className="mb-3">
+              <div className="txt-tip1">
+                <FormattedMessage id="crawlLettcode.description" />
+              </div>
+              {summitButton}
+            </form>
+            <div
+              className={style.list_container + " bg-secondary"}
+              ref={listContainer}
+            >
+              {leetcodeList}
             </div>
-            {summitButton}
-          </form>
-          <div
-            className={style.list_container + " bg-secondary"}
-            ref={listContainer}
-          >
-            {leetcodeList}
-          </div>
-          <Chart ref={chartRef} type="bar" options={options} data={chartData} />
+            <Chart
+              ref={chartRef}
+              type="bar"
+              options={options}
+              data={chartData}
+            />
+          </motion.div>
         </div>
       </main>
     </div>

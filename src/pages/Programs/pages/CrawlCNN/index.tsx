@@ -20,6 +20,7 @@ import {
   ChartData,
   Legend,
 } from "chart.js";
+import { motion } from "framer-motion";
 
 ChartJS.register(
   BarController,
@@ -166,6 +167,11 @@ export default function CrawlCNN() {
       //console.log(chartData);
     }
   }, [countData]);
+
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
 
   const options: any = {
     layout: {
@@ -343,29 +349,31 @@ export default function CrawlCNN() {
           <FormattedMessage id="crawlCNN.title" />
         </h3>
         <div className={style.body}>
-          <form onSubmit={onSubmit} className="row align-items-sm-stretch">
-            <div className="col-sm-10 col-md-9 p-2">
-              <div className="input-group input-group-sm h-100">
-                <span className="input-group-text" id="inputGroup-sizing-sm">
-                  <FormattedMessage id="crawlCNN.keyword" />
-                </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm"
-                  value={userInput}
-                  onChange={(e) => setUserInput(e.target.value)}
-                />
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <form onSubmit={onSubmit} className="row align-items-sm-stretch">
+              <div className="col-sm-10 col-md-9 p-2">
+                <div className="input-group input-group-sm h-100">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">
+                    <FormattedMessage id="crawlCNN.keyword" />
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
-          </form>
-          <ul className="txt-tip1">
-            <li>
-              <FormattedMessage id="crawlCNN.description" />
-            </li>
-          </ul>
+              <div className="col-sm-10 col-md-3 p-2">{summitButton}</div>
+            </form>
+            <ul className="txt-tip1">
+              <li>
+                <FormattedMessage id="crawlCNN.description" />
+              </li>
+            </ul>
           <div>
             <div
               className={style.list_container + " bg-secondary w-100"}
@@ -377,6 +385,7 @@ export default function CrawlCNN() {
               <Bar ref={chartRef} options={options} data={chartData} />
             </div>
           </div>
+          </motion.div>
         </div>
       </main>
     </div>

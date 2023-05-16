@@ -9,9 +9,19 @@
 }
 
 .body {
+  position: relative;
   padding: 2vmin;
-  background-image: linear-gradient(180deg, #b7fff500, #ffffff1f);
   border-radius: 5px;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg, #b7fff500, #ffffff1f);
+  pointer-events: none;
 }
 
 table.list {

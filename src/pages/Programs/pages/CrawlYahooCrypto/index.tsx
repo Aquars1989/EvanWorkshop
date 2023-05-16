@@ -21,6 +21,7 @@ import {
   ChartData,
   Legend,
 } from "chart.js";
+import { motion } from "framer-motion";
 
 ChartJS.register(
   BarController,
@@ -67,10 +68,10 @@ export default function CrawlYahooCrypto() {
           data: countData[0].values,
           backgroundColor: "rgba(255, 0, 0)",
           borderColor: "rgba(255, 0, 0)",
-          borderWidth:1.5,
-          pointBorderWidth:0,
-          pointRadius:0,
-          fill: false
+          borderWidth: 1.5,
+          pointBorderWidth: 0,
+          pointRadius: 0,
+          fill: false,
         });
       }
 
@@ -80,10 +81,10 @@ export default function CrawlYahooCrypto() {
           data: countData[1].values,
           backgroundColor: "rgba(0, 0, 255)",
           borderColor: "rgba(0, 0, 255)",
-          borderWidth:1.5,
-          pointBorderWidth:0,
-          pointRadius:0,
-          fill: false
+          borderWidth: 1.5,
+          pointBorderWidth: 0,
+          pointRadius: 0,
+          fill: false,
         });
       }
 
@@ -93,10 +94,10 @@ export default function CrawlYahooCrypto() {
           data: countData[2].values,
           backgroundColor: "rgba(0, 255,0 )",
           borderColor: "rgba(0, 255, 0)",
-          borderWidth:1.5,
-          pointBorderWidth:0,
-          pointRadius:0,
-          fill: false
+          borderWidth: 1.5,
+          pointBorderWidth: 0,
+          pointRadius: 0,
+          fill: false,
         });
       }
 
@@ -106,10 +107,10 @@ export default function CrawlYahooCrypto() {
           data: countData[3].values,
           backgroundColor: "rgba(255, 0, 255)",
           borderColor: "rgba(255, 0, 255)",
-          borderWidth:1.5,
-          pointBorderWidth:0,
-          pointRadius:0,
-          fill: false
+          borderWidth: 1.5,
+          pointBorderWidth: 0,
+          pointRadius: 0,
+          fill: false,
         });
       }
 
@@ -119,10 +120,10 @@ export default function CrawlYahooCrypto() {
           data: countData[4].values,
           backgroundColor: "rgba(0, 255, 255)",
           borderColor: "rgba(0, 255, 255)",
-          borderWidth:1.5,
-          pointBorderWidth:0,
-          pointRadius:0,
-          fill: false
+          borderWidth: 1.5,
+          pointBorderWidth: 0,
+          pointRadius: 0,
+          fill: false,
         });
       }
 
@@ -130,10 +131,15 @@ export default function CrawlYahooCrypto() {
 
       setChartData({
         labels: countLabel,
-        datasets: datasets
+        datasets: datasets,
       });
     }
   }, [countLabel, countData]);
+
+  const tagVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: { opacity: 1 },
+  };
 
   const options: any = {
     layout: {
@@ -152,7 +158,7 @@ export default function CrawlYahooCrypto() {
       title: {
         color: "#FFFFFFBB",
         display: true,
-        text:intl.formatMessage({id: "crawlCrypto.chartTitle"})
+        text: intl.formatMessage({ id: "crawlCrypto.chartTitle" }),
       },
     },
     responsive: true,
@@ -195,14 +201,14 @@ export default function CrawlYahooCrypto() {
     if (evanRes.data.length === 0) return;
     setData(evanRes.data);
 
-    const chartSkip=["USDT-USD","USDC-USD"];
+    const chartSkip = ["USDT-USD", "USDC-USD"];
     const label = [];
-    let count=0
+    let count = 0;
     for (let i = 0; i < evanRes.data.length && count < 5; i++) {
       const name = evanRes.data[i].name;
 
-      if(chartSkip.indexOf(name)>=0) continue;
-      count+=1;
+      if (chartSkip.indexOf(name) >= 0) continue;
+      count += 1;
 
       const evanResDetail = await FetchEvanAPI_CrawlCryptoDetail_Get(name);
       if (evanResDetail.code !== "0000") continue;
@@ -225,7 +231,7 @@ export default function CrawlYahooCrypto() {
           baseValue = value;
           values[i] = 0;
         } else {
-          values[i] = (value / baseValue) -1;
+          values[i] = value / baseValue - 1;
         }
       }
       setCountData((prev) => {
@@ -274,23 +280,26 @@ export default function CrawlYahooCrypto() {
           <FormattedMessage id="crawlCrypto.title" />
         </h3>
         <div className={style.body}>
-          <div className="p-2">{summitButton}</div>
-          <ul className="txt-tip1">
-            <li>
-              <FormattedMessage id="crawlCrypto.description" />
-            </li>
-          </ul>
-          <div>
-            <div
-              className={style.list_container + " bg-secondary w-100"}
-              ref={listContainer}
-            >
-              <CryptoList listData={data} />
+          <div className={style.background}></div>
+          <motion.div variants={tagVariants}>
+            <div className="p-2">{summitButton}</div>
+            <ul className="txt-tip1">
+              <li>
+                <FormattedMessage id="crawlCrypto.description" />
+              </li>
+            </ul>
+            <div>
+              <div
+                className={style.list_container + " bg-secondary w-100"}
+                ref={listContainer}
+              >
+                <CryptoList listData={data} />
+              </div>
+              <div className={style.chart_container}>
+                <Line ref={chartRef} options={options} data={chartData} />
+              </div>
             </div>
-            <div className={style.chart_container}>
-              <Line ref={chartRef} options={options} data={chartData} />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </main>
     </div>
