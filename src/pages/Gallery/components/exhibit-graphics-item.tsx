@@ -134,7 +134,7 @@ export default function ExhibitGraphicsItem({
         />
       </div>
       <div className={"card-body " + style.exhibit_prompt}>
-        <CustomScrollbar style={{ height: 40 }}>
+        <CustomScrollbar style={{ height: 40  }}>
           <figcaption className={"lh-sm text-white-50 " + style.prompt}>
             {prompt}
           </figcaption>

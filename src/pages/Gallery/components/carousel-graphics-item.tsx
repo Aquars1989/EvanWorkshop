@@ -177,25 +177,25 @@ export default function CarouselGraphicsItem({
             alt=""
           />
         </div>
-        <div className="col-md-5">
-          <div className={"card-header h-25 " + Style.carousel_card_header}>
+        <div className={"col-md-5 " + Style.carousel_card_container}>
+          <div className={"card-header " + Style.carousel_card_header}>
             <div className="card-title px-2">{card_title}</div>
           </div>
           <div
-            className={"card-body h-50 d-md-none " + Style.carousel_card_body}
+            className={"card-body d-md-none " + Style.carousel_card_body}
           >
-            <CustomScrollbar style={{ height: 40 }}>
+            <CustomScrollbar style={{ height: '20vmin'  }}>
               {card_body}
             </CustomScrollbar>
           </div>
           <div
             className={
-              "card-body h-50 d-none d-md-block " + Style.carousel_card_body
+              "card-body d-none d-md-block " + Style.carousel_card_body
             }
           >
             {card_body}
           </div>
-          <div className={"card-footer h-25 " + Style.carousel_card_tailer}>
+          <div className={"card-footer " + Style.carousel_card_tailer}>
             {card_tailer}
           </div>
         </div>

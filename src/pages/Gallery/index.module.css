@@ -44,7 +44,7 @@
 .prompt:first-child:first-letter {
   color: rgb(100, 148, 172);
   initial-letter: 1.8;
-  margin-right: 4px;
+  margin-right: 0.5rem;
 }
 
 .prompt {
@@ -54,7 +54,7 @@
 .prompt2:first-child:first-letter {
   color: rgb(255, 247, 156);
   initial-letter: 1.8;
-  margin-right: 4px;
+  margin-right: 0.5rem;
 }
 
 .prompt2 {
@@ -95,21 +95,30 @@
   background-color: #2d2b00;
 }
 
+.carousel_card_container
+{
+  display: flex;
+  flex-direction: column;
+}
 .carousel_card_header {
   background-image: url("/src/images/fancy-pattern2.svg");
   background-position: top;
   background-size: cover;
   color: #bbbb60;
+  max-height: 9vmin;
 }
 .carousel_card_body {
   background-color: #47483a;
   color: #b6b67f;
+  flex-grow: 2;
+  min-height: 20vmin;
 }
 .carousel_card_tailer {
   background-image: url("/src/images/fancy-pattern.svg");
   background-position: top;
   background-size:cover;
   color: #bbbb60;
+  max-height: 9vmin;
 }
 
 .carousel_control {
