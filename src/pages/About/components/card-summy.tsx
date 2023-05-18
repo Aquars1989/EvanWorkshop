@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import style from "../index.module.css";
 import { FormattedMessage } from "react-intl";
 import MyPic from "images/personal.jpg";
+import GitIcon from "images/git_icon.svg";
+import LinkinIcon from "images/linkedin_icon.svg";
 import { motion } from "framer-motion";
 
 export default function CardSummy() {
@@ -9,7 +11,7 @@ export default function CardSummy() {
     offscreen: {},
     onscreen: {
       transition: {
-        staggerChildren: 0.05,
+        staggerChildren: 0.03,
         delayChildren: 0.2,
       },
     },
@@ -17,7 +19,7 @@ export default function CardSummy() {
 
   const tagVariants = {
     offscreen: { opacity: 0 },
-    onscreen: { opacity: 1},
+    onscreen: { opacity: 1 },
   };
 
   const list = (
@@ -94,7 +96,7 @@ export default function CardSummy() {
           </div>
         </li>
 
-        <li className="p-lg-2">
+        <li className="p-lg-2 mb-4">
           <div>
             <FormattedMessage id="about.hobby" />
           </div>
@@ -113,8 +115,16 @@ export default function CardSummy() {
             </motion.div>
           </div>
         </li>
-        <NavLink to="https://github.com/Aquars1989">My GitHub</NavLink>
       </motion.div>
+
+      <NavLink to="https://github.com/Aquars1989" className={"me-4 "+style.link}>
+        <img src={GitIcon} style={{ width: 30, height: 30 }} />
+        <span className="ms-1">GitHub</span>
+      </NavLink>
+      <NavLink to="https://www.linkedin.com/in/evanhung1989" className={style.link}>
+        <img src={LinkinIcon} style={{ width: 30, height: 30 }} />
+        <span className="ms-1">Linkedin</span>
+      </NavLink>
     </ul>
   );
 

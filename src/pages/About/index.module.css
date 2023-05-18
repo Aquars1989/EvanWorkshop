@@ -23,11 +23,19 @@
   background-color: rgb(114, 130, 136);
 }
 
+.link
+{
+  font-family: Merriweather, DFKai-sb;
+  text-decoration:none;
+  align-items: center;
+  color: rgb(47, 93, 177);
+}
+
 .foot {
-  width: 10vmin;
-  height: 15vmin;
-  margin: 10vmin 5vmin;
-  background-size: 10vmin 10vmin;
+  width: 40px;
+  height: 40px;
+  margin: 80px 5vmin;
+  background-size: 40px 40px;
   background-clip: no-clip;
   background-repeat: no-repeat;
 }

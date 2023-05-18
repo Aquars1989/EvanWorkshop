@@ -24,7 +24,7 @@ export default function CardJob({
     offscreen: {},
     onscreen: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
         delayChildren: 0.3,
       },
     },
