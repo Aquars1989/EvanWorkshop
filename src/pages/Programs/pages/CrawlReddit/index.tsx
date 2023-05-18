@@ -66,7 +66,7 @@ export default function CrawlReddit() {
     }
   }, [filterData]);
 
-  const tagVariants = {
+  const variants = {
     offscreen: { opacity: 0 },
     onscreen: { opacity: 1 },
   };
@@ -213,7 +213,12 @@ export default function CrawlReddit() {
         </h3>
         <div className={style.body}>
           <div className={style.background}></div>
-          <motion.div variants={tagVariants}>
+          <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              transition={{ delay:0.5, duration: 0.5 }}
+              variants={variants}
+            >
             <form onSubmit={onSubmit} className="row align-items-sm-stretch">
               <div className="col-sm-10 col-md-9 p-2">
                 <div className="input-group input-group-sm h-100">

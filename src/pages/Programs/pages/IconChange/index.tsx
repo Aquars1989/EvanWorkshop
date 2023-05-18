@@ -33,7 +33,7 @@ export default function IconChange() {
     fetchData();
   }, [intl, guest]);
 
-  const tagVariants = {
+  const variants = {
     offscreen: { opacity: 0 },
     onscreen: { opacity: 1 },
   };
@@ -87,7 +87,12 @@ export default function IconChange() {
         </h3>
         <div className={style.body}>
           <div className={style.background}></div>
-          <motion.div variants={tagVariants}>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ delay: 0.5, duration: 0.5 }}
+            variants={variants}
+          >
             <ul className="txt-tip1">
               <li>
                 <FormattedMessage id="iconChange.description1" />

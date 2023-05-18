@@ -139,7 +139,7 @@ export default function CrawlLeetcode() {
     }
   }, [tag]);
 
-  const tagVariants = {
+  const variants = {
     offscreen: { opacity: 0 },
     onscreen: { opacity: 1 },
   };
@@ -226,7 +226,12 @@ export default function CrawlLeetcode() {
         </h3>
         <div className={style.body}>
           <div className={style.background}></div>
-          <motion.div variants={tagVariants}>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            transition={{ delay:0.5, duration: 0.5 }}
+            variants={variants}
+          >
             <form onSubmit={onSubmit} className="mb-3">
               <div className="txt-tip1">
                 <FormattedMessage id="crawlLettcode.description" />

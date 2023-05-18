@@ -136,7 +136,7 @@ export default function CrawlYahooCrypto() {
     }
   }, [countLabel, countData]);
 
-  const tagVariants = {
+  const variants = {
     offscreen: { opacity: 0 },
     onscreen: { opacity: 1 },
   };
@@ -281,7 +281,12 @@ export default function CrawlYahooCrypto() {
         </h3>
         <div className={style.body}>
           <div className={style.background}></div>
-          <motion.div variants={tagVariants}>
+          <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              transition={{ delay:0.5, duration: 0.5 }}
+              variants={variants}
+            >
             <div className="p-2">{summitButton}</div>
             <ul className="txt-tip1">
               <li>
