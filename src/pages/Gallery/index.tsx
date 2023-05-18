@@ -127,6 +127,7 @@ export default function Gallery() {
 
     return (
       <InfiniteScroll
+        className="overflow-hidden"
         dataLength={exhibitList.length}
         hasMore={!loadEnd}
         loader={
