@@ -14,7 +14,7 @@ const en = {
   "gallery.overLimit": "Daily limit exceeded",
 
   "about.title": "About Evan",
-  "about.me": "Hi, I am a software engineer live in Taiwan with 10 years of experience in development. During this time, I have worked on numerous commercial and financial projects, including report development. In my spare time, I not only learn new skills but also take on projects to hone my abilities. I enjoy exploring new and interesting things and hope to continue to maintain my curiosity.",
+  "about.me": "I am a software engineer live in Taiwan with 10 years of experience in development. During this time, I have worked on numerous commercial and financial projects, including report development. I enjoy exploring new and interesting things and hope to continue to maintain my curiosity.",
   "about.skill": "Skill: ",
   "about.hobby":"Hobby:",
   "about.games":"Favorite games:",
@@ -36,7 +36,7 @@ const en = {
   "about.tonchTime": "January 8, 2013",
   "about.bachelor": "NPUST",
   "about.bachelorWorkAs": "Bachelor's degree in MIS",
-  "about.bachelorDescription":"I obtained a Bachelor's degree in Information Management System from National Pingtung University of Science and Technology. During my studies, courses in Computer Science Fundamentals and Programming were among my favorite subjects, which laid a strong foundation for my understanding of Object-Oriented Programming. Thanks to my professor's engaging and dynamic teaching style, I achieved excellent results in these subjects.",
+  "about.bachelorDescription":"During my studies, courses in Computer Science Fundamentals and Programming were among my favorite subjects, which laid a strong foundation for my understanding of Object-Oriented Programming. Thanks to my professor's engaging and dynamic teaching style, I achieved excellent results in these subjects.",
   "about.bachelorTime": "June, 2012",
 
   "program.catalogs": "Catalogs",
