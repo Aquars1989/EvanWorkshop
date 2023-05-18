@@ -116,15 +116,16 @@ export default function CardSummy() {
           </div>
         </li>
       </motion.div>
-
-      <NavLink to="https://github.com/Aquars1989" className={"me-4 "+style.link}>
-        <img src={GitIcon} style={{ width: 30, height: 30 }} alt="GitIcon" />
-        <span className="ms-1">GitHub</span>
-      </NavLink>
-      <NavLink to="https://www.linkedin.com/in/evanhung1989" className={style.link}>
-        <img src={LinkinIcon} style={{ width: 30, height: 30 }}  alt="LinkinIcon"/>
-        <span className="ms-1">Linkedin</span>
-      </NavLink>
+      <div className="d-flex flex-wrap">
+        <NavLink to="https://github.com/Aquars1989" className={"m-2 "+style.link}>
+          <img src={GitIcon} style={{ width: 30, height: 30 }} alt="GitIcon" />
+          <span className="ms-1">GitHub</span>
+        </NavLink>
+        <NavLink to="https://www.linkedin.com/in/evanhung1989" className={"m-2 "+style.link}>
+          <img src={LinkinIcon} style={{ width: 30, height: 30 }}  alt="git"/>
+          <span className="ms-1">Linkedin</span>
+        </NavLink>
+      </div>
     </ul>
   );
 
