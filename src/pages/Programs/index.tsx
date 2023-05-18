@@ -32,7 +32,7 @@ export default function Programs() {
     offscreen: {},
     onscreen: {
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.2,
       },
     }
   };
