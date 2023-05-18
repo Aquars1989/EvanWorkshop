@@ -195,7 +195,7 @@ export default function CrawlCNN() {
     },
     responsive: true,
     maintainAspectRatio: true,
-    aspectRatio: 2,
+    aspectRatio: 1.5,
     scales: {
       x: {
         stacked: true,

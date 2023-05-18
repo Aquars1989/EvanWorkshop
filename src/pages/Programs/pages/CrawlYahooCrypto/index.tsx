@@ -163,7 +163,7 @@ export default function CrawlYahooCrypto() {
     },
     responsive: true,
     maintainAspectRatio: true,
-    aspectRatio: 2,
+    aspectRatio: 1.5,
     scales: {
       x: {
         beginAtZero: true,
