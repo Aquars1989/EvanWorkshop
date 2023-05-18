@@ -29,12 +29,10 @@ export default function Programs() {
   const cssTools = !inViewCrypto && (inViewScrabble||inViewIcon) ? "text-white":"text-white-50"
 
   const cardVariants = {
-    offscreen: {opacity: 0},
+    offscreen: {},
     onscreen: {
-      opacity: 1,
       transition: {
-        staggerChildren: 0.5,
-        delayChildren: 0.4,
+        delayChildren: 0.5,
       },
     }
   };
