@@ -1,13 +1,14 @@
 import { useInView } from "framer-motion";
 import style from "./index.module.css";
-import CrawlReddit from "./pages/CrawlReddit";
-import ScrabbleHelper from "./pages/ScrabbleHelper";
-import CrawlCNN from "./pages/CrawlCNN";
-import CrawlYahooCrypto from "./pages/CrawlYahooCrypto";
-import IconChange from "./pages/IconChange";
 import { FormattedMessage } from "react-intl";
 import "./index.css";
-import { useRef } from "react";
+import { useRef, lazy, Suspense } from "react";
+
+const CrawlReddit = lazy(() => import("./pages/CrawlReddit"));
+const ScrabbleHelper = lazy(() => import("./pages/ScrabbleHelper"));
+const CrawlCNN = lazy(() => import("./pages/CrawlCNN"));
+const CrawlYahooCrypto = lazy(() => import("./pages/CrawlYahooCrypto"));
+const IconChange = lazy(() => import("./pages/IconChange"));
 
 export default function Programs() {
   const refCNN = useRef(null);
@@ -145,7 +146,11 @@ export default function Programs() {
                 on <span>GCP</span>
               </div>
             </div>
-            <CrawlCNN />
+            <Suspense fallback={<div>Loading...</div>}>
+              <section>
+                <CrawlCNN />
+              </section>
+            </Suspense>
           </article>
 
           <div className={style.content_space}></div>
@@ -158,7 +163,11 @@ export default function Programs() {
                 on <span>GCP</span>
               </div>
             </div>
-            <CrawlReddit />
+            <Suspense fallback={<div>Loading...</div>}>
+              <section>
+                <CrawlReddit />
+              </section>
+            </Suspense>
           </article>
 
           <div className={style.content_space}></div>
@@ -171,7 +180,11 @@ export default function Programs() {
                 on <span>GCP</span>
               </div>
             </div>
-            <CrawlYahooCrypto />
+            <Suspense fallback={<div>Loading...</div>}>
+              <section>
+                <CrawlYahooCrypto />
+              </section>
+            </Suspense>
           </article>
 
           <div className={style.content_space}></div>
@@ -187,7 +200,11 @@ export default function Programs() {
                 on <span>GCP</span>
               </div>
             </div>
-            <ScrabbleHelper />
+            <Suspense fallback={<div>Loading...</div>}>
+              <section>
+                <ScrabbleHelper />
+              </section>
+            </Suspense>
           </article>
 
           <div className={style.content_space}></div>
@@ -201,7 +218,11 @@ export default function Programs() {
                 on <span>Azure</span>
               </div>
             </div>
-            <IconChange />
+            <Suspense fallback={<div>Loading...</div>}>
+              <section>
+                <IconChange />
+              </section>
+            </Suspense>
           </article>
 
           <div className={style.content_space}></div>
