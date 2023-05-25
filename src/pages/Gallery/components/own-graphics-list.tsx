@@ -48,7 +48,7 @@ export default function OwnGraphicsList({
       {ownList.map((item) => {
         const { id, url, createdTime, prompt, exhibit } = item;
         return (
-          <div key={id} className="col-sm-4 col-md-3 col-lg-2">
+          <div key={id} className="col-sm-6 col-md-4 col-lg-3 col-xxl-2">
             <OwnGraphicsItem
               id={id}
               url={url}

@@ -111,7 +111,7 @@ export default function ExhibitGraphicsItem({
           </div>
           <div>
             <div className={"d-flex align-items-center my-1 " + style.exhibit_likes_text}>
-              <span className="d-sm-none me-1">{likes}</span>
+              <span className="me-1">{likes}</span>
               {likeItem}
             </div>
           </div>

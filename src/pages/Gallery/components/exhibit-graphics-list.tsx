@@ -31,7 +31,7 @@ export default function ExhibitGraphicsList({
         return (
           <div
             key={id}
-            className="col-sm-4 col-md-3 col-lg-2"
+            className="col-sm-6 col-md-4 col-lg-3 col-xxl-2"
           >
             <ExhibitGraphicsItem
               id={id}
